@@ -6,7 +6,7 @@ ret, frame = cap.read()
 while ret:
     cv2.imshow("capture", frame)
     ret, frame = cap.read()
-    if cv2.waitKey(100) & 0xFF == ord('q'):
+    if cv2.waitKey(30) & 0xFF == ord('q'):
         break
 cap.release()
 cv2.destroyAllWindows()
