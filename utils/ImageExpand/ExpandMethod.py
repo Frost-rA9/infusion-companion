@@ -1,6 +1,11 @@
 # encoding=GBK
 """ExpandMethod
     - 通过一些初始化步骤，最终返回生成的transforms.Compose
+
+    - 针对表情识别的transform:
+        1. 随机旋转
+        2. 随机遮挡
+        3. 明暗度变化
 """
 import numpy as np
 from torchvision import transforms
@@ -51,7 +56,7 @@ class ExpandMethod:
 if __name__ == '__main__':
     e = ExpandMethod()
     trans = e.get_transform()
-    from logical.utils.ImageLoaderHelper.ImageHelper import ImageHelper
+    from utils.ImageLoaderHelper.ImageHelper import ImageHelper
     i = ImageHelper("../../../../Resource/GF2_PMS1__L1A0001064454-MSS1.tif",
                     (224, 224))
     img = i.read_next_block()
