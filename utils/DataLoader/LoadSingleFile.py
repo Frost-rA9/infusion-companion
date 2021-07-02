@@ -79,7 +79,7 @@ class LoadSingleFile(Dataset):
         img = Image.open(img_path)
         if self.trans:
             img = self.trans(img)
-        return img, torch.tensor(label)
+        return img, torch.tensor([label])
 
     def __len__(self):
         return len(self.img_list)
@@ -89,8 +89,8 @@ if __name__ == '__main__':
     trans = transforms.Compose([
         transforms.ToTensor(),
     ])
-    l = LoadSingleFile(train_path="H:/DataSet/CAER-S/train",
-                       test_path="H:/DataSet/CAER-S/test",
+    l = LoadSingleFile(train_path="../../Resource/CAER-S/train",
+                       test_path="../../Resource/CAER-S/test",
                        is_train=True,
                        trans=trans)
 
