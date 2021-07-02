@@ -16,7 +16,7 @@
         2. 主要是减少程序卡顿的情况
 """
 
-from logical.utils.ImageRead.Block import BlockImage
+from utils.ImageRead.Block import BlockImage
 import numpy as np
 import warnings
 import threading
