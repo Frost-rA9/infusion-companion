@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>370</width>
-    <height>154</height>
+    <width>376</width>
+    <height>207</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>370</width>
+     <width>376</width>
      <height>26</height>
     </rect>
    </property>
@@ -38,7 +38,6 @@
    <addaction name="menu_file"/>
    <addaction name="menu_helper"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="menu_file_save">
    <property name="text">
     <string>日志保存</string>
