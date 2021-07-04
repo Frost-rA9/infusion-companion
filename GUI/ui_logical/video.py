@@ -24,14 +24,14 @@ class video:
 if __name__ == '__main__':
     img = "../../Resource/CAER-S/Test/Anger/0001.png"
     i = cv.imread(img)
-    convert = QtImgConvert.ndarray_to_QImage(i)
+    convert = QtImgConvert.CvImage_to_QImage(i)
     vid = "../../Resource/CAER/TEST/Anger/0001.avi"
     cap = cv.VideoCapture(vid)
     app = QApplication()
     v = video()
     ret, frame = cap.read()
     while ret:
-        conv = QtImgConvert.ndarray_to_QImage(frame)
+        conv = QtImgConvert.CvImage_to_QImage(frame)
         v.ui_video.video.setScaledContents(True)
         v.ui_video.video.setPixmap(QPixmap.fromImage(conv))
         ret, frame = cap.read()
