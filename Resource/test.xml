@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml-stylesheet type='text/xsl' href='image_metadata_stylesheet.xsl'?>
+<dataset>
+<name>imglab dataset</name>
+<comment>Created by imglab tool.</comment>
+<images>
+  <image file='CAER-S\Train\Anger\0001.png'>
+    <box top='29' left='247' width='198' height='188'>
+      <label>face</label>
+    </box>
+    <box top='104' left='24' width='78' height='101'>
+      <label>face</label>
+    </box>
+  </image>
+  <image file='CAER-S\Train\Anger\0002.png'>
+    <box top='67' left='267' width='189' height='163'>
+      <label>face</label>
+    </box>
+    <box top='264' left='31' width='171' height='140'>
+      <label>face</label>
+    </box>
+    <box top='100' left='15' width='100' height='111'>
+      <label>face</label>
+    </box>
+  </image>
+  <image file='CAER-S\Train\Anger\0003.png'>
+    <box top='97' left='10' width='103' height='118'>
+      <label>face</label>
+    </box>
+    <box top='29' left='281' width='148' height='196'>
+      <label>face</label>
+    </box>
+    <box top='260' left='23' width='192' height='144'>
+      <label>face</label>
+    </box>
+  </image>
+  <image file='CAER-S\Train\Anger\0004.png'>
+    <box top='44' left='317' width='114' height='160'>
+      <label>face</label>
+    </box>
+  </image>
+</images>
+</dataset>
