@@ -1,7 +1,8 @@
 numpy==1.21.0
 opencv-python==4.5.2.54
-matplotlib==3.4.2
 torch==1.9.0+cu111
 torchaudio==0.9.0
 torchvision==0.10.0+cu111
 GDAL==3.3.0
+PySide2==5.15.2
+Pillow==8.2.0
