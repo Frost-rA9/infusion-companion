@@ -54,9 +54,18 @@ class ExpandMethod:
         self.param_list.clear()
 
     def init_param_list(self):
+        # self.add_to_PIL()
+        self.add_resize()
         self.add_rand_augment()
         self.add_to_tensor()
         self.add_rand_erasing()
+        # self.add_scale()
+
+    def add_scale(self):
+        self.param_list.append(transforms.Scale((400, 712)))
+
+    def add_resize(self):
+        self.param_list.append(transforms.Resize((400, 536)))
 
     def add_rand_augment(self):
         self.param_list.append(RandAugment.Rand_Augment())
@@ -93,9 +102,11 @@ class ExpandMethod:
 
 if __name__ == '__main__':
     from PIL import Image
+
     e = ExpandMethod()
     trans = e.get_transform()
     from utils.ImageLoaderHelper.ImageHelper import ImageHelper
+
     i = ImageHelper("../../Resource/CAER-S/Train/Anger/0001.png",
                     (224, 224))
     img = i.read_next_block()
@@ -108,5 +119,6 @@ if __name__ == '__main__':
     img = img.transpose(1, 2, 0)
     print(img.shape)
     import cv2 as cv
+
     cv.imshow("img", img)
     cv.waitKey(0)

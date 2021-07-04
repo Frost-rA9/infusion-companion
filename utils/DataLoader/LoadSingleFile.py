@@ -79,7 +79,7 @@ class LoadSingleFile(Dataset):
         img = Image.open(img_path)
         if self.trans:
             img = self.trans(img)
-        return img, torch.tensor([label])
+        return img, torch.tensor(label)
 
     def __len__(self):
         return len(self.img_list)
@@ -95,6 +95,7 @@ if __name__ == '__main__':
                        trans=trans)
 
     img, label = l.__getitem__(0)
+
     print(img, label)
     print(type(img), type(label))
     print(l.__len__())
