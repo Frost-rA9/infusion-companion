@@ -16,8 +16,8 @@ class QtImgConvert:
     @staticmethod
     def ndarray_to_QImage(array_img: np.ndarray):
         height, width, depth = array_img.shape
-        array_img = cv.cvtColor(array_img, cv.COLOR_BGR2RGB)
-        q_img = QImage(array_img.data, width, height, width * depth, QImage.Format_RGB888)
+        # array_img = cv.cvtColor(array_img, cv.COLOR_BGR2RGB)
+        q_img = QImage(array_img.data, width, height, width * depth, QImage.Format_RGB888).rgbSwapped()
         return q_img
 
     @staticmethod

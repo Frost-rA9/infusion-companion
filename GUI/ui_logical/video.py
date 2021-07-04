@@ -29,7 +29,7 @@ if __name__ == '__main__':
     convert = QtImgConvert.ndarray_to_QImage(i)
     app = QApplication()
     v = video()
-    pix = QPixmap("../../Resource/CAER-S/Test/Anger/0001.png")
+    pix = QPixmap("../../Resource/CAER-S/Test/Anger/0004.png")
     v.ui_video.video.setScaledContents(True)
     v.ui_video.video.setPixmap(QPixmap.fromImage(convert))
     v.ui_video.show()
