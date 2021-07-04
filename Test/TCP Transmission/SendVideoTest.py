@@ -16,7 +16,7 @@ def SendVideo():
         sys.exit(1)
     capture = cv2.VideoCapture("../../Resource/CAER/TEST/Anger/0001.avi")
     ret, frame = capture.read()
-    encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 15]
+    encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 100]
     while ret:
         time.sleep(0.01)
         result, encode_img = cv2.imencode('.jpg', frame, encode_param)
