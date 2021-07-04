@@ -5,3 +5,4 @@ torchaudio==0.9.0
 torchvision==0.10.0+cu111
 GDAL==3.3.0
 PySide2==5.15.2
+Pillow==8.2.0
