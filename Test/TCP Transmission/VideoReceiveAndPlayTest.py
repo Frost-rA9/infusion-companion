@@ -34,7 +34,7 @@ def ReceiveVideo():
         seconds = end - start
         fps = 1 / seconds
         connect.send(bytes(str(int(fps)), encoding='utf-8'))
-        k = cv2.waitKey(10) & 0xff
+        k = cv2.waitKey(30) & 0xff
         if k == 27:
             break
     server_socket.close()

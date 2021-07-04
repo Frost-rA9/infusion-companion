@@ -28,7 +28,7 @@ def SendVideo():
         if len(receive):
             print(str(receive, encoding='utf-8'))
         ret, frame = capture.read()
-        if cv2.waitKey(10) == 27:
+        if cv2.waitKey(30) == 27:
             break
     client_socket.close()
 
