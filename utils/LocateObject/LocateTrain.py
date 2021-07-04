@@ -39,15 +39,14 @@ class LocateTrain:
 
 
 if __name__ == '__main__':
-    # l = LocateTrain("../../Resource/test.xml",
-    #                 "face_test")
+    # l = LocateTrain("../../Resource/svm_label_xml/bottle.xml", "bottle_svm", c_count=10)
     from utils.LocateObject.LocateRoI import LocateRoI
     import cv2 as cv
-    svm_path = "../../Resource/svmface_test.svm"
-    img_path = "../../Resource/CAER-S/Test/Anger/0002.png"
+    svm_path = "../../Resource/svm/bottle_svm.svm"
+    img_path = "../../Resource/LiquidlevelDataSet/11.jpg"
     img = cv.imread(img_path)
     L = LocateRoI(svm_path)
-    L.predict_show(img)
+    L.predict_show(img, color=(0, 0, 255))
 
 
 
