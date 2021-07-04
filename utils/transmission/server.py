@@ -10,7 +10,6 @@ def ReceiveVideo():
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind(address)
     server_socket.listen(1)
-
     def Receive(sock, count):
         buf = b''
         while count:

@@ -22,8 +22,8 @@ def SendVideo():
         result, encode_img = cv2.imencode('.jpg', frame, encode_param)
         data = numpy.array(encode_img)
         stringData = data.tostring()
-        client_socket.send(str.encode(str(len(stringData)).ljust(16)));
-        client_socket.send(stringData);
+        client_socket.send(str.encode(str(len(stringData)).ljust(16)))
+        client_socket.send(stringData)
         receive = client_socket.recv(1024)
         if len(receive):
             print(str(receive, encoding='utf-8'))
