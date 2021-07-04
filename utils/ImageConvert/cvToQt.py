@@ -1,5 +1,5 @@
 import cv2
-from PyQt5 import QtGui
+from PySide2 import QtGui
 
 
 class cvToQt:
