@@ -30,7 +30,8 @@ class HeadSignal(QObject):
 
 
 class head:
-    def __init__(self, ui_path: str = None):
+    def __init__(self,
+                 ui_path: str = None):
         # 1. 导入ui文件
         if ui_path:
             self.ui_head = QtHelper.read_ui(ui_path)
@@ -41,7 +42,7 @@ class head:
 
         # 2. 初始化信号量类，并且信号与槽的连接
         self.head_signal = HeadSignal()  # 实例化后才能用connect
-        self.head_signal.date_update.connect(self.update_datetime)
+        self.head_signal.date_update.connect(self.ui_head.datetime.setText)
 
         # 3. 启动主要的线程
         self.main_thread = Thread(target=self.main_loop)
@@ -54,20 +55,11 @@ class head:
             self.head_signal.date_update.emit(now)
             # print(self.ui_head.datetime.text())
 
-    """SLOT函数"""
-
-    def update_datetime(self, date):
-        self.ui_head.datetime.setText(date)
-
-    def update_connect_number(self, number):
-        self.ui_head.connect_number.setText(number)
-
 
 if __name__ == '__main__':
     from GUI.ui_logical.main import main
 
     app = QApplication()
-    m = main()
     h = head()
     h.ui_head.show()
     # m.ui_main.show()

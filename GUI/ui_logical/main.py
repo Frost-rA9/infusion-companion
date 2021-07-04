@@ -7,7 +7,6 @@ from GUI.ui_logical.info import info
 
 class main:
     def __init__(self,
-                 parent=None,
                  ui_path: str = None):
         if ui_path:
             self.ui_main = QtHelper.read_ui(ui_path)
