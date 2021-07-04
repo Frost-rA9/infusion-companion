@@ -24,6 +24,7 @@ if __name__ == '__main__':
     img = "../../Resource/CAER-S/Test/Anger/0001.png"
     import cv2 as cv
     from GUI.GUIHelper.QtImgConvert import QtImgConvert
+
     i = cv.imread(img)
     # cv.imshow("i", i)
     # cv.waitKey(0)
@@ -34,4 +35,3 @@ if __name__ == '__main__':
     v.ui_video.video.setPicture(convert)
     v.ui_video.show()
     app.exec_()
-
