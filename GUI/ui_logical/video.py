@@ -22,25 +22,22 @@ class video:
 
 
 if __name__ == '__main__':
-    img = "../../Resource/CAER-S/Test/Anger/0001.png"
-    i = cv.imread(img)
-    convert = QtImgConvert.CvImage_to_QImage(i)
+    # 用于测试图像与视频流的显示
+    img = cv.imread("../../Resource/CAER-S/Test/Anger/0001.png")
+    convert_img = QtImgConvert.CvImage_to_QImage(img)
     vid = "../../Resource/CAER/TEST/Anger/0001.avi"
     cap = cv.VideoCapture(vid)
     app = QApplication()
     v = video()
     ret, frame = cap.read()
     while ret:
-        conv = QtImgConvert.CvImage_to_QImage(frame)
+        convert_frame = QtImgConvert.CvImage_to_QImage(frame)
         v.ui_video.video.setScaledContents(True)
-        v.ui_video.video.setPixmap(QPixmap.fromImage(conv))
+        v.ui_video.video.setPixmap(QPixmap.fromImage(convert_frame))
         ret, frame = cap.read()
         v.ui_video.show()
         cv.waitKey(30)
-    #     cv.imshow("test",frame)
-    #     cv.waitKey(30)
-    # cap.release()
-    # cv.destroyAllWindows()
+    cap.release()
     # v.ui_video.video.setScaledContents(True)
     # v.ui_video.video.setPixmap(QPixmap.fromImage(convert))
     # v.ui_video.show()
