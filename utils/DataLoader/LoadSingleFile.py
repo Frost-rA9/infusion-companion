@@ -33,17 +33,21 @@ class LoadSingleFile(Dataset):
                  train_path: str,
                  test_path: str,
                  is_train: bool,
+                 label_dict: dict = None,
                  trans = None):
-        self.label_dict = {
-            "Anger": 0,
-            "Disgust": 1,
-            "Fear": 2,
-            "Happy": 3,
-            "Neutral": 4,
-            "Sad": 5,
-            "Surprise": 6,
-            "Other": 7,
-        }
+        if label_dict:
+            self.label_dict = label_dict
+        else:
+            self.label_dict = {
+                "Anger": 0,
+                "Disgust": 1,
+                "Fear": 2,
+                "Happy": 3,
+                "Neutral": 4,
+                "Sad": 5,
+                "Surprise": 6,
+                "Other": 7,
+            }
 
         self.train_path = train_path
         self.test_path = test_path

@@ -1,21 +1,17 @@
 import socket
+import time
 import cv2
-import numpy as np
+import numpy
 
 
 def ReceiveVideo():
-    # 客户端地址
-    host = '0.0.0.0'
-    port = 9999
-    # 建立socket 对象
-    socketserver = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # 绑定地址
-    socketserver.bind((host, port))
-    socketserver.listen(5)
-
-    def ReceiveCall(sock, count):
-        buf = 'b'
-        # 接收TCP数据
+    host = socket.gethostname()
+    address = (host, 8002)
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket.bind(address)
+    server_socket.listen(1)
+    def Receive(sock, count):
+        buf = b''
         while count:
             new_buf = sock.recv(count)
             if not new_buf:
@@ -24,22 +20,24 @@ def ReceiveVideo():
             count -= len(new_buf)
         return buf
 
-    connect, address = socketserver.accept()
+    connect, address = server_socket.accept()
     print('connect from:' + str(address))
-    while True:
-        # 获取图片文件长度
-        length = ReceiveCall(connect, 16)
-        # 获取字符串格式图片数据
-        string_data = ReceiveCall(connect, int(length))
-        # 将获取到的数据利用numpy格式化
-        data = np.frombuffer(string_data, np.uint8)
-        # 解码操作
+    while 1:
+        start = time.time()
+        length = Receive(connect, 16)
+        stringData = Receive(connect, int(length))
+        data = numpy.frombuffer(stringData, numpy.uint8)
         decode_img = cv2.imdecode(data, cv2.IMREAD_COLOR)
-        # 显示图像
         cv2.imshow('SERVER', decode_img)
-
-        socketserver.close()
-        cv2.destroyAllWindows()
+        end = time.time()
+        seconds = end - start
+        fps = 1 / seconds
+        connect.send(bytes(str(int(fps)), encoding='utf-8'))
+        k = cv2.waitKey(10) & 0xff
+        if k == 27:
+            break
+    server_socket.close()
+    cv2.destroyAllWindows()
 
 
 if __name__ == '__main__':
