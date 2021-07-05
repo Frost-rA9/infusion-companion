@@ -6,7 +6,8 @@ import sys
 
 
 def SendVideo():
-    host = socket.gethostname()
+    hostname = socket.gethostname()
+    host = socket.gethostbyname(hostname)
     address = (host, 8002)
     try:
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

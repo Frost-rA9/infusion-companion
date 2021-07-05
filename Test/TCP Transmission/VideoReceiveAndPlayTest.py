@@ -5,11 +5,14 @@ import numpy
 
 
 def ReceiveVideo():
-    host = socket.gethostname()
-    address = (host, 8002)
+    hostname = socket.gethostname()
+    host = socket.gethostbyname(hostname)
+    # address = (host, 8002)
+    address = ("127.0.1.1", 8002)
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind(address)
     server_socket.listen(1)
+
     def Receive(sock, count):
         buf = b''
         while count:
