@@ -23,8 +23,8 @@ class video:
 
 if __name__ == '__main__':
     # 用于测试图像与视频流的显示
-    img = cv.imread("../../Resource/CAER-S/Test/Anger/0001.png")
-    convert_img = QtImgConvert.CvImage_to_QImage(img)
+    # img = cv.imread("../../Resource/CAER-S/Test/Anger/0001.png")
+    # convert_img = QtImgConvert.CvImage_to_QImage(img)
     vid = "../../Resource/CAER/TEST/Anger/0001.avi"
     cap = cv.VideoCapture(vid)
     app = QApplication()
