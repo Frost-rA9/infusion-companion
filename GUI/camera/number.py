@@ -7,4 +7,5 @@ class number:
             break
         else:
             index += 1
+        print(index)
         cap.release()

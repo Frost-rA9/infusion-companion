@@ -15,7 +15,7 @@ def SendVideo():
     except socket.error as msg:
         print(msg)
         sys.exit(1)
-    capture = cv2.VideoCapture("../../Resource/CAER/TEST/Anger/0001.avi")
+    capture = cv2.VideoCapture("../../Resource/DataSet/CAER/TEST/Anger/0001.avi")
     ret, frame = capture.read()
     encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 100]
     while ret:
