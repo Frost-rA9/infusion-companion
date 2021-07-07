@@ -20,25 +20,27 @@ class DarkNet(nn.Module):
         super(DarkNet, self).__init__()
         self.inplanes = 32
 
-        # 1. 416,416,3 -> 416,416,32
+        # 0. 416,416,3 -> 416,416,32
         self.cov1 = nn.Conv2d(3, self.inplanes,
                               kernel_size=3, stride=1,
                               padding=1, bias=False)
         self.batch_norm1 = nn.BatchNorm2d(self.inplanes)
         self.relu1 = nn.LeakyReLU(0.1)
 
-        # 2. 416,416,32 -> 208,208,64
+        # 1. 416,416,32 -> 208,208,64
         self.layer1 = self._make_layer([32, 64], layers[0])
-        # 208,208,64 -> 104,104,128
+        # 2. 208,208,64 -> 104,104,128
         self.layer2 = self._make_layer([64, 128], layers[1])
-        # 104,104,128 -> 52,52,256
+        # 3. 104,104,128 -> 52,52,256
         self.layer3 = self._make_layer([128, 256], layers[2])
-        # 52,52,256 -> 26,26,512
+        # 4. 52,52,256 -> 26,26,512
         self.layer4 = self._make_layer([256, 512], layers[3])
-        # 26,26,512 -> 13,13,1024
+        # 5. 26,26,512 -> 13,13,1024
         self.layer5 = self._make_layer([512, 1024], layers[4])
 
-        # . 权重初始化
+        # 每次输出通道的变化
+        self.layers_out_filters = [64, 128, 256, 512, 1024]
+        # 6. 权重初始化
         self.init_weight()
 
     def forward(self, x):
