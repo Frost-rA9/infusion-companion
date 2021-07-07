@@ -7,8 +7,9 @@ import numpy
 def ReceiveVideo():
     hostname = socket.gethostname()
     host = socket.gethostbyname(hostname)
-    address = (host, 8002)
-    # address = ("127.0.1.1", 8002)
+    # address = (host, 8002)
+    # 0.0.0.0 代表接受局域网下的所有IP地址
+    address = ('0.0.0.0', 8002)
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind(address)
     server_socket.listen(1)
