@@ -7,7 +7,7 @@ import torch.optim as optim
 from torchvision import transforms
 
 from utils.DataLoader.LoadSingleFile import LoadSingleFile
-from GoogLeNetV4.Googlenetv4 import Googlenetv4
+from net.GoogLeNetV4.Googlenetv4 import Googlenetv4
 from utils.ImageExpand.ExpandMethod import ExpandMethod
 
 """=============全局参量，主要是调参方便=========="""

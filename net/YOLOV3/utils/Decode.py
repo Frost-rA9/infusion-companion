@@ -1,5 +1,17 @@
-from __future__ import division
+# encoding=GBK
+"""Decode
 
+    - DecodeBox
+
+        - channelµÄº¬Òå: 3(ÏÈÑé¿ò) * [1(ÀïÃæÊÇ·ñÓĞÄÚÈİ) * 4(ÏÈÑé¿òµÄµ÷Õû²ÎÊı) + num_classes(·ÖÀàÊıÁ¿)]
+        - Ãª¿ò
+          # -----------------------------------------------------------#
+          #   13x13µÄÌØÕ÷²ã¶ÔÓ¦µÄanchorÊÇ[116,90],[156,198],[373,326]
+          #   26x26µÄÌØÕ÷²ã¶ÔÓ¦µÄanchorÊÇ[30,61],[62,45],[59,119]
+          #   52x52µÄÌØÕ÷²ã¶ÔÓ¦µÄanchorÊÇ[10,13],[16,30],[33,23]
+          # -----------------------------------------------------------#
+
+"""
 import numpy as np
 import torch
 import torch.nn as nn
@@ -10,11 +22,6 @@ from torchvision.ops import nms
 class DecodeBox(nn.Module):
     def __init__(self, anchors, num_classes, img_size):
         super(DecodeBox, self).__init__()
-        #-----------------------------------------------------------#
-        #   13x13çš„ç‰¹å¾å±‚å¯¹åº”çš„anchoræ˜¯[116,90],[156,198],[373,326]
-        #   26x26çš„ç‰¹å¾å±‚å¯¹åº”çš„anchoræ˜¯[30,61],[62,45],[59,119]
-        #   52x52çš„ç‰¹å¾å±‚å¯¹åº”çš„anchoræ˜¯[10,13],[16,30],[33,23]
-        #-----------------------------------------------------------#
         self.anchors = anchors
         self.num_anchors = len(anchors)
         self.num_classes = num_classes
@@ -22,125 +29,137 @@ class DecodeBox(nn.Module):
         self.img_size = img_size
 
     def forward(self, input):
-        #-----------------------------------------------#
-        #   è¾“å…¥çš„inputä¸€å…±æœ‰ä¸‰ä¸ªï¼Œä»–ä»¬çš„shapeåˆ†åˆ«æ˜¯
+        # -----------------------------------------------#
+        #   ÊäÈëµÄinputÒ»¹²ÓĞÈı¸ö£¬ËûÃÇµÄshape·Ö±ğÊÇ
         #   batch_size, 255, 13, 13
         #   batch_size, 255, 26, 26
         #   batch_size, 255, 52, 52
-        #-----------------------------------------------#
-        batch_size = input.size(0)
+        # -----------------------------------------------#
+        batch_size = input.size(0)  # ¶àÉÙÕÅÍ¼Ïñ
         input_height = input.size(2)
         input_width = input.size(3)
 
-        #-----------------------------------------------#
-        #   è¾“å…¥ä¸º416x416æ—¶
-        #   stride_h = stride_w = 32ã€16ã€8
-        #-----------------------------------------------#
+        # -----------------------------------------------#
+        #   ÊäÈëÎª416x416Ê±
+        #   stride_h = stride_w = 32¡¢16¡¢8
+        #   Êµ¼ÊÉÏ¾ÍÊÇ»®·Ö¸ñ×Ó£¬¸ñ×Ó×ÜÊıÎªh * w
+        # -----------------------------------------------#
         stride_h = self.img_size[1] / input_height
         stride_w = self.img_size[0] / input_width
-        #-------------------------------------------------#
-        #   æ­¤æ—¶è·å¾—çš„scaled_anchorså¤§å°æ˜¯ç›¸å¯¹äºç‰¹å¾å±‚çš„
-        #-------------------------------------------------#
-        scaled_anchors = [(anchor_width / stride_w, anchor_height / stride_h) for anchor_width, anchor_height in self.anchors]
+        # -------------------------------------------------#
+        #   ´ËÊ±»ñµÃµÄscaled_anchors´óĞ¡ÊÇÏà¶ÔÓÚÌØÕ÷²ãµÄ
+        #   ¶ÔÏÈÑé¿ò½øĞĞµÈ±ÈÀıËõ·Å
+        #   ¶ÔÓÚ416*416µÄÃª¿ò/32¾Í¿ÉÒÔËõ·Åµ½ÌØÕ÷²ãµÄ(13,13)´óĞ¡ÁË
+        # -------------------------------------------------#
+        scaled_anchors = [(anchor_width / stride_w, anchor_height / stride_h) for anchor_width, anchor_height in
+                          self.anchors]
 
-        #-----------------------------------------------#
-        #   è¾“å…¥çš„inputä¸€å…±æœ‰ä¸‰ä¸ªï¼Œä»–ä»¬çš„shapeåˆ†åˆ«æ˜¯
-        #   batch_size, 3, 13, 13, 85
-        #   batch_size, 3, 26, 26, 85
-        #   batch_size, 3, 52, 52, 85
-        #-----------------------------------------------#
+        # -----------------------------------------------#
+        #   ÊäÈëµÄinputÒ»¹²ÓĞÈı¸ö£¬ËûÃÇµÄshape·Ö±ğÊÇ
+        #   batch_size, 3, 13, 13, 75
+        #   batch_size, 3, 26, 26, 75
+        #   batch_size, 3, 52, 52, 75
+        #   view-> 3 * ( 5 + num_classes)
+        #   self.num_anchors: 3, self.bbox_attrs: 5+num_classes
+        #   permute£ºµ÷ÕûÎ¬¶È,°Ñ5+num_classesµ÷Õûµ½×îºóÒ»¸öÎ¬¶È
+        # -----------------------------------------------#
         prediction = input.view(batch_size, self.num_anchors,
                                 self.bbox_attrs, input_height, input_width).permute(0, 1, 3, 4, 2).contiguous()
 
-        # å…ˆéªŒæ¡†çš„ä¸­å¿ƒä½ç½®çš„è°ƒæ•´å‚æ•°
-        x = torch.sigmoid(prediction[..., 0])  
+        # ÏÈÑé¿òµÄÖĞĞÄÎ»ÖÃµÄµ÷Õû²ÎÊı
+        # sigmoid¾ÍÊÇ°ÑÊıÖµËõ·Åµ½[0-1]
+        # (left, top, width, height, available)
+        x = torch.sigmoid(prediction[..., 0])  # (5+num_classes)µÄµÚÒ»Î¬¶È
         y = torch.sigmoid(prediction[..., 1])
-        # å…ˆéªŒæ¡†çš„å®½é«˜è°ƒæ•´å‚æ•°
-        w = prediction[..., 2]
-        h = prediction[..., 3]
-        # è·å¾—ç½®ä¿¡åº¦ï¼Œæ˜¯å¦æœ‰ç‰©ä½“
+        # ÏÈÑé¿òµÄ¿í¸ßµ÷Õû²ÎÊı
+        w = prediction[..., 2]  # width
+        h = prediction[..., 3]  # height
+        # »ñµÃÖÃĞÅ¶È£¬ÊÇ·ñÓĞÎïÌå
         conf = torch.sigmoid(prediction[..., 4])
-        # ç§ç±»ç½®ä¿¡åº¦
+        # num_classesµÄ¸ÅÂÊ
         pred_cls = torch.sigmoid(prediction[..., 5:])
 
         FloatTensor = torch.cuda.FloatTensor if x.is_cuda else torch.FloatTensor
         LongTensor = torch.cuda.LongTensor if x.is_cuda else torch.LongTensor
 
-        #----------------------------------------------------------#
-        #   ç”Ÿæˆç½‘æ ¼ï¼Œå…ˆéªŒæ¡†ä¸­å¿ƒï¼Œç½‘æ ¼å·¦ä¸Šè§’ 
+        # ----------------------------------------------------------#
+        #   ÏÈÑé¿òÖĞĞÄ£¬Íø¸ñ×óÉÏ½Ç, Ã¿¸öÍø¸ñÏßµÄ½»µã
         #   batch_size,3,13,13
-        #----------------------------------------------------------#
+        # ----------------------------------------------------------#
         grid_x = torch.linspace(0, input_width - 1, input_width).repeat(input_height, 1).repeat(
             batch_size * self.num_anchors, 1, 1).view(x.shape).type(FloatTensor)
         grid_y = torch.linspace(0, input_height - 1, input_height).repeat(input_width, 1).t().repeat(
             batch_size * self.num_anchors, 1, 1).view(y.shape).type(FloatTensor)
 
-        #----------------------------------------------------------#
-        #   æŒ‰ç…§ç½‘æ ¼æ ¼å¼ç”Ÿæˆå…ˆéªŒæ¡†çš„å®½é«˜
+        # ----------------------------------------------------------#
+        #   °´ÕÕÍø¸ñ¸ñÊ½Éú³ÉÏÈÑé¿òµÄ¿í¸ß
         #   batch_size,3,13,13
-        #----------------------------------------------------------#
+        # ----------------------------------------------------------#
         anchor_w = FloatTensor(scaled_anchors).index_select(1, LongTensor([0]))
         anchor_h = FloatTensor(scaled_anchors).index_select(1, LongTensor([1]))
         anchor_w = anchor_w.repeat(batch_size, 1).repeat(1, 1, input_height * input_width).view(w.shape)
         anchor_h = anchor_h.repeat(batch_size, 1).repeat(1, 1, input_height * input_width).view(h.shape)
 
-        #----------------------------------------------------------#
-        #   åˆ©ç”¨é¢„æµ‹ç»“æœå¯¹å…ˆéªŒæ¡†è¿›è¡Œè°ƒæ•´
-        #   é¦–å…ˆè°ƒæ•´å…ˆéªŒæ¡†çš„ä¸­å¿ƒï¼Œä»å…ˆéªŒæ¡†ä¸­å¿ƒå‘å³ä¸‹è§’åç§»
-        #   å†è°ƒæ•´å…ˆéªŒæ¡†çš„å®½é«˜ã€‚
-        #----------------------------------------------------------#
+        # ----------------------------------------------------------#
+        #   ÀûÓÃÔ¤²â½á¹û¶ÔÏÈÑé¿ò½øĞĞµ÷Õû
+        #   Ê×ÏÈµ÷ÕûÏÈÑé¿òµÄÖĞĞÄ£¬´ÓÏÈÑé¿òÖĞĞÄÏòÓÒÏÂ½ÇÆ«ÒÆ
+        #   ÔÙµ÷ÕûÏÈÑé¿òµÄ¿í¸ß¡£
+        # ----------------------------------------------------------#
         pred_boxes = FloatTensor(prediction[..., :4].shape)
         pred_boxes[..., 0] = x.data + grid_x
         pred_boxes[..., 1] = y.data + grid_y
         pred_boxes[..., 2] = torch.exp(w.data) * anchor_w
         pred_boxes[..., 3] = torch.exp(h.data) * anchor_h
 
-        #----------------------------------------------------------#
-        #   å°†è¾“å‡ºç»“æœè°ƒæ•´æˆç›¸å¯¹äºè¾“å…¥å›¾åƒå¤§å°
-        #----------------------------------------------------------#
+        # ----------------------------------------------------------#
+        #   ½«Êä³ö½á¹ûµ÷Õû³ÉÏà¶ÔÓÚÊäÈëÍ¼Ïñ´óĞ¡(416, 416)
+        # ----------------------------------------------------------#
         _scale = torch.Tensor([stride_w, stride_h] * 2).type(FloatTensor)
         output = torch.cat((pred_boxes.view(batch_size, -1, 4) * _scale,
                             conf.view(batch_size, -1, 1), pred_cls.view(batch_size, -1, self.num_classes)), -1)
-        return output.data
-        
+        return output.data  # ÏÈÑé¿òµ÷ÕûºóµÄÎ»ÖÃÓë²ÎÊı
+
+
 def letterbox_image(image, size):
     iw, ih = image.size
     w, h = size
-    scale = min(w/iw, h/ih)
-    nw = int(iw*scale)
-    nh = int(ih*scale)
+    scale = min(w / iw, h / ih)
+    nw = int(iw * scale)
+    nh = int(ih * scale)
 
-    image = image.resize((nw,nh), Image.BICUBIC)
-    new_image = Image.new('RGB', size, (128,128,128))
-    new_image.paste(image, ((w-nw)//2, (h-nh)//2))
+    image = image.resize((nw, nh), Image.BICUBIC)
+    new_image = Image.new('RGB', size, (128, 128, 128))
+    new_image.paste(image, ((w - nw) // 2, (h - nh) // 2))
     return new_image
 
+
 def yolo_correct_boxes(top, left, bottom, right, input_shape, image_shape):
-    new_shape = image_shape*np.min(input_shape/image_shape)
+    new_shape = image_shape * np.min(input_shape / image_shape)
 
-    offset = (input_shape-new_shape)/2./input_shape
-    scale = input_shape/new_shape
+    offset = (input_shape - new_shape) / 2. / input_shape
+    scale = input_shape / new_shape
 
-    box_yx = np.concatenate(((top+bottom)/2,(left+right)/2),axis=-1)/input_shape
-    box_hw = np.concatenate((bottom-top,right-left),axis=-1)/input_shape
+    box_yx = np.concatenate(((top + bottom) / 2, (left + right) / 2), axis=-1) / input_shape
+    box_hw = np.concatenate((bottom - top, right - left), axis=-1) / input_shape
 
     box_yx = (box_yx - offset) * scale
     box_hw *= scale
 
     box_mins = box_yx - (box_hw / 2.)
     box_maxes = box_yx + (box_hw / 2.)
-    boxes =  np.concatenate([
+    boxes = np.concatenate([
         box_mins[:, 0:1],
         box_mins[:, 1:2],
         box_maxes[:, 0:1],
         box_maxes[:, 1:2]
-    ],axis=-1)
-    boxes *= np.concatenate([image_shape, image_shape],axis=-1)
+    ], axis=-1)
+    boxes *= np.concatenate([image_shape, image_shape], axis=-1)
     return boxes
+
 
 def bbox_iou(box1, box2, x1y1x2y2=True):
     """
-        è®¡ç®—IOU
+        ¼ÆËãIOU
     """
     if not x1y1x2y2:
         b1_x1, b1_x2 = box1[:, 0] - box1[:, 2] / 2, box1[:, 0] + box1[:, 2] / 2
@@ -158,7 +177,7 @@ def bbox_iou(box1, box2, x1y1x2y2=True):
 
     inter_area = torch.clamp(inter_rect_x2 - inter_rect_x1 + 1, min=0) * \
                  torch.clamp(inter_rect_y2 - inter_rect_y1 + 1, min=0)
-                 
+
     b1_area = (b1_x2 - b1_x1 + 1) * (b1_y2 - b1_y1 + 1)
     b2_area = (b2_x2 - b2_x1 + 1) * (b2_y2 - b2_y1 + 1)
 
@@ -168,10 +187,10 @@ def bbox_iou(box1, box2, x1y1x2y2=True):
 
 
 def non_max_suppression(prediction, num_classes, conf_thres=0.5, nms_thres=0.4):
-    #----------------------------------------------------------#
-    #   å°†é¢„æµ‹ç»“æœçš„æ ¼å¼è½¬æ¢æˆå·¦ä¸Šè§’å³ä¸‹è§’çš„æ ¼å¼ã€‚
+    # ----------------------------------------------------------#
+    #   ½«Ô¤²â½á¹ûµÄ¸ñÊ½×ª»»³É×óÉÏ½ÇÓÒÏÂ½ÇµÄ¸ñÊ½¡£
     #   prediction  [batch_size, num_anchors, 85]
-    #----------------------------------------------------------#
+    # ----------------------------------------------------------#
     box_corner = prediction.new(prediction.shape)
     box_corner[:, :, 0] = prediction[:, :, 0] - prediction[:, :, 2] / 2
     box_corner[:, :, 1] = prediction[:, :, 1] - prediction[:, :, 3] / 2
@@ -181,35 +200,35 @@ def non_max_suppression(prediction, num_classes, conf_thres=0.5, nms_thres=0.4):
 
     output = [None for _ in range(len(prediction))]
     for image_i, image_pred in enumerate(prediction):
-        #----------------------------------------------------------#
-        #   å¯¹ç§ç±»é¢„æµ‹éƒ¨åˆ†å–maxã€‚
-        #   class_conf  [num_anchors, 1]    ç§ç±»ç½®ä¿¡åº¦
-        #   class_pred  [num_anchors, 1]    ç§ç±»
-        #----------------------------------------------------------#
+        # ----------------------------------------------------------#
+        #   ¶ÔÖÖÀàÔ¤²â²¿·ÖÈ¡max¡£
+        #   class_conf  [num_anchors, 1]    ÖÖÀàÖÃĞÅ¶È
+        #   class_pred  [num_anchors, 1]    ÖÖÀà
+        # ----------------------------------------------------------#
         class_conf, class_pred = torch.max(image_pred[:, 5:5 + num_classes], 1, keepdim=True)
 
-        #----------------------------------------------------------#
-        #   åˆ©ç”¨ç½®ä¿¡åº¦è¿›è¡Œç¬¬ä¸€è½®ç­›é€‰
-        #----------------------------------------------------------#
+        # ----------------------------------------------------------#
+        #   ÀûÓÃÖÃĞÅ¶È½øĞĞµÚÒ»ÂÖÉ¸Ñ¡
+        # ----------------------------------------------------------#
         conf_mask = (image_pred[:, 4] * class_conf[:, 0] >= conf_thres).squeeze()
 
-        #----------------------------------------------------------#
-        #   æ ¹æ®ç½®ä¿¡åº¦è¿›è¡Œé¢„æµ‹ç»“æœçš„ç­›é€‰
-        #----------------------------------------------------------#
+        # ----------------------------------------------------------#
+        #   ¸ù¾İÖÃĞÅ¶È½øĞĞÔ¤²â½á¹ûµÄÉ¸Ñ¡
+        # ----------------------------------------------------------#
         image_pred = image_pred[conf_mask]
         class_conf = class_conf[conf_mask]
         class_pred = class_pred[conf_mask]
         if not image_pred.size(0):
             continue
-        #-------------------------------------------------------------------------#
+        # -------------------------------------------------------------------------#
         #   detections  [num_anchors, 7]
-        #   7çš„å†…å®¹ä¸ºï¼šx1, y1, x2, y2, obj_conf, class_conf, class_pred
-        #-------------------------------------------------------------------------#
+        #   7µÄÄÚÈİÎª£ºx1, y1, x2, y2, obj_conf, class_conf, class_pred
+        # -------------------------------------------------------------------------#
         detections = torch.cat((image_pred[:, :5], class_conf.float(), class_pred.float()), 1)
 
-        #------------------------------------------#
-        #   è·å¾—é¢„æµ‹ç»“æœä¸­åŒ…å«çš„æ‰€æœ‰ç§ç±»
-        #------------------------------------------#
+        # ------------------------------------------#
+        #   »ñµÃÔ¤²â½á¹ûÖĞ°üº¬µÄËùÓĞÖÖÀà
+        # ------------------------------------------#
         unique_labels = detections[:, -1].cpu().unique()
 
         if prediction.is_cuda:
@@ -217,36 +236,36 @@ def non_max_suppression(prediction, num_classes, conf_thres=0.5, nms_thres=0.4):
             detections = detections.cuda()
 
         for c in unique_labels:
-            #------------------------------------------#
-            #   è·å¾—æŸä¸€ç±»å¾—åˆ†ç­›é€‰åå…¨éƒ¨çš„é¢„æµ‹ç»“æœ
-            #------------------------------------------#
+            # ------------------------------------------#
+            #   »ñµÃÄ³Ò»ÀàµÃ·ÖÉ¸Ñ¡ºóÈ«²¿µÄÔ¤²â½á¹û
+            # ------------------------------------------#
             detections_class = detections[detections[:, -1] == c]
 
-            #------------------------------------------#
-            #   ä½¿ç”¨å®˜æ–¹è‡ªå¸¦çš„éæå¤§æŠ‘åˆ¶ä¼šé€Ÿåº¦æ›´å¿«ä¸€äº›ï¼
-            #------------------------------------------#
+            # ------------------------------------------#
+            #   Ê¹ÓÃ¹Ù·½×Ô´øµÄ·Ç¼«´óÒÖÖÆ»áËÙ¶È¸ü¿ìÒ»Ğ©£¡
+            # ------------------------------------------#
             keep = nms(
                 detections_class[:, :4],
                 detections_class[:, 4] * detections_class[:, 5],
                 nms_thres
             )
             max_detections = detections_class[keep]
-            
-            # # æŒ‰ç…§å­˜åœ¨ç‰©ä½“çš„ç½®ä¿¡åº¦æ’åº
+
+            # # °´ÕÕ´æÔÚÎïÌåµÄÖÃĞÅ¶ÈÅÅĞò
             # _, conf_sort_index = torch.sort(detections_class[:, 4]*detections_class[:, 5], descending=True)
             # detections_class = detections_class[conf_sort_index]
-            # # è¿›è¡Œéæå¤§æŠ‘åˆ¶
+            # # ½øĞĞ·Ç¼«´óÒÖÖÆ
             # max_detections = []
             # while detections_class.size(0):
-            #     # å–å‡ºè¿™ä¸€ç±»ç½®ä¿¡åº¦æœ€é«˜çš„ï¼Œä¸€æ­¥ä¸€æ­¥å¾€ä¸‹åˆ¤æ–­ï¼Œåˆ¤æ–­é‡åˆç¨‹åº¦æ˜¯å¦å¤§äºnms_thresï¼Œå¦‚æœæ˜¯åˆ™å»é™¤æ‰
+            #     # È¡³öÕâÒ»ÀàÖÃĞÅ¶È×î¸ßµÄ£¬Ò»²½Ò»²½ÍùÏÂÅĞ¶Ï£¬ÅĞ¶ÏÖØºÏ³Ì¶ÈÊÇ·ñ´óÓÚnms_thres£¬Èç¹ûÊÇÔòÈ¥³ıµô
             #     max_detections.append(detections_class[0].unsqueeze(0))
             #     if len(detections_class) == 1:
             #         break
             #     ious = bbox_iou(max_detections[-1], detections_class[1:])
             #     detections_class = detections_class[1:][ious < nms_thres]
-            # # å †å 
+            # # ¶Ñµş
             # max_detections = torch.cat(max_detections).data
-            
+
             # Add max detections to outputs
             output[image_i] = max_detections if output[image_i] is None else torch.cat(
                 (output[image_i], max_detections))
