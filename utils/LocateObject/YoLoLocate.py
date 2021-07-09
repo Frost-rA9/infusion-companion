@@ -10,7 +10,7 @@
     - YoLoLocate:
         1. 初始化YOLO
         2. 分割YOLO.detect_image:
-            - predict: 返回预测点，并保留filter里面的内容
+            - predict: 返回预测点
             - draw: 返回绘制好的图像，绘制内容为filter里的内容
 """
 
@@ -315,14 +315,9 @@ class YoLoLocate:
             self.yolo_detect.defaults[key] = temp[key]
         # print(self.yolo_detect.defaults)
 
-    def predict(self, img: np.ndarray, filter: list, font_path: str):
+    def predict(self, img: np.ndarray):
         img = Image.fromarray(img)  # to PIL
         image, model_image_size, top_label, top_conf, boxes, colors, class_names = self.yolo_detect.detect_image(img)
-
-        font = ImageFont.truetype(font=font_path,
-                                  size=np.floor(3e-2 * np.shape(image)[1] + 0.5).astype('int32'))
-
-        thickness = max((np.shape(image)[0] + np.shape(image)[1]) // model_image_size[0], 1)
 
         predict_list = []  # 预测结果暂存
 
@@ -341,35 +336,41 @@ class YoLoLocate:
             bottom = min(np.shape(image)[0], np.floor(bottom + 0.5).astype('int32'))
             right = min(np.shape(image)[1], np.floor(right + 0.5).astype('int32'))
 
-            # 画框框
             label = '{} {:.2f}'.format(predicted_class, score)
 
-
-
-        return image
+            predict_list.append((predicted_class, label, top, left, bottom, right))
+        return image, model_image_size, colors, class_names, predict_list
 
     def draw(self, img: np.ndarray, filter: list, font_path: str):
+        image, model_image_size, colors, class_names, predict_list = self.predict(img)
+        font = ImageFont.truetype(font=font_path,
+                                  size=np.floor(3e-2 * np.shape(image)[1] + 0.5).astype('int32'))
+        thickness = max((np.shape(image)[0] + np.shape(image)[1]) // model_image_size[0], 1)
 
+        for predicted_class, label, top, left, bottom, right in predict_list:
+            if not label.split()[0] in filter:
+                pass
 
-        draw = ImageDraw.Draw(image)
-        label_size = draw.textsize(label, font)
-        label = label.encode('utf-8')
-        print(label, top, left, bottom, right)
+            draw = ImageDraw.Draw(image)
+            label_size = draw.textsize(label, font)
+            label = label.encode('utf-8')
+            print(label, top, left, bottom, right)
 
-        if top - label_size[1] >= 0:
-            text_origin = np.array([left, top - label_size[1]])
-        else:
-            text_origin = np.array([left, top + 1])
+            if top - label_size[1] >= 0:
+                text_origin = np.array([left, top - label_size[1]])
+            else:
+                text_origin = np.array([left, top + 1])
 
-        for i in range(thickness):
+            for i in range(thickness):
+                draw.rectangle(
+                    [left + i, top + i, right - i, bottom - i],
+                    outline=colors[class_names.index(predicted_class)])
             draw.rectangle(
-                [left + i, top + i, right - i, bottom - i],
-                outline=colors[class_names.index(predicted_class)])
-        draw.rectangle(
-            [tuple(text_origin), tuple(text_origin + label_size)],
-            fill=colors[class_names.index(predicted_class)])
-        draw.text(text_origin, str(label, 'UTF-8'), fill=(0, 0, 0), font=font)
-        del draw
+                [tuple(text_origin), tuple(text_origin + label_size)],
+                fill=colors[class_names.index(predicted_class)])
+            draw.text(text_origin, str(label, 'UTF-8'), fill=(0, 0, 0), font=font)
+            del draw
+        return image
 
 
 if __name__ == '__main__':
@@ -387,7 +388,7 @@ if __name__ == '__main__':
         img_path = "H:/pic/" + input("input pic: ")
         img = cv.imread(img_path)
         try:
-            predict = locate.predict(img, [], "../../Resource/model_data/simhei.ttf")
+            predict = locate.draw(img, ['chair', 'bottle'], "../../Resource/model_data/simhei.ttf")
             predict.show()
         except:
             pass
