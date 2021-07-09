@@ -34,19 +34,23 @@ class LocateTrain:
         # 启动随机森林
         self.options.be_verbose = verbose
         # 启动训练
-        output_svm_name = "../../Resource/svm/" + output_svm_name + ".svm"
+        output_svm_name = "../../../Resource/svm/trained/" + output_svm_name + ".svm"
         dlib.train_simple_object_detector(detect_xml_path, output_svm_name, self.options)
 
 
 if __name__ == '__main__':
-    # l = LocateTrain("../../Resource/svm_label_xml/bottle.xml", "bottle_svm", c_count=10)
+    # l = LocateTrain("../../../Resource/svm/label/bottle.xml", "bottle_svm", c_count=100)
     from utils.LocateObject.dlibLocate import LocateRoI
     import cv2 as cv
-    svm_path = "../../Resource/svm/bottle_svm.svm"
-    img_path = "../../Resource/LiquidlevelDataSet/11.jpg"
+    svm_path = "../../../Resource/svm/trained/bottle_svm.svm"
+    img_path = "H:/pic/liquid/11.png"
     img = cv.imread(img_path)
     L = LocateRoI(svm_path)
-    L.predict_show(img, color=(0, 0, 255))
+    predict_list = L.predict(img)
+    for start, end in predict_list:
+        cv.rectangle(img, start, end, (0, 255, 255), 2)
+    cv.imshow("img", img)
+    cv.waitKey(0)
 
 
 

@@ -4,56 +4,1493 @@
 <name>imglab dataset</name>
 <comment>Created by imglab tool.</comment>
 <images>
-  <image file='F:\NutstoreData\code\project_practice\infusion-companion\Resource\LiquidLevelDataSet\1.jpg'>
-    <box top='585' left='1746' width='775' height='1126'/>
-  </image>
-  <image file='F:\NutstoreData\code\project_practice\infusion-companion\Resource\LiquidLevelDataSet\10.jpg'>
-    <box top='441' left='1791' width='370' height='478'>
+  <image file='H:\pic\1.png'>
+    <box top='222' left='316' width='70' height='214'>
       <label>bottle</label>
     </box>
   </image>
-  <image file='F:\NutstoreData\code\project_practice\infusion-companion\Resource\LiquidLevelDataSet\11.jpg'>
-    <box top='468' left='2412' width='352' height='451'>
+  <image file='H:\pic\10.png'>
+    <box top='216' left='366' width='69' height='197'>
       <label>bottle</label>
     </box>
   </image>
-  <image file='F:\NutstoreData\code\project_practice\infusion-companion\Resource\LiquidLevelDataSet\2.jpg'>
-    <box top='927' left='1863' width='406' height='523'>
+  <image file='H:\pic\100.png'>
+    <box top='116' left='330' width='107' height='284'>
       <label>bottle</label>
     </box>
   </image>
-  <image file='F:\NutstoreData\code\project_practice\infusion-companion\Resource\LiquidLevelDataSet\3.jpg'>
-    <box top='738' left='1692' width='541' height='1000'>
+  <image file='H:\pic\101.png'>
+    <box top='128' left='310' width='142' height='276'>
       <label>bottle</label>
     </box>
   </image>
-  <image file='F:\NutstoreData\code\project_practice\infusion-companion\Resource\LiquidLevelDataSet\4.jpg'>
-    <box top='693' left='1827' width='613' height='1054'>
+  <image file='H:\pic\102.png'>
+    <box top='209' left='356' width='149' height='228'>
       <label>bottle</label>
     </box>
   </image>
-  <image file='F:\NutstoreData\code\project_practice\infusion-companion\Resource\LiquidLevelDataSet\5.jpg'>
-    <box top='774' left='1737' width='712' height='964'>
+  <image file='H:\pic\103.png'>
+    <box top='155' left='378' width='115' height='275'>
       <label>bottle</label>
     </box>
   </image>
-  <image file='F:\NutstoreData\code\project_practice\infusion-companion\Resource\LiquidLevelDataSet\6.jpg'>
-    <box top='801' left='1728' width='685' height='1000'>
+  <image file='H:\pic\104.png'>
+    <box top='192' left='372' width='125' height='282'>
       <label>bottle</label>
     </box>
   </image>
-  <image file='F:\NutstoreData\code\project_practice\infusion-companion\Resource\LiquidLevelDataSet\7.jpg'>
-    <box top='1062' left='1818' width='487' height='541'>
+  <image file='H:\pic\105.png'>
+    <box top='252' left='256' width='143' height='234'>
       <label>bottle</label>
     </box>
   </image>
-  <image file='F:\NutstoreData\code\project_practice\infusion-companion\Resource\LiquidLevelDataSet\8.jpg'>
-    <box top='441' left='1917' width='469' height='424'>
+  <image file='H:\pic\106.png'>
+    <box top='201' left='424' width='94' height='256'>
       <label>bottle</label>
     </box>
   </image>
-  <image file='F:\NutstoreData\code\project_practice\infusion-companion\Resource\LiquidLevelDataSet\9.jpg'>
-    <box top='873' left='1881' width='442' height='523'>
+  <image file='H:\pic\107.png'>
+    <box top='222' left='380' width='109' height='239'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\108.png'>
+    <box top='51' left='354' width='116' height='260'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\109.png'>
+    <box top='86' left='360' width='174' height='389'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\11.png'>
+    <box top='219' left='384' width='89' height='199'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\110.png'>
+    <box top='73' left='350' width='145' height='421'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\111.png'>
+    <box top='245' left='363' width='109' height='263'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\112.png'>
+    <box top='131' left='359' width='92' height='297'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\113.png'>
+    <box top='192' left='194' width='88' height='260'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\114.png'>
+    <box top='200' left='364' width='96' height='251'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\115.png'>
+    <box top='195' left='420' width='93' height='265'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\116.png'>
+    <box top='114' left='364' width='108' height='223'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\117.png'>
+    <box top='119' left='271' width='154' height='225'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\118.png'>
+    <box top='233' left='286' width='164' height='237'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\119.png'>
+    <box top='48' left='332' width='151' height='235'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\12.png'>
+    <box top='233' left='337' width='60' height='175'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\120.png'>
+    <box top='201' left='264' width='159' height='277'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\121.png'>
+    <box top='116' left='383' width='138' height='296'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\122.png'>
+    <box top='179' left='266' width='155' height='276'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\123.png'>
+    <box top='10' left='310' width='163' height='275'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\124.png'>
+    <box top='128' left='210' width='118' height='252'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\125.png'>
+    <box top='88' left='382' width='119' height='295'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\126.png'>
+    <box top='176' left='259' width='120' height='219'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\127.png'>
+    <box top='185' left='271' width='122' height='281'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\128.png'>
+    <box top='177' left='203' width='179' height='310'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\129.png'>
+    <box top='130' left='284' width='164' height='289'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\13.png'>
+    <box top='243' left='308' width='88' height='178'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\130.png'>
+    <box top='69' left='423' width='138' height='334'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\131.png'>
+    <box top='119' left='283' width='190' height='348'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\132.png'>
+    <box top='93' left='226' width='131' height='401'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\133.png'>
+    <box top='150' left='241' width='145' height='392'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\134.png'>
+    <box top='51' left='191' width='110' height='384'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\135.png'>
+    <box top='74' left='238' width='153' height='397'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\136.png'>
+    <box top='113' left='304' width='138' height='336'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\137.png'>
+    <box top='101' left='331' width='169' height='385'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\138.png'>
+    <box top='92' left='315' width='126' height='391'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\139.png'>
+    <box top='93' left='257' width='166' height='407'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\14.png'>
+    <box top='253' left='321' width='64' height='177'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\140.png'>
+    <box top='93' left='258' width='161' height='434'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\141.png'>
+    <box top='40' left='306' width='184' height='400'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\142.png'>
+    <box top='10' left='288' width='227' height='404'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\143.png'>
+    <box top='149' left='247' width='149' height='319'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\144.png'>
+    <box top='135' left='324' width='131' height='377'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\145.png'>
+    <box top='112' left='271' width='151' height='403'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\146.png'>
+    <box top='122' left='206' width='181' height='454'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\147.png'>
+    <box top='52' left='383' width='94' height='330'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\148.png'>
+    <box top='137' left='450' width='87' height='341'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\149.png'>
+    <box top='162' left='236' width='79' height='247'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\15.png'>
+    <box top='242' left='362' width='77' height='194'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\150.png'>
+    <box top='109' left='280' width='105' height='270'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\151.png'>
+    <box top='126' left='266' width='126' height='365'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\152.png'>
+    <box top='66' left='262' width='98' height='254'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\153.png'>
+    <box top='59' left='243' width='97' height='313'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\154.png'>
+    <box top='188' left='296' width='131' height='297'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\155.png'>
+    <box top='58' left='285' width='148' height='361'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\156.png'>
+    <box top='70' left='332' width='135' height='281'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\157.png'>
+    <box top='124' left='231' width='127' height='295'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\158.png'>
+    <box top='54' left='308' width='132' height='395'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\159.png'>
+    <box top='109' left='318' width='108' height='316'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\16.png'>
+    <box top='321' left='339' width='79' height='172'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\160.png'>
+    <box top='82' left='321' width='131' height='386'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\161.png'>
+    <box top='120' left='419' width='94' height='259'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\162.png'>
+    <box top='128' left='311' width='99' height='235'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\163.png'>
+    <box top='177' left='367' width='126' height='244'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\164.png'>
+    <box top='172' left='325' width='159' height='344'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\165.png'>
+    <box top='151' left='291' width='111' height='251'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\166.png'>
+    <box top='150' left='384' width='101' height='253'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\167.png'>
+    <box top='61' left='256' width='128' height='295'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\168.png'>
+    <box top='135' left='326' width='114' height='229'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\169.png'>
+    <box top='194' left='250' width='80' height='270'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\17.png'>
+    <box top='323' left='309' width='72' height='147'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\170.png'>
+    <box top='199' left='254' width='78' height='239'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\171.png'>
+    <box top='257' left='322' width='90' height='187'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\172.png'>
+    <box top='47' left='374' width='91' height='214'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\173.png'>
+    <box top='187' left='277' width='85' height='209'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\174.png'>
+    <box top='286' left='290' width='95' height='210'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\175.png'>
+    <box top='290' left='213' width='113' height='220'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\176.png'>
+    <box top='169' left='167' width='173' height='239'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\177.png'>
+    <box top='148' left='224' width='83' height='284'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\178.png'>
+    <box top='183' left='165' width='111' height='309'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\179.png'>
+    <box top='118' left='324' width='76' height='316'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\18.png'>
+    <box top='315' left='268' width='77' height='191'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\180.png'>
+    <box top='171' left='252' width='107' height='253'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\181.png'>
+    <box top='97' left='244' width='182' height='280'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\182.png'>
+    <box top='55' left='238' width='170' height='332'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\183.png'>
+    <box top='92' left='154' width='119' height='458'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\184.png'>
+    <box top='142' left='218' width='108' height='376'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\185.png'>
+    <box top='84' left='71' width='141' height='403'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\186.png'>
+    <box top='70' left='201' width='112' height='303'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\187.png'>
+    <box top='186' left='308' width='113' height='239'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\188.png'>
+    <box top='265' left='285' width='110' height='178'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\189.png'>
+    <box top='197' left='246' width='94' height='174'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\19.png'>
+    <box top='326' left='270' width='82' height='159'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\190.png'>
+    <box top='16' left='489' width='105' height='221'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\191.png'>
+    <box top='144' left='243' width='130' height='185'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\192.png'>
+    <box top='198' left='410' width='76' height='203'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\193.png'>
+    <box top='204' left='414' width='93' height='184'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\194.png'>
+    <box top='276' left='312' width='127' height='200'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\195.png'>
+    <box top='239' left='358' width='130' height='179'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\196.png'>
+    <box top='185' left='142' width='102' height='172'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\197.png'>
+    <box top='307' left='402' width='101' height='180'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\198.png'>
+    <box top='339' left='436' width='76' height='165'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\199.png'>
+    <box top='184' left='412' width='107' height='180'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\2+6662.png'>
+    <box top='183' left='367' width='133' height='221'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\2.png'>
+    <box top='246' left='320' width='96' height='183'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\20.png'>
+    <box top='321' left='368' width='92' height='156'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\200.png'>
+    <box top='212' left='352' width='96' height='189'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\201.png'>
+    <box top='142' left='139' width='114' height='191'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\202.png'>
+    <box top='52' left='223' width='91' height='159'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\203.png'>
+    <box top='184' left='226' width='85' height='205'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\204.png'>
+    <box top='361' left='157' width='68' height='173'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\205.png'>
+    <box top='139' left='456' width='77' height='143'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\206.png'>
+    <box top='170' left='379' width='66' height='156'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\207.png'>
+    <box top='203' left='241' width='85' height='149'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\208.png'>
+    <box top='256' left='186' width='95' height='186'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\209.png'>
+    <box top='223' left='351' width='99' height='227'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\21.png'>
+    <box top='295' left='369' width='100' height='180'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\210.png'>
+    <box top='154' left='348' width='126' height='227'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\211.png'>
+    <box top='166' left='272' width='103' height='218'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\212.png'>
+    <box top='97' left='332' width='153' height='234'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\213.png'>
+    <box top='102' left='270' width='114' height='258'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\214.png'>
+    <box top='76' left='513' width='110' height='320'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\215.png'>
+    <box top='339' left='435' width='86' height='204'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\216.png'>
+    <box top='206' left='359' width='96' height='202'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\217.png'>
+    <box top='103' left='246' width='140' height='324'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\218.png'>
+    <box top='88' left='325' width='141' height='328'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\219.png'>
+    <box top='155' left='432' width='89' height='401'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\22.png'>
+    <box top='309' left='286' width='86' height='162'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\220.png'>
+    <box top='200' left='404' width='71' height='240'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\221.png'>
+    <box top='70' left='370' width='82' height='194'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\222.png'>
+    <box top='179' left='397' width='72' height='190'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\223.png'>
+    <box top='194' left='456' width='70' height='180'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\224.png'>
+    <box top='115' left='512' width='74' height='178'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\225.png'>
+    <box top='286' left='260' width='136' height='203'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\226.png'>
+    <box top='228' left='273' width='130' height='219'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\227.png'>
+    <box top='58' left='266' width='96' height='246'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\228.png'>
+    <box top='84' left='350' width='91' height='267'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\229.png'>
+    <box top='123' left='215' width='137' height='219'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\23.png'>
+    <box top='177' left='443' width='96' height='207'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\230.png'>
+    <box top='230' left='307' width='154' height='249'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\231.png'>
+    <box top='245' left='273' width='154' height='254'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\232.png'>
+    <box top='194' left='293' width='113' height='330'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\233.png'>
+    <box top='184' left='337' width='100' height='262'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\234.png'>
+    <box top='201' left='307' width='123' height='283'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\235.png'>
+    <box top='231' left='265' width='131' height='255'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\236.png'>
+    <box top='178' left='360' width='152' height='301'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\237.png'>
+    <box top='279' left='378' width='135' height='205'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\238.png'>
+    <box top='133' left='314' width='133' height='290'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\239.png'>
+    <box top='201' left='365' width='127' height='323'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\24.png'>
+    <box top='196' left='326' width='96' height='194'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\240.png'>
+    <box top='186' left='284' width='123' height='284'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\241.png'>
+    <box top='326' left='261' width='87' height='148'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\242.png'>
+    <box top='278' left='384' width='90' height='156'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\243.png'>
+    <box top='340' left='235' width='60' height='162'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\244.png'>
+    <box top='239' left='302' width='52' height='179'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\245.png'>
+    <box top='267' left='311' width='65' height='158'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\246.png'>
+    <box top='218' left='257' width='66' height='158'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\247.png'>
+    <box top='185' left='268' width='76' height='213'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\248.png'>
+    <box top='211' left='311' width='63' height='224'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\249.png'>
+    <box top='207' left='451' width='53' height='212'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\25.png'>
+    <box top='192' left='479' width='55' height='210'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\250.png'>
+    <box top='132' left='259' width='57' height='202'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\251.png'>
+    <box top='285' left='339' width='68' height='188'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\252.png'>
+    <box top='211' left='457' width='51' height='185'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\253.png'>
+    <box top='184' left='560' width='84' height='179'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\254.png'>
+    <box top='165' left='129' width='113' height='262'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\255.png'>
+    <box top='179' left='228' width='110' height='284'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\256.png'>
+    <box top='71' left='170' width='106' height='269'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\257.png'>
+    <box top='140' left='220' width='102' height='283'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\258.png'>
+    <box top='147' left='194' width='138' height='325'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\259.png'>
+    <box top='235' left='435' width='115' height='270'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\26.png'>
+    <box top='193' left='295' width='78' height='194'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\260.png'>
+    <box top='68' left='342' width='148' height='272'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\261.png'>
+    <box top='89' left='230' width='151' height='272'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\262.png'>
+    <box top='189' left='341' width='86' height='283'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\263.png'>
+    <box top='183' left='344' width='85' height='237'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\264.png'>
+    <box top='240' left='304' width='63' height='167'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\265.png'>
+    <box top='195' left='342' width='75' height='182'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\266.png'>
+    <box top='241' left='330' width='83' height='205'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\267.png'>
+    <box top='247' left='372' width='62' height='240'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\268.png'>
+    <box top='252' left='278' width='64' height='211'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\269.png'>
+    <box top='302' left='368' width='81' height='206'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\27.png'>
+    <box top='183' left='411' width='83' height='206'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\270.png'>
+    <box top='328' left='345' width='55' height='179'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\271.png'>
+    <box top='140' left='397' width='69' height='194'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\272.png'>
+    <box top='265' left='345' width='82' height='200'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\273.png'>
+    <box top='280' left='431' width='128' height='199'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\274.png'>
+    <box top='163' left='304' width='76' height='201'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\275.png'>
+    <box top='146' left='314' width='67' height='209'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\276.png'>
+    <box top='121' left='502' width='82' height='211'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\277.png'>
+    <box top='222' left='369' width='66' height='199'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\278.png'>
+    <box top='326' left='466' width='78' height='171'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\279.png'>
+    <box top='348' left='404' width='47' height='180'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\28.png'>
+    <box top='171' left='331' width='102' height='208'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\280.png'>
+    <box top='289' left='245' width='108' height='175'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\281.png'>
+    <box top='346' left='372' width='56' height='190'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\282.png'>
+    <box top='318' left='264' width='80' height='195'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\283.png'>
+    <box top='318' left='340' width='85' height='176'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\284.png'>
+    <box top='212' left='359' width='87' height='174'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\285.png'>
+    <box top='111' left='303' width='93' height='175'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\286.png'>
+    <box top='298' left='383' width='79' height='157'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\287.png'>
+    <box top='269' left='287' width='78' height='159'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\288.png'>
+    <box top='350' left='315' width='76' height='165'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\289.png'>
+    <box top='353' left='275' width='59' height='178'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\29.png'>
+    <box top='181' left='383' width='74' height='228'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\290.png'>
+    <box top='211' left='202' width='101' height='184'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\291.png'>
+    <box top='151' left='312' width='72' height='202'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\292.png'>
+    <box top='102' left='221' width='90' height='203'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\293.png'>
+    <box top='146' left='358' width='72' height='209'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\294.png'>
+    <box top='241' left='381' width='103' height='171'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\295.png'>
+    <box top='235' left='285' width='114' height='219'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\296.png'>
+    <box top='181' left='313' width='86' height='192'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\297.png'>
+    <box top='213' left='372' width='76' height='180'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\3.png'>
+    <box top='252' left='295' width='53' height='160'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\30.png'>
+    <box top='301' left='302' width='58' height='198'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\31.png'>
+    <box top='169' left='351' width='95' height='187'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\32.png'>
+    <box top='221' left='311' width='79' height='161'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\33.png'>
+    <box top='226' left='288' width='90' height='169'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\34.png'>
+    <box top='252' left='349' width='87' height='169'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\35.png'>
+    <box top='253' left='317' width='71' height='165'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\36.png'>
+    <box top='181' left='115' width='99' height='235'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\37.png'>
+    <box top='345' left='357' width='101' height='159'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\38.png'>
+    <box top='279' left='313' width='91' height='143'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\39.png'>
+    <box top='262' left='340' width='102' height='174'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\4.png'>
+    <box top='246' left='297' width='74' height='162'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\40.png'>
+    <box top='178' left='390' width='66' height='182'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\41.png'>
+    <box top='183' left='384' width='87' height='224'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\42.png'>
+    <box top='115' left='218' width='101' height='266'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\43.png'>
+    <box top='218' left='227' width='93' height='245'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\44.png'>
+    <box top='224' left='287' width='90' height='212'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\45.png'>
+    <box top='226' left='474' width='66' height='225'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\46.png'>
+    <box top='212' left='604' width='91' height='248'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\47.png'>
+    <box top='67' left='300' width='171' height='377'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\48.png'>
+    <box top='76' left='314' width='173' height='374'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\49.png'>
+    <box top='89' left='204' width='207' height='390'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\5.png'>
+    <box top='276' left='425' width='86' height='235'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\50.png'>
+    <box top='126' left='305' width='152' height='376'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\51.png'>
+    <box top='165' left='324' width='127' height='323'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\52.png'>
+    <box top='11' left='341' width='171' height='427'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\53.png'>
+    <box top='74' left='287' width='147' height='325'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\54.png'>
+    <box top='140' left='242' width='152' height='358'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\55.png'>
+    <box top='113' left='224' width='168' height='387'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\56.png'>
+    <box top='134' left='170' width='133' height='313'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\57.png'>
+    <box top='151' left='226' width='188' height='378'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\58.png'>
+    <box top='116' left='271' width='226' height='374'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\59.png'>
+    <box top='141' left='327' width='169' height='353'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\6.png'>
+    <box top='308' left='393' width='74' height='234'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\60.png'>
+    <box top='167' left='180' width='200' height='343'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\61.png'>
+    <box top='53' left='285' width='120' height='283'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\62.png'>
+    <box top='93' left='213' width='110' height='223'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\63.png'>
+    <box top='174' left='233' width='119' height='239'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\64.png'>
+    <box top='164' left='285' width='108' height='253'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\65.png'>
+    <box top='146' left='258' width='110' height='259'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\66.png'>
+    <box top='181' left='223' width='89' height='249'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\67.png'>
+    <box top='172' left='300' width='112' height='260'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\68.png'>
+    <box top='217' left='288' width='113' height='223'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\69.png'>
+    <box top='159' left='290' width='87' height='244'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\7.png'>
+    <box top='285' left='462' width='104' height='235'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\70.png'>
+    <box top='214' left='277' width='80' height='230'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\71.png'>
+    <box top='246' left='370' width='108' height='192'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\72.png'>
+    <box top='372' left='330' width='86' height='194'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\73.png'>
+    <box top='254' left='365' width='74' height='169'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\74.png'>
+    <box top='226' left='416' width='103' height='188'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\75.png'>
+    <box top='224' left='360' width='89' height='175'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\76.png'>
+    <box top='224' left='450' width='95' height='181'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\77.png'>
+    <box top='215' left='378' width='78' height='197'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\78.png'>
+    <box top='239' left='315' width='106' height='171'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\79.png'>
+    <box top='192' left='237' width='100' height='209'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\8.png'>
+    <box top='265' left='381' width='78' height='259'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\80.png'>
+    <box top='93' left='261' width='99' height='167'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\81.png'>
+    <box top='73' left='309' width='103' height='199'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\82.png'>
+    <box top='16' left='297' width='92' height='218'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\83.png'>
+    <box top='216' left='339' width='83' height='198'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\84.png'>
+    <box top='224' left='325' width='87' height='187'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\85.png'>
+    <box top='211' left='273' width='84' height='190'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\86.png'>
+    <box top='183' left='279' width='112' height='195'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\87.png'>
+    <box top='109' left='269' width='122' height='196'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\88.png'>
+    <box top='199' left='351' width='128' height='184'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\89.png'>
+    <box top='229' left='346' width='101' height='198'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\9.png'>
+    <box top='243' left='325' width='78' height='191'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\90.png'>
+    <box top='145' left='335' width='86' height='185'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\91.png'>
+    <box top='246' left='364' width='89' height='157'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\92.png'>
+    <box top='193' left='288' width='94' height='194'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\93.png'>
+    <box top='242' left='258' width='89' height='188'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\94.png'>
+    <box top='230' left='285' width='115' height='212'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\95.png'>
+    <box top='235' left='339' width='138' height='175'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\96.png'>
+    <box top='175' left='349' width='92' height='176'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\97.png'>
+    <box top='181' left='269' width='116' height='285'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\98.png'>
+    <box top='132' left='390' width='104' height='227'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='H:\pic\99.png'>
+    <box top='194' left='333' width='145' height='266'>
       <label>bottle</label>
     </box>
   </image>
