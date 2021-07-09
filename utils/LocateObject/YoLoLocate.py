@@ -1,16 +1,21 @@
+# encoding=GBK
 """yolo
 
-    - YOLO_class:
-        1. èŽ·å–æ‰€æœ‰çš„åˆ†ç±»
-        2. è½½å…¥yoloçš„æƒé‡
+    - YOLO:
+        1. »ñÈ¡ËùÓÐµÄ·ÖÀà
+        2. ÔØÈëyoloµÄÈ¨ÖØ
         3. detect_image:
-            - å¯¹å›¾åƒè¿›è¡Œé¢„æµ‹ï¼Œå¹¶ç”»å‡ºæ¡†æ¡†
-            -
+            - ¶ÔÍ¼Ïñ½øÐÐÔ¤²â£¬²¢»­³ö¿ò¿ò
+
+    - YoLoLocate:
+        1. ³õÊ¼»¯YOLO
+        2. ·Ö¸îYOLO.detect_image:
+            - predict: ·µ»ØÔ¤²âµã£¬²¢±£ÁôfilterÀïÃæµÄÄÚÈÝ
+            - draw: ·µ»Ø»æÖÆºÃµÄÍ¼Ïñ£¬»æÖÆÄÚÈÝÎªfilterÀïµÄÄÚÈÝ
 """
 
-
 # -------------------------------------#
-#       åˆ›å»ºYOLOç±»
+#       ´´½¨YOLOÀà
 # -------------------------------------#
 import colorsys
 import os
@@ -22,29 +27,29 @@ import torch.nn as nn
 from PIL import Image, ImageDraw, ImageFont
 
 from net.YOLOV3.YOLOV3 import YOLOV3 as YoloBody
-from net.YOLOV3.utils.Decode import DecodeBox, letterbox_image, non_max_suppression,yolo_correct_boxes
+from net.YOLOV3.utils.Decode import DecodeBox, letterbox_image, non_max_suppression, yolo_correct_boxes
 
 
 # --------------------------------------------#
-#   ä½¿ç”¨è‡ªå·±è®­ç»ƒå¥½çš„æ¨¡åž‹é¢„æµ‹éœ€è¦ä¿®æ”¹2ä¸ªå‚æ•°
-#   model_pathå’Œclasses_pathéƒ½éœ€è¦ä¿®æ”¹ï¼
-#   å¦‚æžœå‡ºçŽ°shapeä¸åŒ¹é…ï¼Œä¸€å®šè¦æ³¨æ„
-#   è®­ç»ƒæ—¶çš„model_pathå’Œclasses_pathå‚æ•°çš„ä¿®æ”¹
+#   Ê¹ÓÃ×Ô¼ºÑµÁ·ºÃµÄÄ£ÐÍÔ¤²âÐèÒªÐÞ¸Ä2¸ö²ÎÊý
+#   model_pathºÍclasses_path¶¼ÐèÒªÐÞ¸Ä£¡
+#   Èç¹û³öÏÖshape²»Æ¥Åä£¬Ò»¶¨Òª×¢Òâ
+#   ÑµÁ·Ê±µÄmodel_pathºÍclasses_path²ÎÊýµÄÐÞ¸Ä
 # --------------------------------------------#
 class YOLO(object):
     _defaults = {
-        "model_path"        : 'model_data/yolo_weights.pth',
-        "anchors_path"      : 'model_data/yolo_anchors.txt',
-        "classes_path"      : 'model_data/coco_classes.txt',
-        "model_image_size"  : (416, 416, 3),
-        "confidence"        : 0.5,
-        "iou"               : 0.3,
-        "cuda"              : True,
-        #---------------------------------------------------------------------#
-        #   ç’‡ãƒ¥å½‰é–²å¿•æ•¤æµœåº¢å¸¶é’èˆµæ§¸éšï¸¿å¨‡é¢â•¨etterbox_imageç€µç¡…ç·­éãƒ¥æµ˜éå¿šç¹˜ç›å±¼ç¬‰æ¾¶è¾©æ¹¡é¨å‰…esizeé”›ï¿½
-        #   é¦ã„¥î˜¿å¨†â„ƒç¥´ç’‡æ›žæ‚—é”›å±½å½‚éœæ¿å§é—‚ç’´etterbox_imageé©å­˜å¸´resizeé¨å‹¬æ™¥é‹æ»„æ´¿æ¿‚ï¿½
-        #---------------------------------------------------------------------#
-        "letterbox_image"   : False,
+        "model_path": '../../Resource/model_data/yolo_weights.pth',
+        "anchors_path": '../../Resource/model_data/yolo_anchors.txt',
+        "classes_path": '../../Resource/model_data/coco_classes.txt',
+        "model_image_size": (416, 416, 3),
+        "confidence": 0.5,
+        "iou": 0.3,
+        "cuda": True,
+        # ---------------------------------------------------------------------#
+        #   ¸Ã±äÁ¿ÓÃÓÚ¿ØÖÆÊÇ·ñÊ¹ÓÃletterbox_image¶ÔÊäÈëÍ¼Ïñ½øÐÐ²»Ê§ÕæµÄresize£¬
+        #   ÔÚ¶à´Î²âÊÔºó£¬·¢ÏÖ¹Ø±Õletterbox_imageÖ±½ÓresizeµÄÐ§¹û¸üºÃ
+        # ---------------------------------------------------------------------#
+        "letterbox_image": False,
     }
 
     @classmethod
@@ -55,7 +60,7 @@ class YOLO(object):
             return "Unrecognized attribute name '" + n + "'"
 
     # ---------------------------------------------------#
-    #   åˆå§‹åŒ–YOLO
+    #   ³õÊ¼»¯YOLO
     # ---------------------------------------------------#
     def __init__(self, **kwargs):
         self.__dict__.update(self._defaults)
@@ -64,7 +69,7 @@ class YOLO(object):
         self.generate()
 
     # ---------------------------------------------------#
-    #   èŽ·å¾—æ‰€æœ‰çš„åˆ†ç±»
+    #   »ñµÃËùÓÐµÄ·ÖÀà
     # ---------------------------------------------------#
     def _get_class(self):
         classes_path = os.path.expanduser(self.classes_path)
@@ -74,7 +79,7 @@ class YOLO(object):
         return class_names
 
     # ---------------------------------------------------#
-    #   èŽ·å¾—æ‰€æœ‰çš„å…ˆéªŒæ¡†
+    #   »ñµÃËùÓÐµÄÏÈÑé¿ò
     # ---------------------------------------------------#
     def _get_anchors(self):
         anchors_path = os.path.expanduser(self.anchors_path)
@@ -84,17 +89,17 @@ class YOLO(object):
         return np.array(anchors).reshape([-1, 3, 2])[::-1, :, :]
 
     # ---------------------------------------------------#
-    #   ç”Ÿæˆæ¨¡åž‹
+    #   Éú³ÉÄ£ÐÍ
     # ---------------------------------------------------#
     def generate(self):
         self.num_classes = len(self.class_names)
         # ---------------------------------------------------#
-        #   å»ºç«‹yolov3æ¨¡åž‹
+        #   ½¨Á¢yolov3Ä£ÐÍ
         # ---------------------------------------------------#
         self.net = YoloBody(self.anchors, self.num_classes)
 
         # ---------------------------------------------------#
-        #   è½½å…¥yolov3æ¨¡åž‹çš„æƒé‡
+        #   ÔØÈëyolov3Ä£ÐÍµÄÈ¨ÖØ
         # ---------------------------------------------------#
         print('Loading weights into state dict...')
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -107,7 +112,7 @@ class YOLO(object):
             self.net = self.net.cuda()
 
         # ---------------------------------------------------#
-        #   å»ºç«‹ä¸‰ä¸ªç‰¹å¾å±‚è§£ç ç”¨çš„å·¥å…·
+        #   ½¨Á¢Èý¸öÌØÕ÷²ã½âÂëÓÃµÄ¹¤¾ß
         # ---------------------------------------------------#
         self.yolo_decodes = []
         for i in range(3):
@@ -115,7 +120,7 @@ class YOLO(object):
                 DecodeBox(self.anchors[i], self.num_classes, (self.model_image_size[1], self.model_image_size[0])))
 
         print('{} model, anchors, and classes loaded.'.format(self.model_path))
-        # ç”»æ¡†è®¾ç½®ä¸åŒçš„é¢œè‰²
+        # »­¿òÉèÖÃ²»Í¬µÄÑÕÉ«
         hsv_tuples = [(x / len(self.class_names), 1., 1.)
                       for x in range(len(self.class_names))]
         self.colors = list(map(lambda x: colorsys.hsv_to_rgb(*x), hsv_tuples))
@@ -124,55 +129,55 @@ class YOLO(object):
                 self.colors))
 
     # ---------------------------------------------------#
-    #   æ£€æµ‹å›¾ç‰‡
+    #   ¼ì²âÍ¼Æ¬
     # ---------------------------------------------------#
     def detect_image(self, image):
         # ---------------------------------------------------------#
-        #   åœ¨è¿™é‡Œå°†å›¾åƒè½¬æ¢æˆRGBå›¾åƒï¼Œé˜²æ­¢ç°åº¦å›¾åœ¨é¢„æµ‹æ—¶æŠ¥é”™ã€‚
+        #   ÔÚÕâÀï½«Í¼Ïñ×ª»»³ÉRGBÍ¼Ïñ£¬·ÀÖ¹»Ò¶ÈÍ¼ÔÚÔ¤²âÊ±±¨´í¡£
         # ---------------------------------------------------------#
         image = image.convert('RGB')
 
         image_shape = np.array(np.shape(image)[0:2])
         # ---------------------------------------------------------#
-        #   letterboxçš„ä½œç”¨ï¼š
-        #       - ç»™å›¾åƒå¢žåŠ ç°æ¡ï¼Œå®žçŽ°ä¸å¤±çœŸçš„resize
-        #       - ä¹Ÿå¯ä»¥ç›´æŽ¥resizeè¿›è¡Œè¯†åˆ«
+        #   letterboxµÄ×÷ÓÃ£º
+        #       - ¸øÍ¼ÏñÔö¼Ó»ÒÌõ£¬ÊµÏÖ²»Ê§ÕæµÄresize
+        #       - Ò²¿ÉÒÔÖ±½Óresize½øÐÐÊ¶±ð
         # ---------------------------------------------------------#
         if self.letterbox_image:
             crop_img = np.array(letterbox_image(image, (self.model_image_size[1], self.model_image_size[0])))
         else:
             crop_img = image.resize((self.model_image_size[1], self.model_image_size[0]), Image.BICUBIC)
 
-        photo = np.array(crop_img, dtype=np.float32) / 255.0  # å½’ä¸€åŒ–
-        photo = np.transpose(photo, (2, 0, 1))  # é€šé“æ•°å˜æ¢
+        photo = np.array(crop_img, dtype=np.float32) / 255.0  # ¹éÒ»»¯
+        photo = np.transpose(photo, (2, 0, 1))  # Í¨µÀÊý±ä»»
         # ---------------------------------------------------------#
-        #   æ·»åŠ ä¸Šbatch_sizeç»´åº¦
+        #   Ìí¼ÓÉÏbatch_sizeÎ¬¶È
         # ---------------------------------------------------------#
         images = [photo]
 
         with torch.no_grad():
-            images = torch.from_numpy(np.asarray(images))  # åˆ°tensor
+            images = torch.from_numpy(np.asarray(images))  # µ½tensor
             if self.cuda:
                 images = images.cuda()
 
             # ---------------------------------------------------------#
-            #   å°†å›¾åƒè¾“å…¥ç½‘ç»œå½“ä¸­è¿›è¡Œé¢„æµ‹ï¼
+            #   ½«Í¼ÏñÊäÈëÍøÂçµ±ÖÐ½øÐÐÔ¤²â£¡
             # ---------------------------------------------------------#
             outputs = self.net(images)
             output_list = []
-            # å¯¹ä¸‰ä¸ªå±‚é¢„æµ‹ç»“æžœè¿›è¡Œç»˜åˆ¶
+            # ¶ÔÈý¸ö²ãÔ¤²â½á¹û½øÐÐ»æÖÆ
             for i in range(3):
                 output_list.append(self.yolo_decodes[i](outputs[i]))
 
             # ---------------------------------------------------------#
-            #   å°†é¢„æµ‹æ¡†è¿›è¡Œå †å ï¼Œç„¶åŽè¿›è¡Œéžæžå¤§æŠ‘åˆ¶
+            #   ½«Ô¤²â¿ò½øÐÐ¶Ñµþ£¬È»ºó½øÐÐ·Ç¼«´óÒÖÖÆ
             # ---------------------------------------------------------#
             output = torch.cat(output_list, 1)
             batch_detections = non_max_suppression(output, self.num_classes, conf_thres=self.confidence,
                                                    nms_thres=self.iou)
 
             # ---------------------------------------------------------#
-            #   å¦‚æžœæ²¡æœ‰æ£€æµ‹å‡ºç‰©ä½“ï¼Œè¿”å›žåŽŸå›¾
+            #   Èç¹ûÃ»ÓÐ¼ì²â³öÎïÌå£¬·µ»ØÔ­Í¼
             # ---------------------------------------------------------#
             try:
                 batch_detections = batch_detections[0].cpu().numpy()
@@ -180,7 +185,7 @@ class YOLO(object):
                 return image
 
             # ---------------------------------------------------------#
-            #   å¯¹é¢„æµ‹æ¡†è¿›è¡Œå¾—åˆ†ç­›é€‰
+            #   ¶ÔÔ¤²â¿ò½øÐÐµÃ·ÖÉ¸Ñ¡
             # ---------------------------------------------------------#
             top_index = batch_detections[:, 4] * batch_detections[:, 5] > self.confidence
             top_conf = batch_detections[top_index, 4] * batch_detections[top_index, 5]
@@ -190,9 +195,9 @@ class YOLO(object):
                 top_bboxes[:, 1], -1), np.expand_dims(top_bboxes[:, 2], -1), np.expand_dims(top_bboxes[:, 3], -1)
 
             # -----------------------------------------------------------------#
-            #   åœ¨å›¾åƒä¼ å…¥ç½‘ç»œé¢„æµ‹å‰ä¼šè¿›è¡Œletterbox_imageç»™å›¾åƒå‘¨å›´æ·»åŠ ç°æ¡
-            #   å› æ­¤ç”Ÿæˆçš„top_bboxesæ˜¯ç›¸å¯¹äºŽæœ‰ç°æ¡çš„å›¾åƒçš„
-            #   æˆ‘ä»¬éœ€è¦å¯¹å…¶è¿›è¡Œä¿®æ”¹ï¼ŒåŽ»é™¤ç°æ¡çš„éƒ¨åˆ†ã€‚
+            #   ÔÚÍ¼Ïñ´«ÈëÍøÂçÔ¤²âÇ°»á½øÐÐletterbox_image¸øÍ¼ÏñÖÜÎ§Ìí¼Ó»ÒÌõ
+            #   Òò´ËÉú³ÉµÄtop_bboxesÊÇÏà¶ÔÓÚÓÐ»ÒÌõµÄÍ¼ÏñµÄ
+            #   ÎÒÃÇÐèÒª¶ÔÆä½øÐÐÐÞ¸Ä£¬È¥³ý»ÒÌõµÄ²¿·Ö¡£
             # -----------------------------------------------------------------#
             if self.letterbox_image:
                 boxes = yolo_correct_boxes(top_ymin, top_xmin, top_ymax, top_xmax,
@@ -204,55 +209,13 @@ class YOLO(object):
                 top_ymax = top_ymax / self.model_image_size[0] * image_shape[0]
                 boxes = np.concatenate([top_ymin, top_xmin, top_ymax, top_xmax], axis=-1)
 
-        font = ImageFont.truetype(font='model_data/simhei.ttf',
-                                  size=np.floor(3e-2 * np.shape(image)[1] + 0.5).astype('int32'))
-
-        thickness = max((np.shape(image)[0] + np.shape(image)[1]) // self.model_image_size[0], 1)
-
-        """ç”»å›¾ä»£ç , éœ€è¦å°è£…ï¼Œä»Žè€Œæ–¹ä¾¿è°ƒç”¨"""
-        for i, c in enumerate(top_label):
-            predicted_class = self.class_names[c]
-            score = top_conf[i]
-
-            top, left, bottom, right = boxes[i]
-            top = top - 5
-            left = left - 5
-            bottom = bottom + 5
-            right = right + 5
-
-            top = max(0, np.floor(top + 0.5).astype('int32'))
-            left = max(0, np.floor(left + 0.5).astype('int32'))
-            bottom = min(np.shape(image)[0], np.floor(bottom + 0.5).astype('int32'))
-            right = min(np.shape(image)[1], np.floor(right + 0.5).astype('int32'))
-
-            # ç”»æ¡†æ¡†
-            label = '{} {:.2f}'.format(predicted_class, score)
-            draw = ImageDraw.Draw(image)
-            label_size = draw.textsize(label, font)
-            label = label.encode('utf-8')
-            print(label, top, left, bottom, right)
-
-            if top - label_size[1] >= 0:
-                text_origin = np.array([left, top - label_size[1]])
-            else:
-                text_origin = np.array([left, top + 1])
-
-            for i in range(thickness):
-                draw.rectangle(
-                    [left + i, top + i, right - i, bottom - i],
-                    outline=self.colors[self.class_names.index(predicted_class)])
-            draw.rectangle(
-                [tuple(text_origin), tuple(text_origin + label_size)],
-                fill=self.colors[self.class_names.index(predicted_class)])
-            draw.text(text_origin, str(label, 'UTF-8'), fill=(0, 0, 0), font=font)
-            del draw
-        return image
+            return image, self.model_image_size, top_label, top_conf, boxes, self.colors, self.class_names
 
     def get_FPS(self, image, test_interval):
         image_shape = np.array(np.shape(image)[0:2])
         # ---------------------------------------------------------#
-        #   ç»™å›¾åƒå¢žåŠ ç°æ¡ï¼Œå®žçŽ°ä¸å¤±çœŸçš„resize
-        #   ä¹Ÿå¯ä»¥ç›´æŽ¥resizeè¿›è¡Œè¯†åˆ«
+        #   ¸øÍ¼ÏñÔö¼Ó»ÒÌõ£¬ÊµÏÖ²»Ê§ÕæµÄresize
+        #   Ò²¿ÉÒÔÖ±½Óresize½øÐÐÊ¶±ð
         # ---------------------------------------------------------#
         if self.letterbox_image:
             crop_img = np.array(letterbox_image(image, (self.model_image_size[1], self.model_image_size[0])))
@@ -262,7 +225,7 @@ class YOLO(object):
         photo = np.array(crop_img, dtype=np.float32) / 255.0
         photo = np.transpose(photo, (2, 0, 1))
         # ---------------------------------------------------------#
-        #   æ·»åŠ ä¸Šbatch_sizeç»´åº¦
+        #   Ìí¼ÓÉÏbatch_sizeÎ¬¶È
         # ---------------------------------------------------------#
         images = [photo]
 
@@ -338,13 +301,95 @@ class YOLO(object):
         tact_time = (t2 - t1) / test_interval
         return tact_time
 
+    @property
+    def defaults(self):
+        return self._defaults
+
+
+class YoLoLocate:
+    def __init__(self, model_path: str, anchors_path: str, classes_path: str):
+        self.yolo_detect = YOLO()
+        # ÓÉÓÚpythonµÄÏà¶ÔÂ·¾¶ÊÇ´Óµ±Ç°ÔËÐÐÎÄ¼þ³ö·¢µÄ£¬ËùÒÔÐèÒª¸üÐÂ
+        temp = {"model_path": model_path, "anchors_path": anchors_path, "classes_path": classes_path}
+        for key in temp:
+            self.yolo_detect.defaults[key] = temp[key]
+        # print(self.yolo_detect.defaults)
+
+    def predict(self, img: np.ndarray, filter: list, font_path: str):
+        img = Image.fromarray(img)  # to PIL
+        image, model_image_size, top_label, top_conf, boxes, colors, class_names = self.yolo_detect.detect_image(img)
+
+        font = ImageFont.truetype(font=font_path,
+                                  size=np.floor(3e-2 * np.shape(image)[1] + 0.5).astype('int32'))
+
+        thickness = max((np.shape(image)[0] + np.shape(image)[1]) // model_image_size[0], 1)
+
+        predict_list = []  # Ô¤²â½á¹ûÔÝ´æ
+
+        for i, c in enumerate(top_label):
+            predicted_class = class_names[c]
+            score = top_conf[i]
+
+            top, left, bottom, right = boxes[i]
+            top = top - 5
+            left = left - 5
+            bottom = bottom + 5
+            right = right + 5
+
+            top = max(0, np.floor(top + 0.5).astype('int32'))
+            left = max(0, np.floor(left + 0.5).astype('int32'))
+            bottom = min(np.shape(image)[0], np.floor(bottom + 0.5).astype('int32'))
+            right = min(np.shape(image)[1], np.floor(right + 0.5).astype('int32'))
+
+            # »­¿ò¿ò
+            label = '{} {:.2f}'.format(predicted_class, score)
+
+
+
+        return image
+
+    def draw(self, img: np.ndarray, filter: list, font_path: str):
+
+
+        draw = ImageDraw.Draw(image)
+        label_size = draw.textsize(label, font)
+        label = label.encode('utf-8')
+        print(label, top, left, bottom, right)
+
+        if top - label_size[1] >= 0:
+            text_origin = np.array([left, top - label_size[1]])
+        else:
+            text_origin = np.array([left, top + 1])
+
+        for i in range(thickness):
+            draw.rectangle(
+                [left + i, top + i, right - i, bottom - i],
+                outline=colors[class_names.index(predicted_class)])
+        draw.rectangle(
+            [tuple(text_origin), tuple(text_origin + label_size)],
+            fill=colors[class_names.index(predicted_class)])
+        draw.text(text_origin, str(label, 'UTF-8'), fill=(0, 0, 0), font=font)
+        del draw
+
 
 if __name__ == '__main__':
     from PIL import Image
-    yolo = YOLO()
-    img_path = "F:/NutstoreData/code/project_practice/infusion-companion/Resource/DataSet/CAER-S/Test/Anger/0001.png"
-    img = Image.open(img_path)
-    r_img = yolo.detect_image(img)
-    r_img.show()
+    import cv2 as cv
 
-
+    locate = YoLoLocate("../../Resource/model_data/yolo_weights.pth",
+                        "../../Resource/model_data/yolo_anchors.txt",
+                        "../../Resource/model_data/coco_classes.txt")
+    # img_path = "F:/NutstoreData/code/project_practice/infusion-companion/Resource/DataSet/CAER-S/Test/Anger/0001.png"
+    img_path = "H:/pic/2.png"
+    # img = Image.open(img_path)
+    img = cv.imread(img_path)
+    while True:
+        img_path = "H:/pic/" + input("input pic: ")
+        img = cv.imread(img_path)
+        try:
+            predict = locate.predict(img, [], "../../Resource/model_data/simhei.ttf")
+            predict.show()
+        except:
+            pass
+    # r_img = yolo.detect_image(img)
+    # r_img.show()

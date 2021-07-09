@@ -40,7 +40,7 @@ class LocateTrain:
 
 if __name__ == '__main__':
     # l = LocateTrain("../../Resource/svm_label_xml/bottle.xml", "bottle_svm", c_count=10)
-    from utils.LocateObject.LocateRoI import LocateRoI
+    from utils.LocateObject.dlibLocate import LocateRoI
     import cv2 as cv
     svm_path = "../../Resource/svm/bottle_svm.svm"
     img_path = "../../Resource/LiquidlevelDataSet/11.jpg"

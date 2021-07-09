@@ -177,6 +177,7 @@ if __name__ == "__main__":
         cudnn.benchmark = True
         net = net.cuda()
 
+    # 对主干网络的三个输出进行针对性的loss检验
     yolo_loss = YOLOLoss(np.reshape(anchors, [-1, 2]), num_classes, (input_shape[1], input_shape[0]), Cuda, normalize)
     loss_history = LossHistory("logs/")
 
@@ -210,9 +211,10 @@ if __name__ == "__main__":
         lr = 1e-3
         Batch_size = 8
         Init_Epoch = 0
-        Freeze_Epoch = 50
+        Freeze_Epoch = 50  # 冻结需要进行多少轮
 
         optimizer = optim.Adam(net.parameters(), lr)
+        # 模型学习率的下降方式
         lr_scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=1, gamma=0.92)
 
         train_dataset = YoloDataset(lines[:num_train], (input_shape[0], input_shape[1]), True)
@@ -239,6 +241,7 @@ if __name__ == "__main__":
             lr_scheduler.step()
 
     if True:
+        # 解冻网络的训练
         lr = 1e-4
         Batch_size = 4
         Freeze_Epoch = 50
