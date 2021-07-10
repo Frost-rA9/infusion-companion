@@ -47,9 +47,9 @@ if __name__ == '__main__':
     server_socket2.listen(1)
     while True:
         client_socket1, client_info1 = server_socket1.accept()
-        client_socket2, client_info2 = server_socket2.accept()
         process1 = Process(target=ReceiveVideo, args=(client_socket1, client_info1))
         process1.start()
+        client_socket2, client_info2 = server_socket2.accept()
         process2 = Process(target=ReceiveVideo, args=(client_socket2, client_info2))
         process2.start()
     server_socket1.close()
