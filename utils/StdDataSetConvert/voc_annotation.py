@@ -36,12 +36,13 @@ sets = [('2007', 'train'), ('2007', 'val'), ('2007', 'test')]
 # -----------------------------------------------------#
 #   这里设定的classes顺序要和model_data里的txt一样
 # -----------------------------------------------------#
-classes = ["aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow", "diningtable", "dog",
-           "horse", "motorbike", "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor"]
-
+# classes = ["aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow", "diningtable", "dog",
+#            "horse", "motorbike", "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor"]
+classes = ["bottle", "face"]
 
 def convert_annotation(year, image_id, list_file):
-    in_file = open('VOCdevkit/VOC%s/Annotations/%s.xml' % (year, image_id), encoding='utf-8')
+    # in_file = open('VOCdevkit/VOC%s/Annotations/%s.xml' % (year, image_id), encoding='utf-8')
+    in_file = open('F:/DataSet/bottle/Locate/Annotations/%s.xml' % (image_id), encoding='utf-8')
     tree = ET.parse(in_file)
     root = tree.getroot()
 
@@ -60,13 +61,23 @@ def convert_annotation(year, image_id, list_file):
 
 
 wd = getcwd()
+"""官方代码"""
+# for year, image_set in sets:
+#     image_ids = open('VOCdevkit/VOC%s/ImageSets/Main/%s.txt' % (year, image_set),
+#                      encoding='utf-8').read().strip().split()
+#     list_file = open('%s_%s.txt' % (year, image_set), 'w', encoding='utf-8')
+#     for image_id in image_ids:
+#         list_file.write('%s/VOCdevkit/VOC%s/JPEGImages/%s.jpg' % (wd, year, image_id))
+#         convert_annotation(year, image_id, list_file)
+#         list_file.write('\n')
+#     list_file.close()
 
-for year, image_set in sets:
-    image_ids = open('VOCdevkit/VOC%s/ImageSets/Main/%s.txt' % (year, image_set),
-                     encoding='utf-8').read().strip().split()
-    list_file = open('%s_%s.txt' % (year, image_set), 'w', encoding='utf-8')
-    for image_id in image_ids:
-        list_file.write('%s/VOCdevkit/VOC%s/JPEGImages/%s.jpg' % (wd, year, image_id))
-        convert_annotation(year, image_id, list_file)
-        list_file.write('\n')
-    list_file.close()
+"""自己改的"""
+# ('2007', 'train'), ('2007', 'val'), ('2007', 'test')
+image_ids = open("F:/DataSet/bottle/Locate/ImageSets/train.txt", encoding="utf-8").read().strip().split()
+list_file = open("model_train.txt", 'w', encoding="utf-8")
+for image_id in image_ids:
+    list_file.write("F:/DataSet/bottle/Locate/pic/%s.jpg" % (image_id))
+    convert_annotation(0, image_id, list_file)
+    list_file.write("\n")
+list_file.close()

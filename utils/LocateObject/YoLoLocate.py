@@ -322,6 +322,7 @@ class YoLoLocate:
         predict_list = []  # Ô¤²â½á¹ûÔÝ´æ
 
         for i, c in enumerate(top_label):
+            # print(c)
             predicted_class = class_names[c]
             score = top_conf[i]
 

@@ -9,6 +9,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from net.DeepLabV3Plus.Classifier.Classifier import Classifier
 from net.BoneNet.MobileNet.mobilenetv2 import MobileNetV2
+from net.BoneNet.ResNet.ResNet101 import ResNet101
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -28,10 +29,10 @@ class DeepLabV3Plus(nn.Module):
         # 保留输入信息
         input_shape = x.shape[-2:]
         # 传递给bone_net
-        low_level_feat, output = self.bone_net(x)
+        output, low_level_feat = self.bone_net(x)
         # 获取特征字典
-        # low_level torch.Size([1, 2048, 64, 64])
-        # out torch.Size([1, 256, 128, 128])
+        # out torch.Size([1, 2048, 64, 64])
+        # low_level torch.Size([1, 256, 128, 128])
         features = {"low_level": low_level_feat, "out": output}
         # 交给分类器得出结果
         x = self.classifier(features)
@@ -41,13 +42,15 @@ class DeepLabV3Plus(nn.Module):
 
 if __name__ == "__main__":
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-    model = MobileNetV2(num_classes=7)
-    model.to(device)
-    classifier = Classifier(middle_channels=64, out_channels=1280, num_classes=7)
-    classifier.to(device)
+    # model = MobileNetV2(num_classes=7)
+    model = ResNet101.get_res_net101(BatchNorm=torch.nn.BatchNorm2d, pretrained=True, output_stride=8,
+                                     pretrained_loc="../../Resource/model_data/resnet101-5d3b4d8f.pth")
+    # model.to(device)
+    classifier = Classifier(middle_channels=256, out_channels=2048, num_classes=7)
+    # classifier.to(device)
     deep_lab_v3_plus = DeepLabV3Plus(model, classifier)
     deep_lab_v3_plus.to(device)
-    input = torch.rand(1, 3, 112, 112)
+    input = torch.rand(1, 3, 32, 32)
     input = input.to(device)
     import torch
     import numpy as np
@@ -56,4 +59,5 @@ if __name__ == "__main__":
     print(output.size())
     # print(output)
     print(torch.argmax(output, dim=1).size())
+    print(torch.argmax(output, dim=1))
     # # print(output)

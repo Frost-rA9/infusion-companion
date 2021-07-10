@@ -18,7 +18,8 @@ class ResNet101:
 
 
 if __name__ == "__main__":
-    model = ResNet101.get_res_net101(BatchNorm=torch.nn.BatchNorm2d, pretrained=True, output_stride=8)
+    model = ResNet101.get_res_net101(BatchNorm=torch.nn.BatchNorm2d, pretrained=True, output_stride=8,
+                                     pretrained_loc="../../../Resource/model_data/resnet101-5d3b4d8f.pth")
     input = torch.rand(1, 3, 512, 512)
     output, low_level_feat = model(input)
     print(output.size())

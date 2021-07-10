@@ -1,3 +1,5 @@
+# encoding=GBK
+
 # -------------------------------------#
 #       对数据集进行训练
 # -------------------------------------#
@@ -116,7 +118,7 @@ def fit_one_epoch(net, yolo_loss, epoch, epoch_size, epoch_size_val, gen, genval
     print('Epoch:' + str(epoch + 1) + '/' + str(Epoch))
     print('Total Loss: %.4f || Val Loss: %.4f ' % (total_loss / (epoch_size + 1), val_loss / (epoch_size_val + 1)))
     print('Saving state, iter:', str(epoch + 1))
-    torch.save(model.state_dict(), 'logs/Epoch%d-Total_Loss%.4f-Val_Loss%.4f.pth' % (
+    torch.save(model.state_dict(), 'l ogs/Epoch%d-Total_Loss%.4f-Val_Loss%.4f.pth' % (
     (epoch + 1), total_loss / (epoch_size + 1), val_loss / (epoch_size_val + 1)))
 
 
@@ -125,6 +127,8 @@ def fit_one_epoch(net, yolo_loss, epoch, epoch_size, epoch_size_val, gen, genval
 #   https://www.bilibili.com/video/BV1zE411u7Vw
 # ----------------------------------------------------#
 if __name__ == "__main__":
+    import os
+    os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
     # -------------------------------#
     #   是否使用Cuda
     #   没有GPU可以设置成False
@@ -148,7 +152,7 @@ if __name__ == "__main__":
     # ----------------------------------------------------#
     #   先验框anchor的路径
     # ----------------------------------------------------#
-    anchors_path = 'model_data/yolo_anchors.txt'
+    anchors_path = '../../Resource/model_data/yolo_anchors.txt'
     anchors = get_anchors(anchors_path)
     # ------------------------------------------------------#
     #   创建yolo模型
@@ -160,7 +164,7 @@ if __name__ == "__main__":
     # ------------------------------------------------------#
     #   权值文件请看README，百度网盘下载
     # ------------------------------------------------------#
-    model_path = "model_data/yolo_weights.pth"
+    model_path = "../../Resource/model_data/yolo_weights.pth"
     print('Loading weights into state dict...')
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     model_dict = model.state_dict()
@@ -184,7 +188,7 @@ if __name__ == "__main__":
     # ----------------------------------------------------#
     #   获得图片路径和标签
     # ----------------------------------------------------#
-    annotation_path = '2007_train.txt'
+    annotation_path = '../../Resource/model_data/model_train.txt'
     # ----------------------------------------------------------------------#
     #   验证集的划分在train.py代码里面进行
     #   2007_test.txt和2007_val.txt里面没有内容是正常的。训练不会使用到。
