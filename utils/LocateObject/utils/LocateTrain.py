@@ -43,7 +43,8 @@ if __name__ == '__main__':
     from utils.LocateObject.dlibLocate import LocateRoI
     import cv2 as cv
     svm_path = "../../../Resource/svm/trained/bottle_svm.svm"
-    img_path = "H:/pic/liquid/11.png"
+    # img_path = "H:/pic/liquid/11.png"
+    img_path = "F:/DataSet/bottle/Locate/pic/11.png"
     img = cv.imread(img_path)
     L = LocateRoI(svm_path)
     predict_list = L.predict(img)
