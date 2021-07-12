@@ -65,7 +65,7 @@ class ExpandMethod:
         self.add_Normalize()
     def add_Normalize(self):
         self.param_list.append( transforms.Normalize(
-            mean=(0.5060045),std= (0.21260363)))
+            mean=(0.5060045,0.5060045,0.5060045),std= (0.21260363,0.21260363,0.21260363)))
     def add_gray_scale(self):
         self.param_list.append(transforms.Grayscale(3))
 

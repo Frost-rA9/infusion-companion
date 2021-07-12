@@ -87,14 +87,14 @@ if __name__ == '__main__':
     ])
 
     # train_trans = transforms.Compose([transforms.ToTensor(), ])
-    train_set = LoadSingleFile(train_path="../../Resource/CAER-S/train",
-                               test_path="../../Resource/CAER-S/test",
+    train_set = LoadSingleFile(train_path="D:/code/CAER-S/train",
+                               test_path="D:/code/CAER-S/test",
                                is_train=True,
                                trans=train_trans,
                                resize=True)
 
-    test_set = LoadSingleFile( train_path="../../Resource/CAER-S/train",
-                               test_path="../../Resource/CAER-S/test",
+    test_set = LoadSingleFile( train_path="D:/code/CAER-S/train",
+                               test_path="D:/code/CAER-S/test",
                                is_train=False,
                                trans=test_trans,
                                resize=True)
