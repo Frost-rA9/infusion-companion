@@ -61,11 +61,11 @@ if __name__ == '__main__':
     listen_host = "0.0.0.0"
     port_1 = 6001
     port_2 = 6002
-    # Process_1 = Process(target=handle_1, args=(listen_host, port_1,))
-    # Process_1.start()
-    # Process_2 = Process(target=handle_2, args=(listen_host, port_2,))
-    # Process_2.start()
-    t1 = threading.Thread(target=handle_1, args=(listen_host, port_1))
-    t1.start()
-    t2 = threading.Thread(target=handle_2, args=(listen_host, port_2))
-    t2.start()
+    Process_1 = Process(target=handle_1, args=(listen_host, port_1,))
+    Process_1.start()
+    Process_2 = Process(target=handle_2, args=(listen_host, port_2,))
+    Process_2.start()
+    # t1 = threading.Thread(target=handle_1, args=(listen_host, port_1))
+    # t1.start()
+    # t2 = threading.Thread(target=handle_2, args=(listen_host, port_2))
+    # t2.start()
