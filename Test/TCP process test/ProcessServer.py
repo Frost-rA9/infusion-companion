@@ -3,10 +3,11 @@ from multiprocessing import Process
 import numpy
 import cv2
 import time
+import threading
 
 
 # 必须使用多进程而不是多线程！
-def ReceiveVideo(client_socket):
+def ReceiveVideo(client_socket, name):
     def Receive(sock, count):
         buf = b''
         while count:
@@ -25,7 +26,7 @@ def ReceiveVideo(client_socket):
         stringData = Receive(client_socket, int(length))
         data = numpy.frombuffer(stringData, numpy.uint8)
         decode_img = cv2.imdecode(data, cv2.IMREAD_COLOR)
-        cv2.imshow('SERVER', decode_img)
+        cv2.imshow(f'{name}', decode_img)
         k = cv2.waitKey(10) & 0xff
         if k == 27:
             break
@@ -42,7 +43,7 @@ def handle_1(host1, port1):
     server_socket_1.listen(1)
     while True:
         client_socket_1, client_info_1 = server_socket_1.accept()
-        ReceiveVideo(client_socket_1)
+        ReceiveVideo(client_socket_1, 'camera1')
     server_socket_1.close()
 
 
@@ -52,7 +53,7 @@ def handle_2(host2, port2):
     server_socket_2.listen(1)
     while True:
         client_socket_2, client_info_2 = server_socket_2.accept()
-        ReceiveVideo(client_socket_2)
+        ReceiveVideo(client_socket_2, 'camera2')
     server_socket_2.close()
 
 
@@ -60,11 +61,11 @@ if __name__ == '__main__':
     listen_host = "0.0.0.0"
     port_1 = 6001
     port_2 = 6002
-    Process_1 = Process(target=handle_1, args=(listen_host, port_1))
-    Process_1.start()
-    Process_2 = Process(target=handle_2, args=(listen_host, port_2))
-    Process_2.start()
-    # t1 = threading.Thread(target=handle_1, args=(listen_host, port_1))
-    # t1.start()
-    # t2 = threading.Thread(target=handle_2, args=(listen_host, port_2))
-    # t2.start()
+    # Process_1 = Process(target=handle_1, args=(listen_host, port_1,))
+    # Process_1.start()
+    # Process_2 = Process(target=handle_2, args=(listen_host, port_2,))
+    # Process_2.start()
+    t1 = threading.Thread(target=handle_1, args=(listen_host, port_1))
+    t1.start()
+    t2 = threading.Thread(target=handle_2, args=(listen_host, port_2))
+    t2.start()
