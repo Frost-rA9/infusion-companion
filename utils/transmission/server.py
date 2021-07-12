@@ -41,16 +41,15 @@ class Server:
             stringData = Receive(client_socket, int(length))
             data = numpy.frombuffer(stringData, numpy.uint8)
             decode_img = cv2.imdecode(data, cv2.IMREAD_COLOR)
-            yield decode_img
-        #     cv2.imshow(f'{name}', decode_img)
-        #     k = cv2.waitKey(10) & 0xff
-        #     if k == 27:
-        #         break
-        #     end = time.time()
-        #     seconds = end - start
-        #     fps = 1 / seconds
-        #     client_socket.send(bytes(str(int(fps)), encoding='utf-8'))
-        # cv2.destroyAllWindows()
+            cv2.imshow(f'{name}', decode_img)
+            k = cv2.waitKey(10) & 0xff
+            if k == 27:
+                break
+            end = time.time()
+            seconds = end - start
+            fps = 1 / seconds
+            client_socket.send(bytes(str(int(fps)), encoding='utf-8'))
+        cv2.destroyAllWindows()
 
     def handle_1(self):
         while True:
