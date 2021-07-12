@@ -55,11 +55,19 @@ class ExpandMethod:
 
     def init_param_list(self):
         # self.add_to_PIL()
-        self.add_resize()
+        # self.add_resize()
+        self.add_gray_scale()
         self.add_rand_augment()
+
         self.add_to_tensor()
         self.add_rand_erasing()
         # self.add_scale()
+        self.add_Normalize()
+    def add_Normalize(self):
+        self.param_list.append( transforms.Normalize(
+            mean=(0.5060045,0.5060045,0.5060045),std= (0.21260363,0.21260363,0.21260363)))
+    def add_gray_scale(self):
+        self.param_list.append(transforms.Grayscale(3))
 
     def add_scale(self):
         self.param_list.append(transforms.Scale((400, 712)))
