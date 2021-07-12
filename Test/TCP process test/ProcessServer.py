@@ -6,7 +6,7 @@ import time
 
 
 # 必须使用多进程而不是多线程！
-def ReceiveVideo(client_socket, client_info):
+def ReceiveVideo(client_socket):
     def Receive(sock, count):
         buf = b''
         while count:
@@ -36,21 +36,35 @@ def ReceiveVideo(client_socket, client_info):
     cv2.destroyAllWindows()
 
 
-if __name__ == '__main__':
-    server_socket1 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket2 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    address1 = ('0.0.0.0', 6001)
-    address2 = ('0.0.0.0', 6002)
-    server_socket1.bind(address1)
-    server_socket2.bind(address2)
-    server_socket1.listen(1)
-    server_socket2.listen(1)
+def handle_1(host1, port1):
+    server_socket_1 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket_1.bind((host1, port1))
+    server_socket_1.listen(1)
     while True:
-        client_socket1, client_info1 = server_socket1.accept()
-        process1 = Process(target=ReceiveVideo, args=(client_socket1, client_info1))
-        process1.start()
-        client_socket2, client_info2 = server_socket2.accept()
-        process2 = Process(target=ReceiveVideo, args=(client_socket2, client_info2))
-        process2.start()
-    server_socket1.close()
-    server_socket2.close()
+        client_socket_1, client_info_1 = server_socket_1.accept()
+        ReceiveVideo(client_socket_1)
+    server_socket_1.close()
+
+
+def handle_2(host2, port2):
+    server_socket_2 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket_2.bind((host2, port2))
+    server_socket_2.listen(1)
+    while True:
+        client_socket_2, client_info_2 = server_socket_2.accept()
+        ReceiveVideo(client_socket_2)
+    server_socket_2.close()
+
+
+if __name__ == '__main__':
+    listen_host = "0.0.0.0"
+    port_1 = 6001
+    port_2 = 6002
+    Process_1 = Process(target=handle_1, args=(listen_host, port_1))
+    Process_1.start()
+    Process_2 = Process(target=handle_2, args=(listen_host, port_2))
+    Process_2.start()
+    # t1 = threading.Thread(target=handle_1, args=(listen_host, port_1))
+    # t1.start()
+    # t2 = threading.Thread(target=handle_2, args=(listen_host, port_2))
+    # t2.start()
