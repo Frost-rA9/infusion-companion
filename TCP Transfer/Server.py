@@ -1,7 +1,6 @@
 import cv2
 import numpy
 import socket
-import time
 from multiprocessing import Process
 import threading
 
@@ -34,7 +33,6 @@ class Server:
             return buf
 
         while 1:
-            start = time.time()
             length = Receive(client_socket, 16)
             if length is None:
                 break
@@ -45,10 +43,6 @@ class Server:
             k = cv2.waitKey(10) & 0xff
             if k == 27:
                 break
-            end = time.time()
-            seconds = end - start
-            fps = 1 / seconds
-            client_socket.send(bytes(str(int(fps)), encoding='utf-8'))
         cv2.destroyAllWindows()
 
     def handle_1(self):
@@ -65,8 +59,12 @@ class Server:
 
 
 if __name__ == '__main__':
-    Server = Server()
-    t1 = threading.Thread(target=Server.handle_1)
-    t1.start()
-    t2 = threading.Thread(target=Server.handle_2)
-    t2.start()
+    server = Server()
+    Process1 = Process(target=server.handle_1)
+    Process1.start()
+    Process2 = Process(target=server.handle_2)
+    Process2.start()
+    # t1 = threading.Thread(target=server.handle_1)
+    # t1.start()
+    # t2 = threading.Thread(target=server.handle_2)
+    # t2.start()
