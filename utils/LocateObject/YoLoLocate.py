@@ -308,17 +308,18 @@ class YOLO(object):
 
 class YoLoLocate:
     def __init__(self, model_path: str, anchors_path: str, classes_path: str):
-        self.yolo_detect = YOLO()
         # 由于python的相对路径是从当前运行文件出发的，所以需要更新
         temp = {"model_path": model_path, "anchors_path": anchors_path, "classes_path": classes_path}
         for key in temp:
-            self.yolo_detect.defaults[key] = temp[key]
-        # print(self.yolo_detect.defaults)
+            YOLO._defaults[key] = temp[key]
+        self.yolo_detect = YOLO()
 
     def predict(self, img: np.ndarray):
         img = Image.fromarray(img)  # to PIL
-        image, model_image_size, top_label, top_conf, boxes, colors, class_names = self.yolo_detect.detect_image(img)
-
+        try:
+            image, model_image_size, top_label, top_conf, boxes, colors, class_names = self.yolo_detect.detect_image(img)
+        except:
+            return None
         predict_list = []  # 预测结果暂存
 
         for i, c in enumerate(top_label):
@@ -343,14 +344,18 @@ class YoLoLocate:
         return image, model_image_size, colors, class_names, predict_list
 
     def draw(self, img: np.ndarray, filter: list, font_path: str):
-        image, model_image_size, colors, class_names, predict_list = self.predict(img)
+        try:
+            image, model_image_size, colors, class_names, predict_list = self.predict(img)
+        except:
+            return Image.fromarray(img)
         font = ImageFont.truetype(font=font_path,
                                   size=np.floor(3e-2 * np.shape(image)[1] + 0.5).astype('int32'))
         thickness = max((np.shape(image)[0] + np.shape(image)[1]) // model_image_size[0], 1)
 
         for predicted_class, label, top, left, bottom, right in predict_list:
-            if not label.split()[0] in filter:
-                pass
+            if filter:  # filter存在时才进行过滤
+                if not label.split()[0] in filter:
+                    pass
 
             draw = ImageDraw.Draw(image)
             label_size = draw.textsize(label, font)
@@ -378,18 +383,18 @@ if __name__ == '__main__':
     from PIL import Image
     import cv2 as cv
 
-    locate = YoLoLocate("../../Resource/model_data/yolo_weights.pth",
+    # locate = YoLoLocate("../../Resource/model_data/yolo_weights.pth",
+    #                     "../../Resource/model_data/yolo_anchors.txt",
+    #                     "../../Resource/model_data/coco_classes.txt")
+    locate = YoLoLocate("../../Resource/model_data/test_model/yolo/Epoch12-Total_Loss11.4916-Val_Loss8.8832.pth",
                         "../../Resource/model_data/yolo_anchors.txt",
-                        "../../Resource/model_data/coco_classes.txt")
-    # img_path = "F:/NutstoreData/code/project_practice/infusion-companion/Resource/DataSet/CAER-S/Test/Anger/0001.png"
-    img_path = "H:/pic/2.png"
-    # img = Image.open(img_path)
-    img = cv.imread(img_path)
+                        "../../Resource/model_data/infusion_classes.txt")
+    # img_path = "F:/NutstoreData/code/project_practice/infusion-companion/Resource/DataSet/CAER-S/Test/Anger/0001.png
     while True:
         img_path = "H:/pic/" + input("input pic: ")
         img = cv.imread(img_path)
         try:
-            predict = locate.draw(img, ['chair', 'bottle'], "../../Resource/model_data/simhei.ttf")
+            predict = locate.draw(img, None, "../../Resource/model_data/simhei.ttf")
             predict.show()
         except:
             pass

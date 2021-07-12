@@ -118,7 +118,7 @@ def fit_one_epoch(net, yolo_loss, epoch, epoch_size, epoch_size_val, gen, genval
     print('Epoch:' + str(epoch + 1) + '/' + str(Epoch))
     print('Total Loss: %.4f || Val Loss: %.4f ' % (total_loss / (epoch_size + 1), val_loss / (epoch_size_val + 1)))
     print('Saving state, iter:', str(epoch + 1))
-    torch.save(model.state_dict(), 'l ogs/Epoch%d-Total_Loss%.4f-Val_Loss%.4f.pth' % (
+    torch.save(model.state_dict(), 'logs/Epoch%d-Total_Loss%.4f-Val_Loss%.4f.pth' % (
     (epoch + 1), total_loss / (epoch_size + 1), val_loss / (epoch_size_val + 1)))
 
 
@@ -148,7 +148,7 @@ if __name__ == "__main__":
     #   需要修改num_classes直接修改此处的num_classes即可
     #   如果需要检测5个类, 这里就写5. 默认为20
     # ------------------------------------------------------#
-    num_classes = 20
+    num_classes = 2
     # ----------------------------------------------------#
     #   先验框anchor的路径
     # ----------------------------------------------------#

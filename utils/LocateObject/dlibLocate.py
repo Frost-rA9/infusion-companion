@@ -40,7 +40,4 @@ class LocateRoI:
         predict_list = self.predict(img)
         for start, end in predict_list:
             cv.rectangle(img, start, end, color, think)
-            # print(start, end, color, think)
-        # img = cv.resize(img, (1200, 800))
-        cv.imshow("predict", img)
-        cv.waitKey(0)
+        return img

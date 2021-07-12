@@ -23,18 +23,16 @@ deep_lab_v3_plus.to(device)
 
 # 2. 损失器优化器建立
 criterion = nn.BCELoss()
-optimizer = optim.Adam(deep_lab_v3_plus.parameters(), lr=0.01)
+optimizer = optim.Adam(deep_lab_v3_plus.parameters(), lr=0.0001)
 
 # 3. 数据集转换
 train_trans = transforms.Compose([
-
-    transforms.Resize((200, 150)),
+    transforms.Resize((400, 300)),
     transforms.ToTensor(),
 ])
 
 test_trans = transforms.Compose([
-
-    transforms.Resize((200, 150)),
+    transforms.Resize((400, 300)),
     transforms.ToTensor(),
 ])
 

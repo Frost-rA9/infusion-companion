@@ -4,15 +4,19 @@
     -
 """
 import cv2 as cv
-import matplotlib.pyplot as plt
 from deepface import DeepFace
+
+
+# class DeepFaceDetect:
+#
+
 
 img = cv.imread("../../Resource/face_test.png")
 img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
 # plt.imshow(img)
 # predict = DeepFace.analyze(img)
 # print(predict)
-faceCascade = cv.CascadeClassifier(cv.data.haarcascades +'haarcascade_frontalface_default.xml')
+faceCascade = cv.CascadeClassifier(cv.data.haarcascades + 'haarcascade_frontalface_default.xml')
 # print(cv.data.haarcascades)
 # file = open("../../Resource/model_data/haarcascade_frontalface_default.htm")
 
@@ -23,5 +27,5 @@ faces = faceCascade.detectMultiScale(img, 1.1, 4)
 for (x, y, u, v) in faces:
     cv.rectangle(img, (x, y), (x + u, y + v), (0, 0, 225), 2)
 
-plt.imshow(img)
-plt.show()
+# plt.imshow(img)
+# plt.show()

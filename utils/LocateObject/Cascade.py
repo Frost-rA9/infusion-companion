@@ -23,4 +23,24 @@ class Cascade:
         self.faceCascade = cv.CascadeClassifier(cv.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
     def detect_face(self, img: np.ndarray):
-        pass
+        faces = self.faceCascade.detectMultiScale(img, 1.1, 4)
+        l = []
+        for left, top, width, height in faces:
+            l.append(( (left, top), (left + width, top + height) ))
+        return l
+
+    def plot_rect(self, img):
+        """直接返回绘制好的图像"""
+        l = self.detect_face(img)
+        for (left, top), (right, end) in l:
+            cv.rectangle(img, (left, top), (right, end), color=(0, 0, 255), thickness=2)
+        return img
+
+
+if __name__ == '__main__':
+    img_path = "../../Resource/face_test.png"
+    img = cv.imread(img_path)
+    c = Cascade()
+    img = c.plot_rect(img)
+    cv.imshow("face_rect", img)
+    cv.waitKey(0)
