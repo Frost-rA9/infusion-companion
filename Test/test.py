@@ -11,6 +11,6 @@ def get_pic():
 # for f in get_pic():
 #     cv.imshow("img", f)
 #     cv.waitKey(0)
-l = [True, False]
+l = [True, True]
 if False in l:
     print("hh")

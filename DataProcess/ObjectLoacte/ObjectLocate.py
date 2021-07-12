@@ -46,13 +46,15 @@ class ObjectLocate:
         if not bottle_loc:
             loc_list[0] = False  # 没找到设定标记，交给yolo
         else:
-            loc_list[0] = [bottle_loc]  # 找到创建一个列表
+            loc_list[0] = bottle_loc  # 找到创建一个列表
 
         face_loc = self.get_face_loc(img)
         if not face_loc:
             loc_list[1] = False
         else:
-            loc_list[1] = [face_loc]
+            loc_list[1] = face_loc
+
+        # print(False in loc_list)
 
         if False in loc_list:  # 实际上就是减少后台数据处理的消耗时间
             loc_data = self.get_all_loc(img)
@@ -60,6 +62,10 @@ class ObjectLocate:
                 return loc_list  # yolo都检测不到直接返回
             else:
                 classes_list = ['bottle', 'face']
+                for i in range(len(loc_list)):
+                    if not loc_list[i]:
+                        loc_list[i] = []
+
                 for data_list in loc_data:
                     index = classes_list.index(data_list[0])
                     # ( (left, top), (right, end) )
@@ -108,20 +114,25 @@ def get_pic():
 
 
 if __name__ == '__main__':
-    # img_path = "H:/pic/2.png"
-    img_path = "../../Resource/face_test.png"
-    img = cv.imread(img_path)
-
     _object = ObjectLocate()
-    # _object.get_locate(img)
-    # loc = _object.get_all_loc(img)
-    # cv.imshow("img", loc)
-    # cv.waitKey(0)
-    # print(loc)
-    #
+
+    color_list = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
     for pic in get_pic():
         pic = cv.resize(pic, (800, 600))
-        img = _object.get_loc(pic)
-        print(img)
+        loc_list = _object.get_loc(pic)
+        bottle_loc, face_loc = loc_list
+        print(loc_list)
+        if bottle_loc:
+            for start, end in bottle_loc:
+                cv.rectangle(pic, start, end, color=color_list[0], thickness=2)
+            flag = True
+        if face_loc:
+            for start, end in face_loc:
+                cv.rectangle(pic, start, end, color=color_list[1], thickness=2)
+            flag = True
+
+        cv.imshow("pic", pic)
+        cv.waitKey(1)
+
         # cv.imshow("img", img)
         # cv.waitKey(1)
