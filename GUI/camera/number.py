@@ -1,11 +1,17 @@
+import cv2
+
+
 class number:
-    import cv2
-    index = 0
-    while True:
-        cap = cv2.VideoCapture(index, cv2.CAP_DSHOW)
-        if not cap.isOpened():
-            break
-        else:
-            index += 1
-        print(index)
-        cap.release()
+    def __init__(self):
+        self.index = 0
+        self.count()
+
+    def count(self):
+        while True:
+            # cap = cv2.VideoCapture(self.index, cv2.CAP_DSHOW)
+            cap = cv2.VideoCapture(self.index)
+            if not cap.isOpened():
+                break
+            else:
+                self.index += 1
+            cap.release()

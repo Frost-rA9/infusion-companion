@@ -26,7 +26,6 @@ import datetime
 class HeadSignal(QObject):
     # 定义head的全部的signal
     date_update = Signal(str)
-    connect_number_update = Signal(str)
 
 
 class head:
