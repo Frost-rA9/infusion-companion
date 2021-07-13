@@ -3,7 +3,12 @@
 
     - 液位检测的主逻辑部分
 
-    1. 直方图均衡化
+    - 传统方案：
+        - 阈值检测
+
+    - 模型方案：
+        - DeepLabV3分割
+
 """
 import torch
 import cv2 as cv
@@ -12,7 +17,7 @@ from torchvision import transforms
 import torch.nn as nn
 
 from utils.Caculate.LiquidLeftCal import LiquidLeftCal
-from net.DeepLabV3Plus.DeepLabV3Plus import DeepLabV3Plus
+# from net.DeepLabV3Plus.DeepLabV3Plus import DeepLabV3Plus
 
 
 class LiquidLevelDetect:
@@ -24,7 +29,9 @@ class LiquidLevelDetect:
         self.liquid_cal = LiquidLeftCal()
 
     def level_predict(self, img: np.ndarray):
-        img = cv.resize(img, (400, 300))  # 电脑跑不动
+        # 0. resize
+        img = cv.resize(img, (400, 300))
+
         # 1. img->tensor
         to_tensor = transforms.ToTensor()
         tensor_img = to_tensor(img)
@@ -41,16 +48,15 @@ class LiquidLevelDetect:
 
         # 4. cal
         predict_level = self.liquid_cal.get_cur_liquid(predict_data)
-        img = self.liquid_cal.predict_show(predict_data)
-        # cv.imshow("img", img)
-        # cv.waitKey(0)
+        # img = self.liquid_cal.predict_show(predict_data)
+        # return img
 
         # 5. return predict
         return predict_level
 
 
 if __name__ == '__main__':
-    img_path = "F:/DataSet/bottle/segmentation/dir_json/test/73_json/img.png"
+    img_path = "F:/DataSet/bottle/segmentation/dir_json/train/2_json/img.png"
     img = cv.imread(img_path)
     liquid = LiquidLevelDetect()
     data = liquid.level_predict(img)

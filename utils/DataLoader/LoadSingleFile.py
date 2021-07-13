@@ -28,12 +28,13 @@ import os
 import torch
 import cv2
 
+
 class LoadSingleFile(Dataset):
     def __init__(self,
                  train_path: str,
                  test_path: str,
                  is_train: bool,
-                 trans = None,
+                 trans=None,
                  resize=False):
 
         # 0 anger ÉúÆø
@@ -67,6 +68,7 @@ class LoadSingleFile(Dataset):
             for file_name in os.listdir(absolute_path):
                 file_path = absolute_path + "/" + file_name
                 self.img_list.append((file_path, int(class_number)))
+
     def get_num_classes(self):
         return 7
 
@@ -74,22 +76,19 @@ class LoadSingleFile(Dataset):
         img_path, label = self.img_list[index]
         img = Image.open(img_path)
         if self.resize:
-            img=img.resize((400, 400),Image.ANTIALIAS)
+            img = img.resize((400, 400), Image.ANTIALIAS)
         if self.trans:
-                # img=np.array(img)
-                # img_expend=np.zeros((299, 299), dtype=np.uint8)
-                # img_expend[:48,:48]=img
-                # img=img_expend
-                # img = Image.fromarray(img)
+            # img=np.array(img)
+            # img_expend=np.zeros((299, 299), dtype=np.uint8)
+            # img_expend[:48,:48]=img
+            # img=img_expend
+            # img = Image.fromarray(img)
             img = self.trans(img)
 
         return img, torch.tensor(label)
 
     def __len__(self):
         return len(self.img_list)
-
-
-
 
 
 if __name__ == '__main__':
