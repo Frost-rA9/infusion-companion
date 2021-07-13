@@ -32,8 +32,8 @@ class video_image:
             time.sleep(1)
             pass
         last_number = self.camera_number
-        cap = cv.VideoCapture(self.camera_number, cv.CAP_DSHOW)
-        # cap = cv.VideoCapture(self.camera_number)
+        # cap = cv.VideoCapture(self.camera_number, cv.CAP_DSHOW)
+        cap = cv.VideoCapture(self.camera_number)
         ret, frame = cap.read()
         while ret:
             frame = cv.resize(frame, self.size)

@@ -8,8 +8,8 @@ class number:
 
     def count(self):
         while True:
-            # cap = cv2.VideoCapture(self.index, cv2.CAP_DSHOW)
-            cap = cv2.VideoCapture(self.index)
+            cap = cv2.VideoCapture(self.index, cv2.CAP_DSHOW)
+            # cap = cv2.VideoCapture(self.index)
             if not cap.isOpened():
                 break
             else:

@@ -11,7 +11,7 @@ class Client:
         self.hostname = socket.gethostname()
         self.host = socket.gethostbyname(self.hostname)
         # 设置端口，端口需要和服务端的一个监听项保持一只
-        self.port = 1721
+        self.port = 1722
         # 创建socket套接字
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -24,7 +24,7 @@ class Client:
             sys.exit(1)
         # 建立连接成功后开始传输视频数据
         # 函数中的参数可以更改为视频文件地址，填0表示客户端设备的1号摄像头
-        capture = cv2.VideoCapture("../Resource/DataSet/CAER/TEST/Anger/0001.avi")
+        capture = cv2.VideoCapture("../Resource/DataSet/CAER/TEST/Anger/0002.avi")
         # 截取一帧图像，ret代表有无帧，frame为截取到的图像
         ret, frame = capture.read()
         # 压缩参数，0-100，100为最好，目前没有测试未压缩传输
