@@ -27,7 +27,10 @@ class LiquidLeftCal:
 
     def cal_img(self, img: np.ndarray):
         count = np.bincount(img.flatten())
-        self.cur_img_data = list(count)
+        # self.cur_img_data = list(count)
+        count_list = list(count)  # 注意有可能没检测到full,empty等导致长度会变小
+        count_list.extend([0 for i in range(len(self.cur_img_data) - len(count_list))])
+        self.cur_img_data = count_list
 
     def get_cur_liquid(self, img: np.ndarray):
         self.cal_img(img)  # 像素点统计

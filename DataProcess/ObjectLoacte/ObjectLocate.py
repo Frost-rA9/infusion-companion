@@ -17,7 +17,8 @@ class ObjectLocate:
                  svm_path="../../Resource/svm/trained/bottle_svm.svm",
                  yolo_wight="../../Resource/model_data/test_model/yolo/Epoch12-Total_Loss11.4916-Val_Loss8.8832.pth",
                  yolo_anchors="../../Resource/model_data/yolo_anchors.txt",
-                 yolo_predict_class="../../Resource/model_data/infusion_classes.txt"):
+                 yolo_predict_class="../../Resource/model_data/infusion_classes.txt",
+                 ):
         self.bottle_locate_svm = LocateRoI(svm_path)
         self.yolo_locate = YoLoLocate(yolo_wight, yolo_anchors, yolo_predict_class)
         self.cascade = Cascade()
@@ -125,11 +126,9 @@ if __name__ == '__main__':
         if bottle_loc:
             for start, end in bottle_loc:
                 cv.rectangle(pic, start, end, color=color_list[0], thickness=2)
-            flag = True
         if face_loc:
             for start, end in face_loc:
                 cv.rectangle(pic, start, end, color=color_list[1], thickness=2)
-            flag = True
 
         cv.imshow("pic", pic)
         cv.waitKey(1)

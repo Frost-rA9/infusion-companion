@@ -17,16 +17,16 @@ class ExpressionDetect:
                  model_path="../../Resource/model_data/test_model/GoogLeNet/0.6515_model.pth"):
         print("init GoogLeNet..")
         self.model = torch.load(model_path)
-        print("init finished")
-        self.expression_dict = {
-            0: "anger",  # 生气
-            1: "disgust",  # 厌恶
-            2: "fear",  # 恐惧
-            3: "happy",  # 开心
-            4: "sad",  # 伤心
-            5: "surprised",  # 惊讶
-            6: "normal"  # 中性
-        }
+        print("GoogLeNet init finished")
+        # self.expression_dict = {
+        #     0: "anger",  # 生气
+        #     1: "disgust",  # 厌恶
+        #     2: "fear",  # 恐惧
+        #     3: "happy",  # 开心
+        #     4: "sad",  # 伤心
+        #     5: "surprised",  # 惊讶
+        #     6: "normal"  # 中性
+        # }
 
     def predict(self, img: np.ndarray):
         # 0. resize
@@ -45,14 +45,14 @@ class ExpressionDetect:
         predict_img = predict_img.squeeze(0)
         predict_data = predict_img.data.cpu().numpy()
 
-        print(predict_data)
+        # print(predict_data)
 
         # 4. get class
-        predict_expression = self.expression_dict[int(predict_data)]
+        # predict_expression = self.expression_dict[int(predict_data)]
 
         # 5. return predict
-        return predict_expression
-
+        # return predict_expression
+        return predict_data  # 获取类别交给DataProcess.py
 
 if __name__ == '__main__':
     img_path = "../../Resource/DataSet/CAER-S/0/1.jpg"
