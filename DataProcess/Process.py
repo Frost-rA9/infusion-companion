@@ -17,7 +17,7 @@ from DataProcess.ObjectLoacte.ObjectLocate import ObjectLocate
 class DataProcess:
     def __init__(self,
                  svm_path="../Resource/svm/trained/bottle_svm.svm",
-                 yolo_wight="../Resource/model_data/test_model/yolo/bottle_and_face.pth",
+                 yolo_wight="../Resource/model_data/test_model/yolo/bottle.pth",
                  yolo_anchors="../Resource/model_data/yolo_anchors.txt",
                  yolo_predict_class="../Resource/model_data/infusion_classes.txt",
                  liquid_model_path="../Resource/model_data/test_model/DeepLabV3Plus/loss_81.27143794298172_0.9152_.pth",
@@ -33,13 +33,14 @@ class DataProcess:
         self.liquid_level = [0]
         # 表情的字典
         self.expression_dict = {
-            0: "anger",  # 生气
-            1: "disgust",  # 厌恶
-            2: "fear",  # 恐惧
-            3: "happy",  # 开心
-            4: "sad",  # 伤心
-            5: "surprised",  # 惊讶
-            6: "normal"  # 中性
+            0: "un_detect",
+            1: "anger",  # 生气
+            2: "disgust",  # 厌恶
+            3: "fear",  # 恐惧
+            4: "happy",  # 开心
+            5: "sad",  # 伤心
+            6: "surprised",  # 惊讶
+            7: "normal"  # 中性
         }
 
     def process_seq(self, img: np.ndarray):
@@ -77,7 +78,7 @@ class DataProcess:
             for roi in face_roi:
                 if len(roi) != 0:
                     expression = self.expression_detect.predict(roi)
-                    expression_list[expression] += 1
+                    expression_list[expression + 1] += 1
         # 主要是当前环境复杂，采取投票机制
         # 后续如果有更多的人脸，那么必须得改
         expression = self.expression_dict[max(expression_list)]

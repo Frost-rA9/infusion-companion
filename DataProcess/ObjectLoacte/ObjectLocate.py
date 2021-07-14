@@ -44,12 +44,14 @@ class ObjectLocate:
         loc_list = [True, True]  # 表示找没找到
 
         bottle_loc = self.get_bottle_loc(img)
+        # bottle_loc = None
         if not bottle_loc:
             loc_list[0] = False  # 没找到设定标记，交给yolo
         else:
             loc_list[0] = bottle_loc  # 找到创建一个列表
 
         face_loc = self.get_face_loc(img)
+        # face_loc = None
         if not face_loc:
             loc_list[1] = False
         else:
@@ -60,7 +62,7 @@ class ObjectLocate:
         if False in loc_list:  # 实际上就是减少后台数据处理的消耗时间
             loc_data = self.get_all_loc(img)
             if not loc_data:
-                return loc_list  # yolo都检测不到直接返回
+                return self.reliable_detect(loc_list)  # yolo都检测不到直接返回
             else:
                 classes_list = ['bottle', 'face']
                 for i in range(len(loc_list)):
@@ -71,6 +73,40 @@ class ObjectLocate:
                     index = classes_list.index(data_list[0])
                     # ( (left, top), (right, end) )
                     loc_list[index].append(( (data_list[2], data_list[3]), (data_list[4], data_list[5]) ))
+        return self.reliable_detect(loc_list)
+
+    def reliable_detect(self, loc_list: list):
+        """实际使用过程中出现了负数， 所以需要过滤"""
+        # [[((435, -159), (733, 585))], [((546, 305), (667, 426))]]
+        bottle_loc, face_loc = loc_list
+        if bottle_loc:
+            for index in range(len(bottle_loc)):
+                start, end = bottle_loc[index]
+                left, top = start
+                right, end = end
+                temp_list = list(map(abs, [left, top, right, end]))
+                # if temp_list[0] > temp_list[2]:
+                #     pass
+                # if temp_list[1] > temp_list[3]:
+                #     pass
+
+                bottle_loc[index] = (temp_list[0], temp_list[1]), (temp_list[2], temp_list[3])
+
+        if face_loc:
+            for index in range(len(face_loc)):
+                start, end = face_loc[index]
+                left, top = start
+                right, end = end
+                temp_list = list(map(abs, [left, top, right, end]))
+                # if temp_list[0] > temp_list[2]:
+                #     pass
+                # if temp_list[1] > temp_list[3]:
+                #     pass
+
+                face_loc[index] = (temp_list[0], temp_list[1]), (temp_list[2], temp_list[3])
+
+        loc_list[0] = bottle_loc
+        loc_list[1] = face_loc
         return loc_list
 
     def get_bottle_loc(self, img: np.ndarray):
@@ -94,6 +130,7 @@ class ObjectLocate:
     def get_all_loc(self,
                     img: np.ndarray):
         predict_list = self.yolo_locate.predict(img)
+        print("YoLo predict", predict_list)
         # predict_list = np.array(self.yolo_locate.draw(img, filter=None, font_path="../../Resource/model_data/simhei.ttf"))
         if predict_list:
             return predict_list[4]  # predicted_class, label, top, left, bottom, right
@@ -117,21 +154,26 @@ def get_pic():
 if __name__ == '__main__':
     _object = ObjectLocate()
 
-    color_list = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
-    for pic in get_pic():
-        pic = cv.resize(pic, (800, 600))
-        loc_list = _object.get_loc(pic)
-        bottle_loc, face_loc = loc_list
-        print(loc_list)
-        if bottle_loc:
-            for start, end in bottle_loc:
-                cv.rectangle(pic, start, end, color=color_list[0], thickness=2)
-        if face_loc:
-            for start, end in face_loc:
-                cv.rectangle(pic, start, end, color=color_list[1], thickness=2)
+    # error_list = [[((435, -159), (733, 585))], [((546, 305), (667, 426))]]
+    # error_list = [False, [((546, 305), (667, 426))]]
+    error_list = [[((321, -174), (570, 446))], False]
+    print(_object.reliable_detect(error_list))
 
-        cv.imshow("pic", pic)
-        cv.waitKey(1)
+    # color_list = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
+    # for pic in get_pic():
+    #     pic = cv.resize(pic, (800, 600))
+    #     loc_list = _object.get_loc(pic)
+    #     bottle_loc, face_loc = loc_list
+    #     print(loc_list)
+    #     if bottle_loc:
+    #         for start, end in bottle_loc:
+    #             cv.rectangle(pic, start, end, color=color_list[0], thickness=2)
+    #     if face_loc:
+    #         for start, end in face_loc:
+    #             cv.rectangle(pic, start, end, color=color_list[1], thickness=2)
+    #
+    #     cv.imshow("pic", pic)
+    #     cv.waitKey(1)
 
         # cv.imshow("img", img)
         # cv.waitKey(1)
