@@ -317,7 +317,8 @@ class YoLoLocate:
     def predict(self, img: np.ndarray):
         img = Image.fromarray(img)  # to PIL
         try:
-            image, model_image_size, top_label, top_conf, boxes, colors, class_names = self.yolo_detect.detect_image(img)
+            image, model_image_size, top_label, top_conf, boxes, colors, class_names = self.yolo_detect.detect_image(
+                img)
         except:
             return None
         predict_list = []  # Ô¤²â½á¹ûÔÝ´æ
@@ -340,7 +341,7 @@ class YoLoLocate:
 
             label = '{} {:.2f}'.format(predicted_class, score)
 
-            predict_list.append((predicted_class, label, top, left, bottom, right))
+            predict_list.append((predicted_class, label, left, top, right, bottom))
         return image, model_image_size, colors, class_names, predict_list
 
     def draw(self, img: np.ndarray, filter: list, font_path: str):
@@ -379,24 +380,32 @@ class YoLoLocate:
         return image
 
 
+"""-------²âÊÔ´úÂë--------"""
+
+
+def get_pic():
+    video = cv.VideoCapture(1)
+
+    while True:
+        ret, frame = video.read()
+        if not ret:
+            break
+        yield frame
+
+
 if __name__ == '__main__':
     from PIL import Image
     import cv2 as cv
-
-    # locate = YoLoLocate("../../Resource/model_data/yolo_weights.pth",
-    #                     "../../Resource/model_data/yolo_anchors.txt",
-    #                     "../../Resource/model_data/coco_classes.txt")
-    locate = YoLoLocate("../../Resource/model_data/test_model/yolo/Epoch12-Total_Loss11.4916-Val_Loss8.8832.pth",
+    locate = YoLoLocate("../../Resource/model_data/test_model/yolo/bottle.pth",
                         "../../Resource/model_data/yolo_anchors.txt",
                         "../../Resource/model_data/infusion_classes.txt")
-    # img_path = "F:/NutstoreData/code/project_practice/infusion-companion/Resource/DataSet/CAER-S/Test/Anger/0001.png
-    while True:
-        img_path = "H:/pic/" + input("input pic: ")
-        img = cv.imread(img_path)
-        try:
-            predict = locate.draw(img, None, "../../Resource/model_data/simhei.ttf")
-            predict.show()
-        except:
-            pass
+
+    for frame in get_pic():
+        predict = locate.draw(frame, None, "../../Resource/model_data/simhei.ttf")
+        if predict:
+            frame = np.array(predict)
+        cv.imshow("frame", frame)
+        cv.waitKey(1)
+
     # r_img = yolo.detect_image(img)
     # r_img.show()
