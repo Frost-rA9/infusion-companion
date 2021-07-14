@@ -19,6 +19,7 @@ class Server:
         self.static_socket.bind((self.host, self.static_port))
         # 设置监听数
         self.static_socket.listen(1)
+        self.port = None
 
     def StaticHandle(self):
         while True:
@@ -28,25 +29,30 @@ class Server:
             self.ReceivePort(client_socket)
         self.static_socket.close()
 
-    def handle(self, port):
+    def handle(self):
         # 建立新的套接字
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         # 与后续传输视频的端口绑定
-        server_socket.bind((self.host, int(port)))
+        server_socket.bind((self.host, int(self.port)))
+        server_socket.listen(1)
         while True:
             # 等待连接
             client_socket, client_address = server_socket.accept()
-            self.ReceiveVideo(client_socket, str(int(port)))
+            self.ReceiveVideo(client_socket, self.port)
         server_socket.close()
 
     def ReceivePort(self, client_socket):
         # 接收后续传输数据的端口耨
         receive_port = client_socket.recv(self.BUFFER_SIZE)
-        handle_thread = Thread(target=self.handle, args=str(int(receive_port)))
-        handle_thread.start()
+        self.port = receive_port.decode("utf-8")
+
         # 将接收到的信息发送回客户端进行确认
         return_data = "confirm"
         client_socket.send(return_data.encode('utf-8'))
+        handle_thread = Thread(target=self.handle)
+        handle_thread.start()
+        # self.handle()
+
 
     def ReceiveVideo(self, client_socket, name):
         def Receive(sock, count):
@@ -73,7 +79,7 @@ class Server:
             decode_img = cv2.imdecode(data, cv2.IMREAD_COLOR)
             # 使用opencv显示图像，在此处进行修改
             cv2.imshow(f'{name}', decode_img)
-            k = cv2.waitKey(10) & 0xff
+            k = cv2.waitKey(100) & 0xff
             if k == 27:
                 break
         cv2.destroyAllWindows()
@@ -81,5 +87,4 @@ class Server:
 
 if __name__ == '__main__':
     server = Server()
-    server_process = Process(target=server.StaticHandle())
-    server_process.start()
+    server.StaticHandle()
