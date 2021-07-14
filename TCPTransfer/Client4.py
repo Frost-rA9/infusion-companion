@@ -37,7 +37,7 @@ class Client:
             self.client_socket.connect((self.host, self.port))
         except socket.error as msg:
             print(msg)
-        capture = cv2.VideoCapture("../../Resource/TestVideo/0004.avi")
+        capture = cv2.VideoCapture("../Resource/TestVideo/0004.avi")
         ret, frame = capture.read()
         # 压缩参数，0-100，100为最好，目前没有测试未压缩传输
         encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 100]

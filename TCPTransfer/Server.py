@@ -47,7 +47,7 @@ class Server:
         # 接收后续传输数据的端口耨
         receive_port = client_socket.recv(self.BUFFER_SIZE)
         self.port = receive_port.decode("utf-8")
-        self.port_list.append(self.port)
+        self.port_list.append(int(self.port))
 
         # 将接收到的信息发送回客户端进行确认
         return_data = "confirm"
@@ -72,7 +72,7 @@ class Server:
             length = Receive(client_socket, 16)
             # 若客户端没有向服务端发送数据长度，停止接收
             if length is None:
-                self.port_list.remove(name)
+                self.port_list.remove(int(name))
                 break
             # 接收字符串格式数据
             stringData = Receive(client_socket, int(length))
