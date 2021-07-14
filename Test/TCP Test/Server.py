@@ -20,6 +20,7 @@ class Server:
         # 设置监听数
         self.static_socket.listen(1)
         self.port = None
+        self.port_list = []
 
     def StaticHandle(self):
         while True:
@@ -38,6 +39,7 @@ class Server:
         while True:
             # 等待连接
             client_socket, client_address = server_socket.accept()
+            # print(self.camera_count)
             self.ReceiveVideo(client_socket, self.port)
         server_socket.close()
 
@@ -45,6 +47,7 @@ class Server:
         # 接收后续传输数据的端口耨
         receive_port = client_socket.recv(self.BUFFER_SIZE)
         self.port = receive_port.decode("utf-8")
+        self.port_list.append(self.port)
 
         # 将接收到的信息发送回客户端进行确认
         return_data = "confirm"
@@ -52,7 +55,6 @@ class Server:
         handle_thread = Thread(target=self.handle)
         handle_thread.start()
         # self.handle()
-
 
     def ReceiveVideo(self, client_socket, name):
         def Receive(sock, count):
@@ -70,6 +72,7 @@ class Server:
             length = Receive(client_socket, 16)
             # 若客户端没有向服务端发送数据长度，停止接收
             if length is None:
+                self.port_list.remove(name)
                 break
             # 接收字符串格式数据
             stringData = Receive(client_socket, int(length))
@@ -87,4 +90,5 @@ class Server:
 
 if __name__ == '__main__':
     server = Server()
-    server.StaticHandle()
+    t = Thread(target=server.StaticHandle)
+    t.start()
