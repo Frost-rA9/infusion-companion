@@ -1,11 +1,11 @@
 # encoding=GBK
 """VideoHelper
 
-    - 主要功能就是从视频中读取一帧帧的图像
-    - 另外功能想到再加
+    - 主要功能是在验证的时候起辅助作用
+    - 提供静态的可迭代函数
 
-    1. 提供一个可迭代的函数
-        - 注意读取的时候要转化为绝对路径
+    1. 从绝对路径的video中读取frame
+    2. 从摄像头中读取frame
 """
 import cv2 as cv
 
@@ -16,6 +16,16 @@ class VideoHelper:
         video = cv.VideoCapture(video_path)
         while video.isOpened():
             ret, frame = video.read()
+            if ret:
+                yield frame
+            else:
+                break
+
+    @staticmethod
+    def read_frame_from_cap(cap_number: int):
+        cap = cv.VideoCapture(cap_number)
+        while cap.isOpened():
+            ret, frame = cap.read()
             if ret:
                 yield frame
             else:

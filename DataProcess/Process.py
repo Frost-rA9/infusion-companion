@@ -17,7 +17,7 @@ from DataProcess.ObjectLoacte.ObjectLocate import ObjectLocate
 class DataProcess:
     def __init__(self,
                  svm_path="../Resource/svm/trained/bottle_svm.svm",
-                 yolo_wight="../Resource/model_data/test_model/yolo/bottle.pth",
+                 yolo_wight="../Resource/model_data/test_model/yolo/bottle_and_face.pth",
                  yolo_anchors="../Resource/model_data/yolo_anchors.txt",
                  yolo_predict_class="../Resource/model_data/infusion_classes.txt",
                  liquid_model_path="../Resource/model_data/test_model/DeepLabV3Plus/loss_81.27143794298172_0.9152_.pth",
@@ -49,7 +49,7 @@ class DataProcess:
 
         # 1. 获取roi
         loc_list = self.object_locate.get_loc(img)
-        print("roi list", loc_list)
+        print("roi list：", loc_list)
         bottle_loc, face_loc = loc_list
         bottle_roi, face_roi = [], []
 
@@ -57,14 +57,14 @@ class DataProcess:
             for start, end in bottle_loc:
                 cv.rectangle(img, start, end, color=self.color_list[0], thickness=2)  # 绘图测试用
                 left, top = start
-                right, end = end
-                bottle_roi.append(img[left:right, top:end])
+                right, bottom = end
+                bottle_roi.append(img[left:right, top:bottom])
         if face_loc:
             for start, end in face_loc:
                 cv.rectangle(img, start, end, color=self.color_list[1], thickness=2)
                 left, top = start
-                right, end = end
-                bottle_roi.append(img[left:right, top:end])
+                right, bottom = end
+                face_roi.append(img[left:right, top:bottom])
 
         # 2. 对于定位成功的数据进行处理
         if bottle_roi:
@@ -83,7 +83,7 @@ class DataProcess:
         # 后续如果有更多的人脸，那么必须得改
         expression = self.expression_dict[max(expression_list)]
 
-        print("expression list", expression_list)  # 测试用
+        print("expression list：", expression_list)  # 测试用
 
         # 3. 对结果进行返回
         return img, sum(self.liquid_level) / len(self.liquid_level), expression  # 这是测试用的
@@ -104,11 +104,10 @@ def get_pic():
 
 
 if __name__ == '__main__':
-
     data_process = DataProcess()
     for frame in get_pic():
         img, level, expression = data_process.process_seq(frame)
-        print("liquid level", level)
-        print("expression", expression)
-        cv.imshow("loc img", img)
+        print("liquid level：", level)
+        print("expression：", expression)
+        cv.imshow("loc img：", img)
         cv.waitKey(1)
