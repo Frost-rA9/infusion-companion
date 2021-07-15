@@ -17,11 +17,11 @@ from DataProcess.ObjectLoacte.ObjectLocate import ObjectLocate
 class DataProcess:
     def __init__(self,
                  svm_path="../Resource/svm/trained/bottle_svm.svm",
-                 yolo_wight="../Resource/model_data/test_model/yolo/bottle_and_face.pth",
+                 yolo_wight="../Resource/model_data/test_model/yolo/Epoch100-Total_Loss7.1096-Val_Loss12.4228.pth",
                  yolo_anchors="../Resource/model_data/yolo_anchors.txt",
                  yolo_predict_class="../Resource/model_data/infusion_classes.txt",
-                 liquid_model_path="../Resource/model_data/test_model/DeepLabV3Plus/loss_81.27143794298172_0.9152_.pth",
-                 expression_model_path="../Resource/model_data/test_model/GoogLeNet/0.6515_model.pth"
+                 liquid_model_path="../Resource/model_data/test_model/DeepLabV3Plus/loss_81.27131041884422_0.8332_.pth",
+                 expression_model_path="../Resource/model_data/test_model/GoogLeNet/263.0037250816822_0.75_model.pth"
                  ):
         self.object_locate = ObjectLocate(svm_path, yolo_wight, yolo_anchors, yolo_predict_class)
         self.liquid_level_detect = LiquidLevelDetect(liquid_model_path)
