@@ -28,7 +28,7 @@ class Server:
             client_socket, client_address = self.static_socket.accept()
             # 连接成功后接收后续用于传输数据的端口
             self.ReceivePort(client_socket)
-        self.static_socket.close()
+        # self.static_socket.close()
 
     def handle(self):
         # 建立新的套接字
@@ -36,11 +36,8 @@ class Server:
         # 与后续传输视频的端口绑定
         server_socket.bind((self.host, int(self.port)))
         server_socket.listen(1)
-        while True:
-            # 等待连接
-            client_socket, client_address = server_socket.accept()
-            # print(self.camera_count)
-            self.ReceiveVideo(client_socket, self.port)
+        client_socket, client_address = server_socket.accept()
+        self.ReceiveVideo(client_socket, self.port)
         server_socket.close()
 
     def ReceivePort(self, client_socket):
