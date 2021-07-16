@@ -79,7 +79,7 @@ class Server:
             decode_img = cv2.imdecode(data, cv2.IMREAD_COLOR)
             # 使用opencv显示图像，在此处进行修改
             cv2.imshow(f'{name}', decode_img)
-            k = cv2.waitKey(100) & 0xff
+            k = cv2.waitKey(10) & 0xff
             if k == 27:
                 break
         cv2.destroyAllWindows()
