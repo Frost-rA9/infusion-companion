@@ -266,18 +266,30 @@ def show_img(img: np.ndarray):
 
 
 if __name__ == '__main__':
-    img_path = "../../Resource/1.png"
-    np.set_printoptions(threshold=np.inf)
-    img = cv.imread(img_path)
-    dynamic = DynamicThresholdDetection()
-    data1 = dynamic.cal_seq(img)  # 0.6164383561643836
-
     from PIL import Image
-    # import numpy as np
-    img_path = "F:/DataSet/bottle/segmentation/dir_json/train/1_json/label.png"
-    i = Image.open(img_path)
-    i = np.array(i)
-    # print(i)
+    import os
+    file_path = "F:/DataSet/bottle/segmentation/dir_json/train/"
+    dynamic = DynamicThresholdDetection()
     liquid = LiquidLeftCal()
-    data2 = liquid.get_cur_liquid(i)
-    print("differ rate is:", abs(data1 - data2) / data2 * 100)
+    np.set_printoptions(threshold=np.inf)
+
+    total = []
+    for d in os.listdir(file_path):
+        temp = file_path + d + "/"
+        img_path = temp + "img.png"
+        img = cv.imread(img_path)
+        data1 = dynamic.cal_seq(img)  # 0.6164383561643836
+
+        img_path = temp + "label.png"
+        i = Image.open(img_path)
+        i = np.array(i)
+        data2 = liquid.get_cur_liquid(i)
+        print("*" * 20)
+        print("data1", data1, "data2", data2)
+        differ = abs(data1 - data2) / data2 * 100
+        if differ != np.inf:
+            total.append(differ)
+        print("differ rate is:", differ)
+        print("*" * 20)
+
+    print(sum(total) / len(total))

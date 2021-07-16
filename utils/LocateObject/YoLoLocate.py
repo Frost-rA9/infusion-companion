@@ -353,7 +353,7 @@ class YoLoLocate:
                                   size=np.floor(3e-2 * np.shape(image)[1] + 0.5).astype('int32'))
         thickness = max((np.shape(image)[0] + np.shape(image)[1]) // model_image_size[0], 1)
 
-        for predicted_class, label, top, left, bottom, right in predict_list:
+        for predicted_class, label, left, top, right, bottom in predict_list:
             if filter:  # filter存在时才进行过滤
                 if not label.split()[0] in filter:
                     pass
@@ -396,7 +396,7 @@ def get_pic():
 if __name__ == '__main__':
     from PIL import Image
     import cv2 as cv
-    locate = YoLoLocate("../../Resource/model_data/test_model/yolo/bottle.pth",
+    locate = YoLoLocate("../../Resource/model_data/test_model/yolo/Epoch100-Total_Loss7.1096-Val_Loss12.4228.pth",
                         "../../Resource/model_data/yolo_anchors.txt",
                         "../../Resource/model_data/infusion_classes.txt")
 
