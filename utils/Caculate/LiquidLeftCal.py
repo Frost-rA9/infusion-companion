@@ -37,27 +37,22 @@ class LiquidLeftCal:
         # print(self.cur_img_data)
         return self.cur_img_data[2] / (self.cur_img_data[1] + self.cur_img_data[2])
 
-
     @staticmethod
     def predict_show(img: np.ndarray):
         """展示下预测出来的结果，开发的时候用下"""
-        color_empty, color_full = (0, 0, 128), (0, 128, 0)
-        img = img.astype(np.uint8)
-        img = cv.cvtColor(img, cv.COLOR_GRAY2BGR)  # 到3通道
-        # for i in range(img.shape[0]):
-        #     for j in range(img.shape[1]):
-        #         b, g, r = img[i, j]
-        #         if [b, g, r] == [1, 1, 1]:
-        #             img[i, j] = color_empty
-        #         elif [b, g, r] == [2, 2, 2]:
-        #             img[i, j] = color_full
-        #         else:
-        #             pass
-        return img * 100  # 提高效率
+        # empty = 1, full = 2
+        mask_value_1 = (img == 1)
+        mask_value_2 = (img == 2)
+
+        blue, green, red = np.zeros(img.shape[:2]), np.zeros(img.shape[:2]), np.zeros(img.shape[:2])
+        green[mask_value_1] = 128
+        blue[mask_value_2] = 128
+        return cv.merge([blue, green, red])
 
 
 if __name__ == '__main__':
     from PIL import Image
+
     img_path = "F:/DataSet/bottle/segmentation/dir_json/train/1_json/label.png"
     img = Image.open(img_path)  # 读取p模式图像
     img = np.array(img)  # 到np.ndarry
@@ -66,3 +61,7 @@ if __name__ == '__main__':
     liquid = LiquidLeftCal()
     threshold = liquid.get_cur_liquid(img)
     print(threshold)
+
+    img = liquid.predict_show(img)
+    cv.imshow("img", img)
+    cv.waitKey(0)

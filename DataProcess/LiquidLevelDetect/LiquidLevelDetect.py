@@ -22,9 +22,10 @@ from utils.Caculate.LiquidLeftCal import LiquidLeftCal
 
 class LiquidLevelDetect:
     def __init__(self,
-                 model_path="../../Resource/model_data/test_model/DeepLabV3Plus/loss_81.27143794298172_0.9152_.pth"):
+                 model_path="../../Resource/model_data/test_model/DeepLabV3Plus/loss_81.27131041884422_0.8332_.pth"):
         print("init deepLabV3...")
-        self.model = torch.load(model_path)
+        self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        self.model = torch.load(model_path, map_location=self.device)
         print("deepLab load finish..")
         self.liquid_cal = LiquidLeftCal()
 
@@ -49,15 +50,35 @@ class LiquidLevelDetect:
         # 4. cal
         predict_level = self.liquid_cal.get_cur_liquid(predict_data)
         # img = self.liquid_cal.predict_show(predict_data)
-        # return img
+        # cv.imshow("img", img)
+        # cv.waitKey(0)
 
         # 5. return predict
         return predict_level
 
 
 if __name__ == '__main__':
-    img_path = "F:/DataSet/bottle/segmentation/dir_json/train/2_json/img.png"
-    img = cv.imread(img_path)
+    from PIL import Image
+    import os
+    file_path = "F:/DataSet/bottle/segmentation/dir_json/train/"
     liquid = LiquidLevelDetect()
-    data = liquid.level_predict(img)
-    print(data)
+    liquid_cal = LiquidLeftCal()
+    total = []
+    for d in os.listdir(file_path):
+        temp = file_path + d + "/"
+        img_path = temp + "img.png"
+        img = cv.imread(img_path)
+        data1 = liquid.level_predict(img)
+
+        img_path = temp + "label.png"
+        i = Image.open(img_path)
+        i = np.array(i)
+        data2 = liquid_cal.get_cur_liquid(i)
+        print("*" * 20)
+        print("data1", data1, "data2", data2)
+        differ = abs(data1 - data2) / data2 * 100
+        print("differ rate is:", differ)
+        if differ != np.inf:
+            total.append(differ)
+        print("*" * 20)
+    print(sum(total) / len(total))
