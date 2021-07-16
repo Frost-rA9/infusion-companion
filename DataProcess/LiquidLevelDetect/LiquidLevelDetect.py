@@ -50,7 +50,8 @@ class LiquidLevelDetect:
         # 4. cal
         predict_level = self.liquid_cal.get_cur_liquid(predict_data)
         # img = self.liquid_cal.predict_show(predict_data)
-        # return img
+        # cv.imshow("img", img)
+        # cv.waitKey(0)
 
         # 5. return predict
         return predict_level
