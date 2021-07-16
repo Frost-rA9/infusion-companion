@@ -54,7 +54,8 @@ class Client:
             # 向服务端发送数据
             self.client_socket.send(bytesData)
             ret, frame = capture.read()
-            if cv2.waitKey(100) == 27:
+            k = cv2.waitKey(10) & 0xff
+            if k == 27:
                 break
         self.client_socket.close()
 
