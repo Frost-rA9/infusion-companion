@@ -36,7 +36,6 @@ class LoadSingleFile(Dataset):
                  is_train: bool,
                  trans=None,
                  resize=False):
-
         # 0 anger ÉúÆø
         # 1 disgust Ñá¶ñ
         # 2 fear ¿Ö¾å
@@ -44,6 +43,10 @@ class LoadSingleFile(Dataset):
         # 4 sad ÉËÐÄ
         # 5 surprised ¾ªÑÈ
         # 6 normal ÖÐÐÔ
+        self.expression_dict = {
+            "painful":0,  # Í´¿à
+            "unpainful":1,  # ²»Í´¿à
+        }
         self.train_path = train_path
         self.test_path = test_path
         self.is_train = is_train
@@ -63,20 +66,20 @@ class LoadSingleFile(Dataset):
             data_path = self.test_path
 
         for file_dir in d:
-            class_number = file_dir
+            class_number = self.expression_dict[file_dir]
             absolute_path = data_path + '/' + file_dir
             for file_name in os.listdir(absolute_path):
                 file_path = absolute_path + "/" + file_name
-                self.img_list.append((file_path, int(class_number)))
+                self.img_list.append((file_path, class_number))
 
     def get_num_classes(self):
-        return 7
+        return 2
 
     def __getitem__(self, index):
         img_path, label = self.img_list[index]
         img = Image.open(img_path)
         if self.resize:
-            img = img.resize((400, 400), Image.ANTIALIAS)
+            img = img.resize((48, 48), Image.ANTIALIAS)
         if self.trans:
             # img=np.array(img)
             # img_expend=np.zeros((299, 299), dtype=np.uint8)

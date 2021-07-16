@@ -17,8 +17,8 @@ class ImageFolder():
          :return: (mean, std)
          '''
          trans=transforms.Compose([transforms.Grayscale(3),transforms.ToTensor(),])
-         dataset = LoadSingleFile(  train_path='../../Resource/CAER-S/train',
-                                    test_path='../../Resource/CAER-S/test',
+         dataset = LoadSingleFile(  train_path='../../../Expression/train',
+                                    test_path='../../../Expression/test',
                                     is_train=is_train,
                                     trans=trans,
                                     resize=True )
