@@ -9,7 +9,9 @@
 
 import cv2 as cv
 import numpy as np
-from DataProcess.ExpressionDetect.ExpressionDetect import ExpressionDetect
+from utils.DataLoader.LoadSingleFile import LoadSingleFile
+# from DataProcess.ExpressionDetect.ExpressionDetect import ExpressionDetect
+from DataProcess.ExpressionDetect.ExpressionDetect import ExpressionDetectWithFaceCnn
 from DataProcess.LiquidLevelDetect.LiquidLevelDetect import LiquidLevelDetect
 from DataProcess.ObjectLoacte.ObjectLocate import ObjectLocate
 
@@ -21,27 +23,25 @@ class DataProcess:
                  yolo_anchors="../Resource/model_data/yolo_anchors.txt",
                  yolo_predict_class="../Resource/model_data/infusion_classes.txt",
                  liquid_model_path="../Resource/model_data/test_model/DeepLabV3Plus/loss_81.27131041884422_0.8332_.pth",
-                 expression_model_path="../Resource/model_data/test_model/GoogLeNet/263.0037250816822_0.75_model.pth"
+                 expression_model_path="../Resource/model_data/test_model/FaceCnn/face_cnn_loss_5.96_acc_1.0.pth"
                  ):
+
+        print('{:*^80}'.format("start init all weight...."))
         self.object_locate = ObjectLocate(svm_path, yolo_wight, yolo_anchors, yolo_predict_class)
         self.liquid_level_detect = LiquidLevelDetect(liquid_model_path)
-        self.expression_detect = ExpressionDetect(expression_model_path)
+        self.expression_detect = ExpressionDetectWithFaceCnn(expression_model_path)
 
         self.color_list = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]  # 测试用
         # 液位是一个变化很慢的东西，每次应该返回结果的平均值, 0是为了防止报错
         # 在开始检测几秒后，这个0的影响就可以忽略了
         self.liquid_level = [0]
         # 表情的字典
-        self.expression_dict = {
-            0: "un_detect",
-            1: "anger",  # 生气
-            2: "disgust",  # 厌恶
-            3: "fear",  # 恐惧
-            4: "happy",  # 开心
-            5: "sad",  # 伤心
-            6: "surprised",  # 惊讶
-            7: "normal"  # 中性
-        }
+        self.expression_dict = {0: "un_detect"}
+        for mean in LoadSingleFile.expression_dict:
+            index = LoadSingleFile.expression_dict[mean]
+            self.expression_dict[index + 1] = mean
+
+        print('{:*^80}'.format("weight init finished...."))
 
     def process_seq(self, img: np.ndarray):
         # 0. 数据大小同步

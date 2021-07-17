@@ -30,23 +30,24 @@ import cv2
 
 
 class LoadSingleFile(Dataset):
+    # 0 anger 生气
+    # 1 disgust 厌恶
+    # 2 fear 恐惧
+    # 3 happy 开心
+    # 4 sad 伤心
+    # 5 surprised 惊讶
+    # 6 normal 中性
+    expression_dict = {
+        "painful": 0,  # 痛苦
+        "unpainful": 1,  # 不痛苦
+    }
+
     def __init__(self,
                  train_path: str,
                  test_path: str,
                  is_train: bool,
                  trans=None,
                  resize=False):
-        # 0 anger 生气
-        # 1 disgust 厌恶
-        # 2 fear 恐惧
-        # 3 happy 开心
-        # 4 sad 伤心
-        # 5 surprised 惊讶
-        # 6 normal 中性
-        self.expression_dict = {
-            "painful":0,  # 痛苦
-            "unpainful":1,  # 不痛苦
-        }
         self.train_path = train_path
         self.test_path = test_path
         self.is_train = is_train
@@ -66,7 +67,7 @@ class LoadSingleFile(Dataset):
             data_path = self.test_path
 
         for file_dir in d:
-            class_number = self.expression_dict[file_dir]
+            class_number = LoadSingleFile.expression_dict[file_dir]
             absolute_path = data_path + '/' + file_dir
             for file_name in os.listdir(absolute_path):
                 file_path = absolute_path + "/" + file_name
@@ -103,7 +104,7 @@ if __name__ == '__main__':
                        is_train=False,
                        trans=trans)
 
-    img, label = l.__getitem__(i)
+    img, label = l.__getitem__(0)
 
     print(img, label)
     print(type(img), type(label))
