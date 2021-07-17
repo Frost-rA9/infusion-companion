@@ -31,8 +31,9 @@ class Cascade:
 
         max_index = list(reject_levels).index(max(reject_levels))
         print("reject_level", reject_levels[max_index], "level_wight", level_weights[max_index])
-        left, top, width, height = faces[max_index]
-        l.append(((left, top), (left + width, top + height)))
+        if level_weights[max_index] > 4:
+            left, top, width, height = faces[max_index]
+            l.append(((left, top), (left + width, top + height)))
         return l
         # for index in range(len(faces)):
         #     rej_level = reject_levels[index]
