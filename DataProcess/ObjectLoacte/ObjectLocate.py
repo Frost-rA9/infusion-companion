@@ -22,10 +22,18 @@ class ObjectLocate:
         self.bottle_locate_svm = LocateRoI(svm_path)
         self.yolo_locate = YoLoLocate(yolo_wight, yolo_anchors, yolo_predict_class)
         self.cascade = Cascade()
+        # 格式( loc: (left, top, right, bottom), count: )
+        # loc计算roi，且用于返回，应为瓶子大体是不移动的
+        # count：每隔一定时间-1，变成0去除，如果一直大于3，那么说明这里确实是瓶子
+        self.is_bottle = {}
+        self.frame_down = False
+
+    """1种对外开放的主调用函数
+        - 通过3种基本方法还有几种优化方案返回比较合理的定位
+    """
 
     def get_loc(self, img: np.ndarray, focus_on_model: bool = True):
         """
-
         获取定位的步骤如下：
             1. 首先进行get_bottle_loc
                 - 需要判断是否为空
@@ -87,15 +95,145 @@ class ObjectLocate:
         loc_list = self.roi_filter(loc_list)
         return self.reliable_detect(loc_list)  # 转换为可信结果
 
+    """4种预测框过滤机制
+        - 人脸定位：
+            1. 由于opencv和yolo定位都比较准，但是框的大小不一致
+                - 由于五官最好都包括进来，所以如果存在较大的roi就合并这复数个框
+        - 瓶子定位：
+            - 瓶子定位svm和yolo都挺飘，所以使用投票机制
+            1. 每次定位更新self.is_bottle
+                - 如果是空的直接加入
+                - 否则逐个比较，计算roi，如果有超过70的，就直接把那个计数+1
+                - 然后每2帧就把全部的数值减去1，如果有只为0的，就直接丢弃
+                    1. 要么瓶子移走了，要么不是瓶子
+                    2. 由于是每2帧减少1次，所以如果每次都有瓶子，总会超过3的
+            2. 检测是否有超过3的位置，如果有就返回列表
+            3. 检验框的干扰越小越好，所以框应该画小点
+        - 人脸被预测为瓶子：
+            - 暴力方案：
+            1. 计算roi，如果超过20, 直接舍弃瓶子的框
+    """
+
     def roi_filter(self, loc_list: list):
         bottle_list, face_list = loc_list
-        bottle_list = self.get_max_face_roi(bottle_list)
+
+        bottle_list = self.get_possible_bottle_roi(bottle_list)
         face_list = self.get_max_face_roi(face_list)
+        bottle_list = self.filter_bottle_to_face(bottle_list, face_list)
+        bottle_list = self.get_max_face_roi(bottle_list, get_bigger=False)
         loc_list[0] = bottle_list
         loc_list[1] = face_list
         return loc_list
 
-    def get_max_face_roi(self, face_list: list):
+    def filter_bottle_to_face(self, bottle_list: list, face_list: list, cross_area=0.15):
+        if not bottle_list or not face_list:
+            return bottle_list
+
+        new_bottle_list = []
+        for bottle_start, bottle_end in bottle_list:
+            for face_start, face_end in face_list:
+                rate = ObjectLocate.cal_cross_area( (bottle_start, bottle_end), (face_start, face_end))
+                if rate > cross_area:
+                    break
+            else:
+                new_bottle_list.append( (bottle_start, bottle_end) )
+        if len(new_bottle_list) == 0:
+            return False
+        else:
+            return new_bottle_list
+
+
+    def get_possible_bottle_roi(self,
+                                bottle_list,
+                                cross_rate: float = 0.85,
+                                decrease_rate=0.15):
+        """
+        :param decrease_rate: 每2帧的下降水平
+        :param bottle_list: 瓶子的定位数据
+        :param cross_rate:
+        :return:
+        """
+        if bottle_list is False:
+            return False
+
+        # 1. 计算roi增加计数
+        for data in bottle_list:
+            if not data:
+                pass
+
+            (left, top), (right, end) = data
+            if len(self.is_bottle) == 0:
+                self.is_bottle[((left, top), (right, end))] = 1
+            else:
+                roi_rate_list = []
+                item_list = []  # 方便赋值
+                for item in self.is_bottle:
+                    roi_rate_list.append(ObjectLocate.cal_cross_area(((left, top), (right, end)), item))
+                    item_list.append(item)
+                    # 2. 看看是否需要相减, 写在这里减少消耗
+                    if self.frame_down:
+                        self.is_bottle[item] = self.is_bottle[item] - 0.2
+
+                print("bottle roi_rate_list", roi_rate_list)
+
+                max_index = roi_rate_list.index(max(roi_rate_list))
+                if roi_rate_list[max_index] > cross_rate:
+                    self.is_bottle[item_list[max_index]] = self.is_bottle.get(item_list[max_index], 0) + 1
+                else:
+                    self.is_bottle[((left, top), (right, end))] = 1
+
+        # 刚好两种状态换来换去
+        self.frame_down = not self.frame_down
+
+        # 3. 看看是否要返回
+        return_list = []  # 存放遍历过程中值大于3的item
+        del_list = []
+        for item in self.is_bottle:
+            value = self.is_bottle[item]
+            if value >= 3:
+                return_list.append(item)
+
+            if value < 0:  # 对流程做了一定更改，所以改成<0
+                del_list.append(item)
+
+        for del_item in del_list:
+            self.is_bottle.pop(del_item)
+
+        print("self.is_bottle", self.is_bottle)
+
+        if return_list:
+            return return_list
+        else:
+            return False
+
+    @staticmethod
+    def cal_cross_area(loc1: tuple, loc2: tuple):
+        (left_1, top_1), (right_1, end_1) = loc1
+        (left_2, top_2), (right_2, end_2) = loc2
+
+        # 1. 计算横向
+        max_left = max([left_1, left_2])
+        min_right = min([right_1, right_2])
+        # 没有交集直接返回
+        if min_right <= max_left:
+            return 0
+        horizontal_cross = min_right - max_left
+        horizontal_area = max(right_1, right_2) - min(left_1, left_2)
+        horizontal_roi = horizontal_cross / horizontal_area
+
+        # 2. 计算纵向
+        max_top = max(top_1, top_2)
+        min_end = min(end_1, end_2)
+        # 无关直接返回
+        if max_top >= min_end:
+            return 0
+        vertical_cross = min_end - max_top
+        vertical_area = max(end_1, end_2) - min(top_1, top_2)
+        vertical_roi = vertical_cross / vertical_area
+
+        return horizontal_roi * vertical_roi
+
+    def get_max_face_roi(self, face_list: list, face_roi=0.6, get_bigger=True):
         max_width, max_height = None, None
         new_face_list = []
 
@@ -118,7 +256,7 @@ class ObjectLocate:
 
                 # 2. 判断两者是否无关
                 if min_right <= max_left:
-                    new_face_list.append(( (left, top), (right, end) ))
+                    new_face_list.append(((left, top), (right, end)))
                     pass
                 else:
                     horizontal_cross = min_right - max_left
@@ -145,11 +283,17 @@ class ObjectLocate:
             try:
                 roi = horizontal_roi * vertical_roi
                 print("Cross area roi is: ", roi)
-                if roi > 0.6:  # 说明重叠度很高，取范围大的
-                    last_left, last_right = max_width
-                    max_width = (min(last_left, left), max(last_right, right))
-                    last_top, last_end = max_height
-                    max_height = (min(last_top, top), max(last_end, end))
+                if roi > face_roi:  # 说明重叠度很高，取范围大的
+                    if get_bigger:  # 代码复用，脸取大的，瓶子取小的
+                        last_left, last_right = max_width
+                        max_width = (min(last_left, left), max(last_right, right))
+                        last_top, last_end = max_height
+                        max_height = (min(last_top, top), max(last_end, end))
+                    else:
+                        last_left, last_right = max_width
+                        max_width = (max(last_left, left), min(last_right, right))
+                        last_top, last_end = max_height
+                        max_height = (max(last_top, top), min(last_end, end))
             except:
                 pass
 
@@ -162,6 +306,14 @@ class ObjectLocate:
             # ( (left, top), (right, end) )
             new_face_list.append(((left, top), (right, end)))
             return new_face_list
+
+    
+
+    """1种输出格式规范化
+        - 其实就是把输出结果整整合理
+            1. 别出现负数
+            2. 别出现 left > right, top > bottom的情况
+    """
 
     def reliable_detect(self, loc_list: list):
         """实际使用过程中出现了负数， 所以需要过滤"""
@@ -202,6 +354,12 @@ class ObjectLocate:
         loc_list[0] = bottle_loc
         loc_list[1] = face_loc
         return loc_list
+
+    """3种基础定位方法:
+        1. svm
+        2. Cascade
+        3. yolo
+    """
 
     def get_bottle_loc(self, img: np.ndarray):
         """
@@ -257,6 +415,7 @@ if __name__ == '__main__':
     # print(_object.reliable_detect(error_list))
 
     import time
+
     color_list = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
     for pic in get_pic():
         start_time = time.time()
