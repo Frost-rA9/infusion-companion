@@ -10,10 +10,12 @@ class Client:
         self.BUFFER_SIZE = 1024
         # 静态socket，用于监听后续的端口
         self.static_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        # 获取主机名
-        self.hostname = socket.gethostname()
-        # 通过主机名获取到IP地址
-        self.host = socket.gethostbyname(self.hostname)
+        # # 获取主机名
+        # self.hostname = socket.gethostname()
+        # # 通过主机名获取到IP地址
+        # self.host = socket.gethostbyname(self.hostname)
+        # host位服务端的IP地址
+        self.host = '192.168.1.242'
         # 静态端口
         self.static_port = 6400
         # 客户端socket，用于后续发送视频数据
@@ -54,7 +56,7 @@ class Client:
             # 向服务端发送数据
             self.client_socket.send(bytesData)
             ret, frame = capture.read()
-            k = cv2.waitKey(10) & 0xff
+            k = cv2.waitKey(30) & 0xff
             if k == 27:
                 break
         self.client_socket.close()
