@@ -13,9 +13,9 @@ class Client:
         # # 获取主机名
         # self.hostname = socket.gethostname()
         # # 通过主机名获取到IP地址
-        # self.host = socket.gethostbyname(self.hostname)
+        self.host = socket.gethostbyname('FROST-DESKTOP')
         # host位服务端的IP地址
-        self.host = '192.168.1.242'
+        # self.host = '192.168.1.242'
         # 静态端口
         self.static_port = 6400
         # 客户端socket，用于后续发送视频数据
