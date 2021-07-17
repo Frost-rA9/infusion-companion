@@ -19,13 +19,14 @@ import torch.nn as nn
 from utils.Caculate.LiquidLeftCal import LiquidLeftCal
 # from net.DeepLabV3Plus.DeepLabV3Plus import DeepLabV3Plus
 
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
 
 class LiquidLevelDetect:
     def __init__(self,
                  model_path="../../Resource/model_data/test_model/DeepLabV3Plus/loss_81.27131041884422_0.8332_.pth"):
         print("init deepLabV3...")
-        self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        self.model = torch.load(model_path, map_location=self.device)
+        self.model = torch.load(model_path, map_location=device)
         print("deepLab load finish..")
         self.liquid_cal = LiquidLeftCal()
 
@@ -39,7 +40,7 @@ class LiquidLevelDetect:
         tensor_img = tensor_img.unsqueeze(0)
 
         # 2. predict
-        predict_img = self.model(tensor_img.cuda())
+        predict_img = self.model(tensor_img.to(device))
 
         # 3. predict->numpy
         predict_img = nn.Softmax(dim=1)(predict_img)
