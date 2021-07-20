@@ -78,9 +78,6 @@ def test(data_test_loader: DataLoader, loss):
 
 if __name__ == '__main__':
     """Ä£ÐÍÑµÁ·"""
-
-
-
     expand_method = ExpandMethod()
     train_trans = expand_method.get_transform()
     test_trans = transforms.Compose([
@@ -88,7 +85,7 @@ if __name__ == '__main__':
         transforms.Grayscale(3),
         # transforms.Resize((400, 400)),
         transforms.ToTensor(),
-        transforms.Normalize(mean=(0.5077325, 0.5077325, 0.5077325), std=(0.21166028, 0.21166028, 0.21166028)),
+        # transforms.Normalize(mean=(0.5077325, 0.5077325, 0.5077325), std=(0.21166028, 0.21166028, 0.21166028)),
     ])
 
     # train_trans = transforms.Compose([transforms.ToTensor(), ])
