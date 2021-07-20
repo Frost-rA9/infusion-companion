@@ -120,12 +120,12 @@ class ObjectLocate:
         bottle_list = self.get_possible_bottle_roi(bottle_list)
         face_list = self.get_max_face_roi(face_list)
         bottle_list = self.filter_bottle_to_face(bottle_list, face_list)
-        bottle_list = self.get_max_face_roi(bottle_list, get_bigger=False)
+        bottle_list = self.get_max_face_roi(bottle_list, get_bigger=False, face_roi=0.3)
         loc_list[0] = bottle_list
         loc_list[1] = face_list
         return loc_list
 
-    def filter_bottle_to_face(self, bottle_list: list, face_list: list, cross_area=0.15):
+    def filter_bottle_to_face(self, bottle_list: list, face_list: list, cross_area=0.05):
         if not bottle_list or not face_list:
             return bottle_list
 
@@ -145,12 +145,12 @@ class ObjectLocate:
 
     def get_possible_bottle_roi(self,
                                 bottle_list,
-                                cross_rate: float = 0.85,
+                                cross_rate: float = 0.8,
                                 decrease_rate=0.15):
         """
         :param decrease_rate: 每2帧的下降水平
         :param bottle_list: 瓶子的定位数据
-        :param cross_rate:
+        :param cross_rate: 相似度
         :return:
         """
         if bottle_list is False:
@@ -172,7 +172,7 @@ class ObjectLocate:
                     item_list.append(item)
                     # 2. 看看是否需要相减, 写在这里减少消耗
                     if self.frame_down:
-                        self.is_bottle[item] = self.is_bottle[item] - 0.2
+                        self.is_bottle[item] = self.is_bottle[item] - decrease_rate
 
                 print("bottle roi_rate_list", roi_rate_list)
 

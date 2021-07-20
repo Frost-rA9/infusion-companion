@@ -1,0 +1,2930 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml-stylesheet type='text/xsl' href='image_metadata_stylesheet.xsl'?>
+<dataset>
+<name>imglab dataset</name>
+<comment>Created by imglab tool.</comment>
+<images>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1.png'>
+    <box top='226' left='319' width='61' height='201'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\10.png'>
+    <box top='227' left='363' width='71' height='192'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\100.png'>
+    <box top='165' left='323' width='113' height='225'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1000.jpg'>
+    <box top='152' left='216' width='147' height='369'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1001.jpg'>
+    <box top='18' left='251' width='152' height='409'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1002.jpg'>
+    <box top='97' left='349' width='133' height='313'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1003.jpg'>
+    <box top='155' left='355' width='140' height='354'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1004.jpg'>
+    <box top='137' left='304' width='145' height='385'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1005.jpg'>
+    <box top='42' left='310' width='118' height='310'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1006.jpg'>
+    <box top='142' left='247' width='120' height='313'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1007.jpg'>
+    <box top='215' left='275' width='140' height='357'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1008.jpg'>
+    <box top='132' left='307' width='133' height='374'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1009.jpg'>
+    <box top='94' left='375' width='133' height='353'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\101.png'>
+    <box top='181' left='342' width='85' height='206'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1010.jpg'>
+    <box top='90' left='391' width='128' height='312'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1011.jpg'>
+    <box top='158' left='260' width='146' height='378'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1012.jpg'>
+    <box top='77' left='196' width='148' height='417'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1013.jpg'>
+    <box top='50' left='340' width='121' height='314'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1014.jpg'>
+    <box top='232' left='244' width='113' height='360'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1015.jpg'>
+    <box top='123' left='195' width='108' height='405'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1016.jpg'>
+    <box top='56' left='206' width='117' height='438'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1017.jpg'>
+    <box top='56' left='376' width='83' height='343'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1018.jpg'>
+    <box top='71' left='365' width='83' height='330'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1019.jpg'>
+    <box top='6' left='261' width='73' height='329'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\102.png'>
+    <box top='246' left='390' width='92' height='179'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1020.jpg'>
+    <box top='108' left='326' width='126' height='346'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1021.jpg'>
+    <box top='121' left='241' width='91' height='324'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1022.jpg'>
+    <box top='67' left='209' width='108' height='436'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1023.jpg'>
+    <box top='75' left='149' width='128' height='377'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1024.jpg'>
+    <box top='140' left='196' width='99' height='391'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1025.jpg'>
+    <box top='48' left='354' width='139' height='367'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1026.jpg'>
+    <box top='82' left='245' width='137' height='413'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1027.jpg'>
+    <box top='175' left='280' width='128' height='305'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1028.jpg'>
+    <box top='132' left='319' width='138' height='360'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1029.jpg'>
+    <box top='101' left='329' width='151' height='374'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\103.png'>
+    <box top='192' left='389' width='80' height='206'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1030.jpg'>
+    <box top='195' left='351' width='148' height='297'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1031.jpg'>
+    <box top='93' left='296' width='147' height='378'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1032.jpg'>
+    <box top='89' left='377' width='127' height='325'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1033.jpg'>
+    <box top='66' left='199' width='140' height='367'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1034.jpg'>
+    <box top='78' left='325' width='115' height='298'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1035.jpg'>
+    <box top='27' left='175' width='161' height='374'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1036.jpg'>
+    <box top='24' left='163' width='143' height='396'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1037.jpg'>
+    <box top='124' left='266' width='132' height='406'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1038.jpg'>
+    <box top='55' left='224' width='111' height='303'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1039.jpg'>
+    <box top='167' left='170' width='118' height='407'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\104.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1040.jpg'>
+    <box top='118' left='167' width='127' height='410'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1041.jpg'>
+    <box top='87' left='155' width='124' height='431'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1042.jpg'>
+    <box top='85' left='246' width='147' height='412'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1043.jpg'>
+    <box top='94' left='292' width='91' height='330'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1044.jpg'>
+    <box top='27' left='192' width='114' height='335'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1045.jpg'>
+    <box top='201' left='164' width='100' height='349'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1046.jpg'>
+    <box top='95' left='234' width='97' height='335'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1047.jpg'>
+    <box top='62' left='190' width='119' height='441'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1048.jpg'>
+    <box top='26' left='258' width='112' height='406'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1049.jpg'>
+    <box top='143' left='313' width='144' height='360'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\105.png'>
+    <box top='274' left='284' width='88' height='203'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1050.jpg'>
+    <box top='15' left='295' width='138' height='411'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1051.jpg'>
+    <box top='86' left='339' width='141' height='295'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1052.jpg'>
+    <box top='79' left='465' width='126' height='335'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1053.jpg'>
+    <box top='91' left='253' width='112' height='315'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1054.jpg'>
+    <box top='89' left='88' width='124' height='410'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1055.jpg'>
+    <box top='86' left='241' width='108' height='397'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1056.jpg'>
+    <box top='64' left='414' width='145' height='304'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1057.jpg'>
+    <box top='63' left='426' width='130' height='311'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1058.jpg'>
+    <box top='133' left='406' width='155' height='337'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1059.jpg'>
+    <box top='89' left='381' width='154' height='388'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\106.png'>
+    <box top='235' left='426' width='84' height='195'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1060.jpg'>
+    <box top='83' left='353' width='135' height='335'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1061.jpg'>
+    <box top='167' left='222' width='166' height='383'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1062.jpg'>
+    <box top='121' left='237' width='153' height='426'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1063.jpg'>
+    <box top='49' left='235' width='111' height='336'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1064.jpg'>
+    <box top='98' left='282' width='133' height='396'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1065.jpg'>
+    <box top='111' left='267' width='93' height='333'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1066.jpg'>
+    <box top='114' left='261' width='100' height='307'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1067.jpg'>
+    <box top='81' left='212' width='138' height='436'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1068.jpg'>
+    <box top='129' left='244' width='154' height='371'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1069.jpg'>
+    <box top='143' left='201' width='146' height='412'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\107.png'>
+    <box top='258' left='404' width='68' height='193'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1070.jpg'>
+    <box top='84' left='455' width='138' height='316'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1071.jpg'>
+    <box top='131' left='408' width='150' height='316'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1072.jpg'>
+    <box top='84' left='380' width='140' height='341'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1073.jpg'>
+    <box top='115' left='318' width='149' height='383'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1074.jpg'>
+    <box top='17' left='296' width='132' height='309'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1075.jpg'>
+    <box top='81' left='224' width='147' height='439'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1076.jpg'>
+    <box top='98' left='292' width='135' height='422'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1077.jpg'>
+    <box top='115' left='304' width='132' height='303'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1078.jpg'>
+    <box top='141' left='360' width='147' height='356'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1079.jpg'>
+    <box top='67' left='329' width='149' height='379'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\108.png'>
+    <box top='106' left='365' width='101' height='194'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1080.jpg'>
+    <box top='99' left='396' width='161' height='300'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1081.jpg'>
+    <box top='137' left='327' width='163' height='367'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1082.jpg'>
+    <box top='127' left='224' width='160' height='412'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1083.jpg'>
+    <box top='51' left='323' width='124' height='300'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1084.jpg'>
+    <box top='107' left='288' width='123' height='420'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1085.jpg'>
+    <box top='94' left='237' width='107' height='412'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1086.jpg'>
+    <box top='89' left='196' width='110' height='443'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1087.jpg'>
+    <box top='142' left='149' width='112' height='303'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1088.jpg'>
+    <box top='34' left='237' width='102' height='337'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1089.jpg'>
+    <box top='43' left='123' width='108' height='323'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\109.png'>
+    <box top='136' left='352' width='163' height='311'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1090.jpg'>
+    <box top='83' left='158' width='126' height='419'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1091.jpg'>
+    <box top='44' left='220' width='124' height='450'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1092.jpg'>
+    <box top='82' left='220' width='153' height='316'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1093.jpg'>
+    <box top='39' left='141' width='117' height='333'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1094.jpg'>
+    <box top='136' left='281' width='143' height='366'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1095.jpg'>
+    <box top='44' left='262' width='146' height='406'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1096.jpg'>
+    <box top='119' left='365' width='183' height='306'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1097.jpg'>
+    <box top='35' left='335' width='131' height='314'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1098.jpg'>
+    <box top='98' left='280' width='133' height='351'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1099.jpg'>
+    <box top='99' left='322' width='131' height='303'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\11.png'>
+    <box top='245' left='395' width='68' height='167'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\110.png'>
+    <box top='132' left='369' width='129' height='346'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1100.jpg'>
+    <box top='137' left='374' width='132' height='360'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1101.jpg'>
+    <box top='130' left='466' width='135' height='338'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1102.jpg'>
+    <box top='67' left='448' width='171' height='393'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1103.jpg'>
+    <box top='71' left='304' width='126' height='317'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1104.jpg'>
+    <box top='121' left='342' width='159' height='371'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1105.jpg'>
+    <box top='101' left='261' width='161' height='380'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1106.jpg'>
+    <box top='93' left='433' width='147' height='300'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1107.jpg'>
+    <box top='45' left='192' width='145' height='383'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1108.jpg'>
+    <box top='178' left='309' width='136' height='408'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1109.jpg'>
+    <box top='111' left='297' width='137' height='387'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\111.png'>
+    <box top='249' left='380' width='82' height='247'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1110.jpg'>
+    <box top='60' left='394' width='126' height='413'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1111.jpg'>
+    <box top='103' left='173' width='100' height='322'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1112.jpg'>
+    <box top='113' left='226' width='125' height='316'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1113.jpg'>
+    <box top='32' left='278' width='97' height='374'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1114.jpg'>
+    <box top='132' left='242' width='94' height='362'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1115.jpg'>
+    <box top='97' left='233' width='91' height='400'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1116.jpg'>
+    <box top='63' left='212' width='92' height='399'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1117.jpg'>
+    <box top='84' left='202' width='89' height='286'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1118.jpg'>
+    <box top='72' left='221' width='124' height='371'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1119.jpg'>
+    <box top='93' left='197' width='117' height='407'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\112.png'>
+    <box top='171' left='359' width='96' height='236'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1120.jpg'>
+    <box top='122' left='342' width='134' height='269'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1121.jpg'>
+    <box top='164' left='108' width='105' height='321'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1122.jpg'>
+    <box top='164' left='165' width='144' height='355'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1123.jpg'>
+    <box top='173' left='256' width='131' height='358'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1124.jpg'>
+    <box top='106' left='206' width='129' height='386'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1125.jpg'>
+    <box top='193' left='367' width='124' height='302'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1126.jpg'>
+    <box top='241' left='416' width='140' height='346'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1127.jpg'>
+    <box top='184' left='388' width='136' height='356'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1128.jpg'>
+    <box top='112' left='368' width='159' height='384'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1129.jpg'>
+    <box top='60' left='272' width='130' height='285'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\113.png'>
+    <box top='202' left='189' width='102' height='250'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1130.jpg'>
+    <box top='32' left='348' width='131' height='310'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1131.jpg'>
+    <box top='138' left='375' width='125' height='347'>
+      <label>bottle</label>
+    </box>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1132.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1133.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1134.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1135.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1136.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1137.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1138.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1139.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\114.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1140.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1141.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1142.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1143.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1144.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1145.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1146.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1147.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1148.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1149.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\115.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1150.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1151.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1152.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1153.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1154.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1155.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1156.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1157.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1158.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1159.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\116.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1160.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1161.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1162.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1163.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1164.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1165.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1166.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1167.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1168.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1169.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\117.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1170.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1171.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1172.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1173.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1174.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1175.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1176.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1177.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1178.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1179.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\118.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1180.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1181.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1182.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1183.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1184.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1185.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1186.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1187.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1188.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1189.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\119.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1190.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1191.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1192.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1193.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1194.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1195.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1196.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1197.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1198.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1199.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\12.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\120.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1200.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1201.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1202.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1203.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1204.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1205.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1206.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1207.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1208.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1209.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\121.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1210.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1211.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1212.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1213.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1214.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1215.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1216.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1217.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1218.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1219.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\122.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1220.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1221.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1222.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1223.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1224.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1225.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1226.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1227.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1228.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1229.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\123.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1230.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1231.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1232.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1233.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1234.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1235.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1236.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1237.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\1238.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\124.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\125.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\126.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\127.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\128.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\129.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\13.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\130.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\131.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\132.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\133.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\134.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\135.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\136.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\137.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\138.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\139.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\14.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\140.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\141.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\142.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\143.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\144.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\145.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\146.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\147.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\148.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\149.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\15.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\150.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\151.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\152.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\153.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\154.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\155.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\156.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\157.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\158.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\159.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\16.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\160.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\161.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\162.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\163.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\164.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\165.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\166.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\167.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\168.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\169.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\17.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\170.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\171.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\172.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\173.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\174.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\175.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\176.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\177.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\178.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\179.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\18.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\180.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\181.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\182.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\183.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\184.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\185.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\186.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\187.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\188.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\189.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\19.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\190.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\191.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\192.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\193.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\194.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\195.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\196.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\197.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\198.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\199.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\2+6662.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\2.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\20.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\200.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\201.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\202.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\203.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\204.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\205.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\206.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\207.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\208.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\209.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\21.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\210.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\211.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\212.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\213.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\214.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\215.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\216.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\217.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\218.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\219.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\22.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\220.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\221.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\222.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\223.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\224.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\225.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\226.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\227.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\228.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\229.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\23.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\230.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\231.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\232.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\233.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\234.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\235.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\236.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\237.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\238.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\239.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\24.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\240.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\241.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\242.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\243.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\244.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\245.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\246.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\247.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\248.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\249.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\25.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\250.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\251.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\252.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\253.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\254.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\255.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\256.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\257.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\258.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\259.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\26.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\260.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\261.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\262.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\263.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\264.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\265.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\266.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\267.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\268.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\269.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\27.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\270.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\271.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\272.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\273.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\274.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\275.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\276.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\277.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\278.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\279.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\28.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\280.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\281.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\282.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\283.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\284.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\285.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\286.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\287.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\288.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\289.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\29.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\290.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\291.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\292.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\293.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\294.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\295.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\296.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\297.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\298.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\299.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\3.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\30.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\300.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\301.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\302.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\303.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\304.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\305.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\306.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\307.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\308.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\309.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\31.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\310.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\311.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\312.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\313.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\314.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\315.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\316.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\317.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\318.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\319.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\32.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\320.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\321.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\322.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\323.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\324.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\325.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\326.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\327.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\328.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\329.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\33.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\330.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\331.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\332.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\333.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\334.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\335.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\336.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\337.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\338.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\339.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\34.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\340.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\341.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\342.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\343.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\344.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\345.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\346.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\347.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\348.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\349.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\35.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\350.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\351.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\352.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\353.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\354.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\355.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\356.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\357.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\358.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\359.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\36.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\360.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\361.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\362.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\363.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\364.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\365.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\366.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\367.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\368.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\369.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\37.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\370.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\371.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\372.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\373.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\374.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\375.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\376.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\377.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\378.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\379.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\38.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\380.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\381.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\382.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\383.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\384.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\385.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\386.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\387.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\388.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\389.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\39.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\390.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\391.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\392.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\393.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\394.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\395.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\396.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\397.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\398.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\399.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\4.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\40.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\400.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\401.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\402.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\403.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\404.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\405.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\406.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\407.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\408.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\409.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\41.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\410.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\411.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\412.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\413.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\414.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\415.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\416.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\417.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\418.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\419.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\42.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\420.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\421.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\422.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\423.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\424.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\425.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\426.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\427.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\428.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\429.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\43.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\430.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\431.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\432.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\433.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\434.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\435.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\436.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\437.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\438.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\439.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\44.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\440.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\441.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\442.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\443.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\444.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\445.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\446.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\447.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\448.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\449.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\45.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\450.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\451.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\452.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\453.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\454.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\455.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\456.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\457.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\458.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\459.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\46.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\460.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\461.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\462.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\463.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\464.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\465.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\466.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\467.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\468.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\469.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\47.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\470.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\471.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\472.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\473.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\474.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\475.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\476.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\477.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\478.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\479.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\48.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\480.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\481.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\482.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\483.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\484.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\485.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\486.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\487.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\488.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\489.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\49.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\490.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\491.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\492.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\493.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\494.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\495.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\496.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\497.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\498.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\499.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\5.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\50.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\500.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\501.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\502.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\503.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\504.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\505.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\506.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\507.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\508.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\509.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\51.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\510.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\511.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\512.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\513.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\514.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\515.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\516.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\517.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\518.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\519.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\52.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\520.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\521.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\522.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\523.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\524.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\525.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\526.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\527.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\528.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\529.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\53.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\530.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\531.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\532.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\533.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\534.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\535.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\536.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\537.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\538.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\539.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\54.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\540.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\541.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\542.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\543.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\544.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\545.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\546.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\547.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\548.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\549.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\55.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\550.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\551.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\552.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\553.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\554.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\555.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\556.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\557.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\558.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\559.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\56.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\560.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\561.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\562.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\563.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\564.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\565.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\566.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\567.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\568.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\569.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\57.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\570.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\571.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\572.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\573.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\574.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\575.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\576.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\577.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\578.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\579.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\58.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\580.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\581.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\582.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\583.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\584.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\585.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\586.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\587.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\588.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\589.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\59.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\590.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\591.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\592.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\593.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\594.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\595.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\596.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\597.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\598.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\599.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\6.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\60.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\600.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\601.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\602.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\603.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\604.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\605.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\606.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\607.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\608.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\609.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\61.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\610.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\611.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\612.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\613.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\614.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\615.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\616.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\617.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\618.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\619.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\62.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\620.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\621.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\622.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\623.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\624.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\625.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\626.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\627.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\628.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\629.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\63.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\630.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\631.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\632.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\633.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\634.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\635.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\636.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\637.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\638.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\639.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\64.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\640.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\641.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\642.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\643.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\644.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\645.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\646.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\647.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\648.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\649.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\65.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\650.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\651.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\652.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\653.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\654.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\655.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\656.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\657.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\658.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\659.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\66.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\660.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\661.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\662.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\663.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\664.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\665.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\666.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\667.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\668.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\669.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\67.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\670.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\671.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\672.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\673.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\674.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\675.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\676.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\677.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\678.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\679.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\68.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\680.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\681.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\682.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\683.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\684.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\685.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\686.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\687.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\688.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\689.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\69.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\690.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\691.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\692.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\693.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\694.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\695.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\696.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\697.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\698.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\699.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\7.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\70.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\700.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\701.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\702.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\703.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\704.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\705.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\706.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\707.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\708.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\709.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\71.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\710.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\711.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\712.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\713.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\714.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\715.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\716.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\717.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\718.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\719.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\72.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\720.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\721.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\722.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\723.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\724.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\725.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\726.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\727.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\728.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\729.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\73.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\730.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\731.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\732.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\733.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\734.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\735.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\736.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\737.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\738.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\739.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\74.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\740.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\741.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\742.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\743.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\744.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\745.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\746.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\747.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\748.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\749.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\75.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\750.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\751.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\752.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\753.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\754.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\755.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\756.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\757.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\758.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\759.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\76.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\760.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\761.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\762.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\763.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\764.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\765.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\766.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\767.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\768.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\769.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\77.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\770.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\771.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\772.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\773.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\774.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\775.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\776.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\777.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\778.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\779.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\78.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\780.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\781.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\782.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\783.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\784.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\785.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\786.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\787.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\788.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\789.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\79.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\790.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\791.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\792.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\793.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\794.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\795.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\796.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\797.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\798.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\799.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\8.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\80.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\800.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\801.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\802.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\803.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\804.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\805.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\806.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\807.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\808.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\809.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\81.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\810.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\811.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\812.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\813.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\814.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\815.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\816.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\817.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\818.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\819.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\82.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\820.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\821.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\822.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\823.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\824.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\825.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\826.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\827.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\828.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\829.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\83.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\830.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\831.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\832.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\833.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\834.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\835.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\836.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\837.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\838.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\839.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\84.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\840.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\841.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\842.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\843.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\844.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\845.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\846.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\847.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\848.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\849.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\85.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\850.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\851.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\852.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\853.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\854.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\855.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\856.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\857.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\858.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\859.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\86.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\860.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\861.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\862.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\863.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\864.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\865.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\866.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\867.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\868.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\869.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\87.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\870.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\871.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\872.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\873.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\874.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\875.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\876.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\877.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\878.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\879.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\88.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\880.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\881.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\882.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\883.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\884.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\885.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\886.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\887.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\888.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\889.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\89.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\890.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\891.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\892.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\893.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\894.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\895.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\896.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\897.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\898.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\899.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\9.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\90.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\900.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\901.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\902.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\903.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\904.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\905.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\906.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\907.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\908.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\909.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\91.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\910.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\911.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\912.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\913.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\914.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\915.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\916.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\917.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\918.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\919.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\92.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\920.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\921.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\922.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\923.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\924.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\925.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\926.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\927.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\928.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\929.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\93.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\930.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\931.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\932.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\933.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\934.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\935.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\936.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\937.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\938.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\939.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\94.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\940.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\941.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\942.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\943.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\944.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\945.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\946.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\947.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\948.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\949.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\95.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\950.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\951.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\952.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\953.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\954.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\955.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\956.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\957.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\958.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\959.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\96.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\960.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\961.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\962.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\963.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\964.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\965.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\966.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\967.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\968.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\969.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\97.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\970.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\971.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\972.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\973.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\974.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\975.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\976.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\977.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\978.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\979.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\98.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\980.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\981.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\982.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\983.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\984.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\985.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\986.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\987.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\988.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\989.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\99.png'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\990.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\991.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\992.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\993.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\994.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\995.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\996.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\997.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\998.jpg'>
+  </image>
+  <image file='F:\DataSet\bottle\Locate\JPEGImages\999.jpg'>
+  </image>
+</images>
+</dataset>

@@ -81,7 +81,7 @@ class DataProcess:
                     expression_list[expression + 1] += 1
         # 主要是当前环境复杂，采取投票机制
         # 后续如果有更多的人脸，那么必须得改
-        expression = self.expression_dict[max(expression_list)]
+        expression = self.expression_dict[expression_list.index(max(expression_list))]
 
         print("expression list：", expression_list)  # 测试用
 
@@ -94,7 +94,7 @@ class DataProcess:
 
 
 def get_pic():
-    video = cv.VideoCapture(1)
+    video = cv.VideoCapture(0)
 
     while True:
         ret, frame = video.read()
@@ -105,9 +105,10 @@ def get_pic():
 
 if __name__ == '__main__':
     data_process = DataProcess()
+
     for frame in get_pic():
         img, level, expression = data_process.process_seq(frame)
         print("liquid level：", level)
-        print("expression：", expression)
+        print("***************expression：{} **************".format(expression))
         cv.imshow("loc img：", img)
         cv.waitKey(1)
