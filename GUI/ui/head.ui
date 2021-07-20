@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>660</width>
+    <width>680</width>
     <height>51</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>660</width>
+    <width>680</width>
     <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>660</width>
+    <width>680</width>
     <height>51</height>
    </size>
   </property>
@@ -65,9 +65,16 @@
         </spacer>
        </item>
        <item>
-        <widget class="QLabel" name="label_6">
+        <widget class="QLabel" name="label">
          <property name="text">
-          <string>连接数量</string>
+          <string>连接上限：</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="sum_label">
+         <property name="text">
+          <string>个</string>
          </property>
         </widget>
        </item>

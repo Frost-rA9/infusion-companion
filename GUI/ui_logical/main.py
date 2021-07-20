@@ -1,9 +1,10 @@
+from threading import Thread
+
 from GUI.GUIHelper.QtHelper import QtHelper
 from PySide2.QtWidgets import QApplication, QVBoxLayout, QWidget
 from GUI.ui_logical.body import body
 from GUI.ui_logical.head import head
 from GUI.ui_logical.info import info
-from GUI.ui_logical.video import video
 
 
 class main:
@@ -12,26 +13,26 @@ class main:
         if ui_path:
             self.ui_main = QtHelper.read_ui(ui_path)
         else:
-            self.ui_main = QtHelper.read_ui("../ui/main.ui")
+            # self.ui_main = QtHelper.read_ui("../ui/main.ui")
+            self.ui_main = QtHelper.read_ui("../GUI/ui/main.ui")
 
-        self.init_component()
+        #     self.init_component()
+        #
+        # def init_component(self):
+        self.widget = QWidget()
+        self.v_layout = QVBoxLayout()
 
-    def init_component(self):
-        widget = QWidget()
-        v_layout = QVBoxLayout()
+        # i = info()
+        self.b = body()
+        self.h = head()
+        self.h.ui_head.sum_label.setText(str(self.b.return_camera_sum()) + "个")
 
-        i = info()
-        b = body()
-        h = head()
-        # v = video()
+        self.v_layout.addWidget(self.h.ui_head)
+        # v_layout.addWidget(i.ui_info)
+        self.v_layout.addWidget(self.b.ui_body)
 
-        v_layout.addWidget(h.ui_head)
-        v_layout.addWidget(i.ui_info)
-        v_layout.addWidget(b.ui_body)
-        # v_layout.addWidget(v.ui_video)
-
-        widget.setLayout(v_layout)
-        self.ui_main.setCentralWidget(widget)
+        self.widget.setLayout(self.v_layout)
+        self.ui_main.setCentralWidget(self.widget)
         # self.ui_main.setFixedSize(640, 1000)
 
 
