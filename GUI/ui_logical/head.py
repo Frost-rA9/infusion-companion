@@ -35,7 +35,8 @@ class head:
         if ui_path:
             self.ui_head = QtHelper.read_ui(ui_path)
         else:
-            self.ui_head = QtHelper.read_ui("../ui/head.ui")
+            # self.ui_head = QtHelper.read_ui("../ui/head.ui")
+            self.ui_head = QtHelper.read_ui("../GUI/ui/head.ui")
 
         # m.ui_main.setCentralWidget(self.ui_head)
 
@@ -56,7 +57,6 @@ class head:
 
 
 if __name__ == '__main__':
-    from GUI.ui_logical.main import main
 
     app = QApplication()
     h = head()

@@ -1,12 +1,13 @@
 import torch
 
 
-model = torch.load("../net/Train/5.965041145682335_1.0binary_model.pth")
+model = torch.load("../Resource/model_data/face_cnn_loss_5.96_acc_1.0.pth")
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 model.cuda()
 
 
-img_path = "D:/code/Expression/train/3"
+# img_path = "D:/code/Expression/train/3"
+img_path = "F:/NutstoreData/code/project_practice/infusion-companion/Resource"
 import os
 from PIL import Image
 import numpy as np
@@ -17,10 +18,11 @@ painful = 0
 total = 0
 
 for file in os.listdir(img_path):
-    absolute = img_path + "/" + file
-
+    # absolute = img_path + "/" + file
+    absolute = img_path + "/" + "face_test2.jpg"
     img = Image.open(absolute)
     img = np.array(img)
+    img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     img = cv.resize(img, (48, 48))
     img = Image.fromarray(img)
     to_tensor = transforms.ToTensor()

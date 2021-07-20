@@ -28,7 +28,6 @@ class Server:
             client_socket, client_address = self.static_socket.accept()
             # 连接成功后接收后续用于传输数据的端口
             self.ReceivePort(client_socket)
-        # self.static_socket.close()
 
     def handle(self):
         # 建立新的套接字
@@ -66,7 +65,10 @@ class Server:
 
         while True:
             # 首先接收客户端发送的数据长度，16代表接收长度
-            length = Receive(client_socket, 16)
+            try:
+                length = Receive(client_socket, 16)
+            except socket.error:
+                break
             # 若客户端没有向服务端发送数据长度，停止接收
             if length is None:
                 self.port_list.remove(name)
@@ -79,7 +81,7 @@ class Server:
             decode_img = cv2.imdecode(data, cv2.IMREAD_COLOR)
             # 使用opencv显示图像，在此处进行修改
             cv2.imshow(f'{name}', decode_img)
-            k = cv2.waitKey(10) & 0xff
+            k = cv2.waitKey(30) & 0xff
             if k == 27:
                 break
         cv2.destroyAllWindows()

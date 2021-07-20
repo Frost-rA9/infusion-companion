@@ -41,3 +41,14 @@ class LocateRoI:
         for start, end in predict_list:
             cv.rectangle(img, start, end, color, think)
         return img
+
+
+if __name__ == '__main__':
+    locate = LocateRoI("../../Resource/svm/trained/bottle_svm.svm")
+    from utils.ImageLoaderHelper.VideoHelper import VideoHelper
+    for frame in VideoHelper.read_frame_from_cap(0):
+        img = locate.predict_show(frame)
+        cv.imshow("img", img)
+        cv.waitKey(1)
+
+
