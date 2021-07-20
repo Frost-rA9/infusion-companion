@@ -110,7 +110,7 @@ if __name__ == '__main__':
                        is_train=False,
                        trans=trans)
 
-    img, label = l.__getitem__(0)
+    img, label = l.__getitem__(i)
 
     print(img, label)
     print(type(img), type(label))
