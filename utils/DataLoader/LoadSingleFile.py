@@ -30,24 +30,27 @@ import cv2
 
 
 class LoadSingleFile(Dataset):
-    # 0 anger 生气
-    # 1 disgust 厌恶
-    # 2 fear 恐惧
-    # 3 happy 开心
-    # 4 sad 伤心
-    # 5 surprised 惊讶
-    # 6 normal 中性
-    expression_dict = {
-        "painful": 0,  # 痛苦
-        "unpainful": 1,  # 不痛苦
-    }
-
     def __init__(self,
                  train_path: str,
                  test_path: str,
                  is_train: bool,
                  trans=None,
-                 resize=False):
+                 resize=True):
+        # 0 anger 生气
+        # 1 disgust 厌恶
+        # 2 fear 恐惧
+        # 3 happy 开心
+        # 4 sad 伤心
+        # 5 surprised 惊讶
+        # 6 normal 中性
+        self.expression_dict = {
+            "happy":0,  # 痛苦
+            "sad":1,  # 不痛苦
+        }
+        self.google_expression_dict = {
+            "upper": 0,  # 痛苦
+            "lower": 1,  # 不痛苦
+        }
         self.train_path = train_path
         self.test_path = test_path
         self.is_train = is_train
@@ -56,7 +59,7 @@ class LoadSingleFile(Dataset):
         self.trans = trans
         self.resize = resize
 
-    def img_data_load(self):
+    def img_data_load(self, is_googlenet: bool=False):
         """遍历所有的目录, 并添加类别"""
 
         if self.is_train:
@@ -67,7 +70,10 @@ class LoadSingleFile(Dataset):
             data_path = self.test_path
 
         for file_dir in d:
-            class_number = LoadSingleFile.expression_dict[file_dir]
+            if is_googlenet:
+                class_number = self.google_expression_dict[file_dir]
+            else:
+                class_number = self.expression_dict[file_dir]
             absolute_path = data_path + '/' + file_dir
             for file_name in os.listdir(absolute_path):
                 file_path = absolute_path + "/" + file_name

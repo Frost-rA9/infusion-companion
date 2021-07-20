@@ -15,8 +15,8 @@ from utils.Caculate.ImageFolder import ImageFolder
 
 # torch.set_printoptions(threshold=np.inf)
 """=============全局参量，主要是调参方便=========="""
-best_accuracy =0.9999
-train_size = 20
+best_accuracy =0.90
+train_size = 100
 
 """==============神经网络训练=================="""
 
@@ -27,11 +27,11 @@ def train(data_train_loader: DataLoader, data_test_loader: DataLoader):
     global train_size
     total_correct = 0
     total = 0
-    for epoc in range(10000):
+    for epoc in range(1000000):
         for idx, (image, label) in enumerate(data_train_loader):
             image, label = image.to(device), label.to(device)
-            print(image.shape)
-            exit(0)
+            # print(image.shape)
+            # exit(0)
             optimizer.zero_grad()
             output = net(image)
             loss = criterion(output, label)
@@ -98,14 +98,14 @@ if __name__ == '__main__':
         # transforms.Normalize(mean=( 0.52571785), std=(0.1964584)),
     ])
     # train_trans = transforms.Compose([transforms.ToTensor(), ])
-    train_set = LoadSingleFile(train_path="D:/人脸数据集/Expression/train",
-                               test_path="D:/人脸数据集/Expression/test",
+    train_set = LoadSingleFile(train_path="D:/code/测试/train",
+                               test_path="D:/code/测试/test",
                                is_train=True,
                                trans=train_trans,
                                resize=True)
 
-    test_set = LoadSingleFile( train_path="D:/人脸数据集/Expression/train",
-                               test_path="D:/人脸数据集/Expression/train",
+    test_set = LoadSingleFile( train_path="D:/code/测试/train",
+                               test_path="D:/code/测试/test",
                                is_train=False,
                                trans=test_trans,
                                resize=True)
@@ -117,13 +117,13 @@ if __name__ == '__main__':
     # print(img)
     # exit(0)
 
-    train_loader = DataLoader(dataset=train_set, batch_size=15, shuffle=True)
-    test_loader = DataLoader(dataset=test_set, batch_size=8, shuffle=True)
+    train_loader = DataLoader(dataset=train_set, batch_size=10, shuffle=True)
+    test_loader = DataLoader(dataset=test_set, batch_size=5, shuffle=True)
 
     # device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     net = FaceCNN()
 
-    # pretrained_path = "153.05549580603838_0.6516_model.pth"
+    # pretrained_path = "5.965041145682335_1.0binary_model.pth"
     # print('Loading weights into state dict...')
     # device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     # model_dict = net.state_dict()
@@ -136,7 +136,8 @@ if __name__ == '__main__':
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     net.to(device)
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.SGD(net.parameters(), lr=0.01, momentum=0.5)
+    # optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.5)
+    optimizer = optim.Adam(net.parameters(), lr=0.001)
     #momentum 当本次梯度下降- dx * lr的方向与上次更新量v的方向相同时，上次的更新量能够对本次的搜索起到一个正向加速的作用
 
     train(train_loader, test_loader)
