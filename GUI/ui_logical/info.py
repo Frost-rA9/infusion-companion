@@ -18,8 +18,8 @@ class info:
         if ui_path:
             self.ui_info = QtHelper.read_ui(ui_path)
         else:
-            self.ui_info = QtHelper.read_ui("../ui/info.ui")
-            # self.ui_info = QtHelper.read_ui("../GUI/ui/info.ui")
+            # self.ui_info = QtHelper.read_ui("../ui/info.ui")
+            self.ui_info = QtHelper.read_ui("../GUI/ui/info.ui")
 
         self.info_signal = InfoSignal()
         self.info_signal.update_info_text_edit.connect(self.ui_info.info_text_edit.append)  # ¸üÐÂÐÅºÅ
