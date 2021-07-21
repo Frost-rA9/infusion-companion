@@ -22,13 +22,13 @@ class main:
         self.widget = QWidget()
         self.v_layout = QVBoxLayout()
 
-        # i = info()
-        self.b = body()
+        self.i = info()
+        self.b = body(None, self.i)
         self.h = head()
         self.h.ui_head.sum_label.setText(str(self.b.return_camera_sum()) + "个")
 
         self.v_layout.addWidget(self.h.ui_head)
-        # v_layout.addWidget(i.ui_info)
+        self.v_layout.addWidget(self.i.ui_info)
         self.v_layout.addWidget(self.b.ui_body)
 
         self.widget.setLayout(self.v_layout)
