@@ -37,6 +37,11 @@ class body:
         # 摄像总数的事件实时监听
         self.body_signal = BodySignal()  # 实例化后才能用connect
         self.body_signal.sum_update.connect(self.ui_body.sum_line_edit.setText)
+        self.ui_body.address_button.activated.connect(self.address_change)
+
+    # 位置变化
+    def address_change(self):
+        pass
 
     # 返回可用摄像头上限
     def return_camera_sum(self):
@@ -75,7 +80,7 @@ class body:
         self.g_layout.itemAt(i).widget().setHidden(False)
         print(f'完成摄像头{i + 1}的显示')
 
-    # 视频小组件的图像显示
+    # 所有视频控件的图像显示及后端的启动
     def little_video_show(self, img, i: int):
         size = (50, 50)
         frame = cv.resize(img, size)
@@ -83,9 +88,11 @@ class body:
         self.g_layout.itemAt(i).widget().video.setPixmap(QPixmap.fromImage(convert_frame))
         if self.index == i + 1:
             img, level, expression = self.data_process.process_seq(img)
+            self.ui_body.liquid_level_line_edit.setText(level)
+            self.ui_body.emotion_line_edit.setText(level)
             print("liquid level：", level)  # string
             print("expression：", expression)  # sring
-            # cv.imshow("loc img：", img)  # np.ndarray
+            cv.imshow("loc img：", img)  # np.ndarray
             size = (640, 480)
             frame = cv.resize(img, size)
             convert_frame = QtImgConvert.CvImage_to_QImage(frame)
