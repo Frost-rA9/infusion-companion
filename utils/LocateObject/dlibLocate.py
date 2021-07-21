@@ -44,11 +44,20 @@ class LocateRoI:
 
 
 if __name__ == '__main__':
-    locate = LocateRoI("../../Resource/svm/trained/bottle_svm.svm")
-    from utils.ImageLoaderHelper.VideoHelper import VideoHelper
-    for frame in VideoHelper.read_frame_from_cap(0):
-        img = locate.predict_show(frame)
+    locate = LocateRoI("../../Resource/svm/trained/new_bottle_svm.svm")
+    # from utils.ImageLoaderHelper.VideoHelper import VideoHelper
+    # for frame in VideoHelper.read_frame_from_cap(0):
+    #     img = locate.predict_show(frame)
+    #     cv.imshow("img", img)
+    #     cv.waitKey(1)
+    import os
+    import cv2 as cv
+    path = "H:/bottle"
+    for d in os.listdir(path):
+        file = path + "/" + d
+        img = cv.imread(file)
+        img = locate.predict_show(img)
         cv.imshow("img", img)
-        cv.waitKey(1)
+        cv.waitKey(0)
 
 
