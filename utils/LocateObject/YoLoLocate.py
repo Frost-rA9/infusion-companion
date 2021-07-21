@@ -307,6 +307,8 @@ class YOLO(object):
 
 
 class YoLoLocate:
+    print_var = False  # 用来控制是否打印中间信息
+
     def __init__(self, model_path: str, anchors_path: str, classes_path: str):
         # 由于python的相对路径是从当前运行文件出发的，所以需要更新
         temp = {"model_path": model_path, "anchors_path": anchors_path, "classes_path": classes_path}
@@ -361,7 +363,8 @@ class YoLoLocate:
             draw = ImageDraw.Draw(image)
             label_size = draw.textsize(label, font)
             label = label.encode('utf-8')
-            print(label, top, left, bottom, right)
+            if YoLoLocate.print_var:
+                print(label, top, left, bottom, right)
 
             if top - label_size[1] >= 0:
                 text_origin = np.array([left, top - label_size[1]])

@@ -14,6 +14,13 @@ from utils.ImageConvert.ConvertColorSpace import ConvertColorSpace
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
+"""ExpressionDetect:
+    
+    - 使用GoogleNetV4进行的情绪分类
+    
+    - 效果不佳，现已废弃。保留以防止报错
+"""
+
 
 class ExpressionDetect:
     def __init__(self,
@@ -50,9 +57,20 @@ class ExpressionDetect:
         return predict_data  # 获取类别交给DataProcess.py
 
 
+"""ExpressionDetectWithFaceCnn:
+    
+    - 以轻度的神经网络进行情绪识别的替代版本
+    
+    1. 简化了网络层数
+    2. 优化了执行效率
+    3. 提高了准确率
+    
+"""
+
+
 class ExpressionDetectWithFaceCnn:
     def __init__(self,
-                 model_path: str = "../../Resource/model_data/face_cnn_loss_5.96_acc_1.0.pth"):
+                 model_path: str = "../../Resource/model_data/1.7163960743040647_0.9864binary_model.pth"):
         print("Loading face cnn")
         self.model = torch.load(model_path, map_location=device)
         print("Face Cnn Load finish")
@@ -79,10 +97,10 @@ class ExpressionDetectWithFaceCnn:
         return data
 
 
-
 if __name__ == '__main__':
-    img_path = "../../Resource/DataSet/CAER-S/0/1.jpg"
-    img = cv.imread(img_path)
-    # expression = ExpressionDetect()
     expression = ExpressionDetectWithFaceCnn()
-    print("expression:", expression.predict(img))
+    from utils.ImageLoaderHelper.VideoHelper import VideoHelper
+    for frame in VideoHelper.read_frame_from_cap(0):
+        print("expression:", expression.predict(frame))
+        cv.imshow("img", frame)
+        cv.waitKey(1)

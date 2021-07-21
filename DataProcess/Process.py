@@ -17,13 +17,15 @@ from DataProcess.ObjectLoacte.ObjectLocate import ObjectLocate
 
 
 class DataProcess:
+    print_var = False  # 用来控制是否打印中间信息
+
     def __init__(self,
-                 svm_path="../Resource/svm/trained/bottle_svm.svm",
+                 svm_path="../Resource/svm/trained/new_bottle_svm.svm",
                  yolo_wight="../Resource/model_data/test_model/yolo/Epoch100-Total_Loss7.1096-Val_Loss12.4228.pth",
                  yolo_anchors="../Resource/model_data/yolo_anchors.txt",
                  yolo_predict_class="../Resource/model_data/infusion_classes.txt",
                  liquid_model_path="../Resource/model_data/test_model/DeepLabV3Plus/loss_81.27131041884422_0.8332_.pth",
-                 expression_model_path="../Resource/model_data/test_model/FaceCnn/face_cnn_loss_5.96_acc_1.0.pth"
+                 expression_model_path="../Resource/model_data/test_model/FaceCnn/new_face_cnn.pth"
                  ):
 
         print('{:*^80}'.format("start init all weight...."))
@@ -49,7 +51,10 @@ class DataProcess:
 
         # 1. 获取roi
         loc_list = self.object_locate.get_loc(img)
-        print("roi list：", loc_list)
+
+        if DataProcess.print_var:
+            print("roi list：", loc_list)
+
         bottle_loc, face_loc = loc_list
         bottle_roi, face_roi = [], []
 
@@ -83,7 +88,8 @@ class DataProcess:
         # 后续如果有更多的人脸，那么必须得改
         expression = self.expression_dict[expression_list.index(max(expression_list))]
 
-        print("expression list：", expression_list)  # 测试用
+        if DataProcess.print_var:
+            print("expression list：", expression_list)  # 测试用
 
         # 3. 对结果进行返回
         return img, sum(self.liquid_level) / len(self.liquid_level), expression  # 这是测试用的
@@ -108,7 +114,9 @@ if __name__ == '__main__':
 
     for frame in get_pic():
         img, level, expression = data_process.process_seq(frame)
+        print("*" * 100)
         print("liquid level：", level)
-        print("***************expression：{} **************".format(expression))
+        print("expression: ", expression)
+        print("*" * 100)
         cv.imshow("loc img：", img)
         cv.waitKey(1)

@@ -17,9 +17,18 @@ from torchvision import transforms
 import torch.nn as nn
 
 from utils.Caculate.LiquidLeftCal import LiquidLeftCal
+
 # from net.DeepLabV3Plus.DeepLabV3Plus import DeepLabV3Plus
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+
+"""LiquidLevelDetect
+
+    - 使用纯语义分割的方案对像素点进行切割
+    - 然后通过统计有水的像素占有水+无水的比值达到计算效果
+    
+    - 实际测试过程中，拟合效果较差，因此整合到后续版本的检测方案中
+"""
 
 
 class LiquidLevelDetect:
@@ -58,9 +67,19 @@ class LiquidLevelDetect:
         return predict_level
 
 
+class LiquidDetectCombine:
+    def __init__(self,
+                 binary_model_path:str = "../../Resource/model_data/test_model_GoogLeNet/263.0037250816822_0.75_model.pth",
+                 Segmentation_model_path: str = None,
+                 ):
+        pass
+
+
+
 if __name__ == '__main__':
     from PIL import Image
     import os
+
     file_path = "F:/DataSet/bottle/segmentation/dir_json/train/"
     liquid = LiquidLevelDetect()
     liquid_cal = LiquidLeftCal()

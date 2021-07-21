@@ -13,8 +13,10 @@ from utils.LocateObject.YoLoLocate import YoLoLocate  # 定位万物
 
 
 class ObjectLocate:
+    print_var = False  # 用来控制是否打印中间信息
+
     def __init__(self,
-                 svm_path="../../Resource/svm/trained/bottle_svm.svm",
+                 svm_path="../../Resource/svm/trained/new_bottle_svm.svm",
                  yolo_wight="../../Resource/model_data/test_model/yolo/Epoch100-Total_Loss7.1096-Val_Loss12.4228.pth",
                  yolo_anchors="../../Resource/model_data/yolo_anchors.txt",
                  yolo_predict_class="../../Resource/model_data/infusion_classes.txt",
@@ -89,7 +91,8 @@ class ObjectLocate:
 
                 if focus_on_model and not has_bottle:
                     loc_list[0] = False  # 否定dlib的定位结果
-                    print("dlib was rejected by yolov3")
+                    if ObjectLocate.print_var:
+                        print("dlib was rejected by yolov3")
 
         # 做多个结果的合并
         loc_list = self.roi_filter(loc_list)
@@ -132,16 +135,15 @@ class ObjectLocate:
         new_bottle_list = []
         for bottle_start, bottle_end in bottle_list:
             for face_start, face_end in face_list:
-                rate = ObjectLocate.cal_cross_area( (bottle_start, bottle_end), (face_start, face_end))
+                rate = ObjectLocate.cal_cross_area((bottle_start, bottle_end), (face_start, face_end))
                 if rate > cross_area:
                     break
             else:
-                new_bottle_list.append( (bottle_start, bottle_end) )
+                new_bottle_list.append((bottle_start, bottle_end))
         if len(new_bottle_list) == 0:
             return False
         else:
             return new_bottle_list
-
 
     def get_possible_bottle_roi(self,
                                 bottle_list,
@@ -174,7 +176,8 @@ class ObjectLocate:
                     if self.frame_down:
                         self.is_bottle[item] = self.is_bottle[item] - decrease_rate
 
-                print("bottle roi_rate_list", roi_rate_list)
+                if ObjectLocate.print_var:
+                    print("bottle roi_rate_list", roi_rate_list)
 
                 max_index = roi_rate_list.index(max(roi_rate_list))
                 if roi_rate_list[max_index] > cross_rate:
@@ -198,8 +201,8 @@ class ObjectLocate:
 
         for del_item in del_list:
             self.is_bottle.pop(del_item)
-
-        print("self.is_bottle", self.is_bottle)
+        if ObjectLocate.print_var:
+            print("self.is_bottle", self.is_bottle)
 
         if return_list:
             return return_list
@@ -282,7 +285,8 @@ class ObjectLocate:
 
             try:
                 roi = horizontal_roi * vertical_roi
-                print("Cross area roi is: ", roi)
+                if ObjectLocate.print_var:
+                    print("Cross area roi is: ", roi)
                 if roi > face_roi:  # 说明重叠度很高，取范围大的
                     if get_bigger:  # 代码复用，脸取大的，瓶子取小的
                         last_left, last_right = max_width
@@ -306,8 +310,6 @@ class ObjectLocate:
             # ( (left, top), (right, end) )
             new_face_list.append(((left, top), (right, end)))
             return new_face_list
-
-    
 
     """1种输出格式规范化
         - 其实就是把输出结果整整合理
@@ -382,7 +384,8 @@ class ObjectLocate:
     def get_all_loc(self,
                     img: np.ndarray):
         predict_list = self.yolo_locate.predict(img)
-        print("YoLo predict", predict_list)
+        if ObjectLocate.print_var:
+            print("YoLo predict", predict_list)
         # predict_list = np.array(self.yolo_locate.draw(img, filter=None, font_path="../../Resource/model_data/simhei.ttf"))
         if predict_list:
             return predict_list[4]  # predicted_class, label, top, left, bottom, right

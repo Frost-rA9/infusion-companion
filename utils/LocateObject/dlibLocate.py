@@ -19,6 +19,8 @@ import cv2 as cv
 
 
 class LocateRoI:
+    print_var = False  # 用来控制是否打印中间信息
+
     def __init__(self, svm_path: str):
         self.detector = dlib.simple_object_detector(svm_path)
 
@@ -58,6 +60,6 @@ if __name__ == '__main__':
         img = cv.imread(file)
         img = locate.predict_show(img)
         cv.imshow("img", img)
-        cv.waitKey(0)
+        cv.waitKey(100)
 
 

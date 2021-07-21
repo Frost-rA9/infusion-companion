@@ -20,6 +20,8 @@ import cv2 as cv
 
 
 class Cascade:
+    print_var = False  # 用来控制是否打印中间信息
+
     def __init__(self):
         self.faceCascade = cv.CascadeClassifier(cv.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
@@ -30,7 +32,10 @@ class Cascade:
             return l  # 防止后续的解码
 
         max_index = list(reject_levels).index(max(reject_levels))
-        print("reject_level", reject_levels[max_index], "level_wight", level_weights[max_index])
+
+        if Cascade.print_var:
+            print("reject_level", reject_levels[max_index], "level_wight", level_weights[max_index])
+
         if level_weights[max_index] > 4:
             left, top, width, height = faces[max_index]
             l.append(((left, top), (left + width, top + height)))

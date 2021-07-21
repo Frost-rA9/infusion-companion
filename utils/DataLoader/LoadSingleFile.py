@@ -30,6 +30,15 @@ import cv2
 
 
 class LoadSingleFile(Dataset):
+    expression_dict = {
+        "painful": 0,  # Í´¿à
+        "unpainful": 1,  # ²»Í´¿à
+    }
+    google_expression_dict = {
+        "upper": 0,  # Í´¿à
+        "lower": 1,  # ²»Í´¿à
+    }
+
     def __init__(self,
                  train_path: str,
                  test_path: str,
