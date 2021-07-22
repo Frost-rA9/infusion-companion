@@ -40,8 +40,6 @@ class body:
             self.ui_body = QtHelper.read_ui("../GUI/ui/body.ui")
         self.data_process = DataProcess()  # 数据处理过程
         self.info = info
-        # 大视频的显示下标
-        self.index = -1
         # 显示连接摄像头上限
         self.camera_sum = 20
         # 可用摄像头数
@@ -52,6 +50,7 @@ class body:
         # 视频小组件的初始化
         self.g_layout = QGridLayout()
         self.control_init()
+        self.thread_over = True
         # 时间差
         self.last_time = datetime.datetime.today().second
         # 摄像总数的事件实时监听
@@ -112,13 +111,13 @@ class body:
         convert_frame = QtImgConvert.CvImage_to_QImage(frame)
         self.g_layout.itemAt(i).widget().video.setPixmap(QPixmap.fromImage(convert_frame))
         now_time = datetime.datetime.today().second  # 获得当前时间
-
         self.body_signal.data_process_finish.emit()
-
-        if (now_time - self.last_time) >= 1:
-            self.last_time = now_time
-            temp = Thread(target=self.img_predict, kwargs={'img': img})
-            temp.start()
+        if self.thread_over:
+            self.thread_over = False
+            if (now_time - self.last_time) >= 1:
+                self.last_time = now_time
+                temp = Thread(target=self.img_predict, kwargs={'img': img})
+                temp.start()
 
     """图像数据预测"""
 
@@ -145,18 +144,17 @@ class body:
         self.info_update("expression：" + expression)
 
     """预测进程"""
+
     def img_predict(self, **kwargs):
         img = kwargs['img']
         img, level, expression = self.data_process.process_seq(img)
         body.temp_data = (img, level, expression)
-
-    # 视频大组件的图像显示
-    def video_show_change(self, i):
-        self.index = i
+        self.thread_over = True
 
 
 if __name__ == '__main__':
     from GUI.ui_logical.info import info
+
     i = info()
     app = QApplication()
     b = body(None, i)
