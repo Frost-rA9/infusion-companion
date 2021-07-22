@@ -1,3 +1,4 @@
+import datetime
 from functools import partial
 from PySide2.QtGui import QPixmap
 from GUI.GUIHelper.QtHelper import QtHelper
@@ -9,7 +10,7 @@ import cv2 as cv
 from GUI.GUIHelper.QtImgConvert import QtImgConvert
 
 
-from DataProcess.Process import DataProcess
+# from DataProcess.Process import DataProcess
 
 
 class BodySignal(QObject):
@@ -23,7 +24,7 @@ class body:
         else:
             # self.ui_body = QtHelper.read_ui("../ui/body.ui")
             self.ui_body = QtHelper.read_ui("../GUI/ui/body.ui")
-        self.data_process = DataProcess()
+        # self.data_process = DataProcess()
         self.info = info
         # 大视频的显示下标
         self.index = -1
@@ -37,6 +38,8 @@ class body:
         # 视频小组件的初始化
         self.g_layout = QGridLayout()
         self.control_init()
+        # 时间差
+        self.last_time = datetime.datetime.today().second
         # 摄像总数的事件实时监听
         self.body_signal = BodySignal()  # 实例化后才能用connect
         self.body_signal.sum_update.connect(self.ui_body.sum_line_edit.setText)
@@ -93,13 +96,17 @@ class body:
         frame = cv.resize(img, size)
         convert_frame = QtImgConvert.CvImage_to_QImage(frame)
         self.g_layout.itemAt(i).widget().video.setPixmap(QPixmap.fromImage(convert_frame))
-        if self.index == i + 1:
-            img, level, expression = self.data_process.process_seq(img)
-            self.ui_body.liquid_level_line_edit.setText(level)
-            self.ui_body.emotion_line_edit.setText(level)
-            self.info_update("liquid level：", level)  # string
-            self.info_update("expression：", expression)  # sring
-            # cv.imshow("loc img：", img)  # np.ndarray
+        now_time = datetime.datetime.today().second  # 获得当前时间
+        if self.index == i + 1 and (self.last_time - now_time) >= 1:
+            self.last_time = now_time
+            # if self.index == i + 1:
+            #     img, level, expression = self.data_process.process_seq(img)
+            #     level, expression = str(level), str(expression)
+            #     self.ui_body.liquid_level_line_edit.setText(level)
+            #     self.ui_body.emotion_line_edit.setText(level)
+            #     self.info_update("liquid level："+level)  # string
+            #     self.info_update("expression："+expression)  # sring
+            #     cv.imshow("loc img：", img)  # np.ndarray
             size = (640, 480)
             frame = cv.resize(img, size)
             convert_frame = QtImgConvert.CvImage_to_QImage(frame)
