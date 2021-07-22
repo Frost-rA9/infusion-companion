@@ -69,36 +69,90 @@ class LiquidLevelDetect:
 
 class LiquidDetectCombine:
     def __init__(self,
-                 binary_model_path:str = "../../Resource/model_data/test_model_GoogLeNet/263.0037250816822_0.75_model.pth",
-                 Segmentation_model_path: str = None,
+                 classifier_model_path: str = "../../Resource/model_data/test_model/GoogLeNet/loss_263_acc_0.75_for_face.pth",
+                 segmentation_model_path: str = None,
                  ):
-        pass
+        print("classifier model init ..")
+        self.classifier = torch.load(classifier_model_path, map_location=device)
+        print("classifier load finish..")
 
+        if segmentation_model_path:
+            print("Segmentation model init ..")
+            self.segmentation = torch.load(segmentation_model_path, map_location=device)
+            print("Segmentation load finish ..")
+            self.liquid_cal = LiquidLeftCal()
+        else:
+            self.segmentation = None
+
+        self.binary_dict = {
+            0: "upper",
+            1: "lower"
+        }
+
+    def level_predict(self, img: np.ndarray):
+        # 0. resize
+        img = cv.resize(img, (400, 400))
+
+        # 1. img->tensor
+        to_tensor = transforms.ToTensor()
+        tensor_img = to_tensor(img)
+        tensor_img = tensor_img.unsqueeze(0)
+
+        # 2. predict
+        class_result = self.classifier(tensor_img.to(device))  # 二分类结果的两种状态 0:upper, 1:lower
+        if self.segmentation:
+            predict_img = self.classifier(tensor_img.to(device))
+            predict_img = torch.argmax(predict_img, dim=1)
+            predict_img = predict_img.squeeze(0)
+            predict_data = predict_img.data.cpu().numpy()
+            predict_level = self.liquid_cal.get_cur_liquid(predict_data)  # 分割结果出来液位的状态
+        else:
+            predict_level = 0
+        print(class_result)
+
+        # 3. weight cal
+        class_result = class_result.data.cpu().numpy()
+        if predict_level == 0:
+            predict_level = np.array([0, 0])  # 0: upper， 1：lower
+        elif predict_level > 0.3:
+            predict_level = np.array([predict_level, 1-predict_level])
+        else:
+            predict_level = np.array([1-predict_level, predict_level])
+        result = 0.2 * predict_level + 0.8 * class_result
+
+        # 4. draw conclusion
+        index = list(result).index(max(result))
+        return self.binary_dict[index]
 
 
 if __name__ == '__main__':
     from PIL import Image
-    import os
+    liquid_combine = LiquidDetectCombine()
+    from utils.ImageLoaderHelper.VideoHelper import VideoHelper
+    for frame in VideoHelper.read_frame_from_cap(0):
+        data = liquid_combine.level_predict(frame)
+        print(data)
 
-    file_path = "F:/DataSet/bottle/segmentation/dir_json/train/"
-    liquid = LiquidLevelDetect()
-    liquid_cal = LiquidLeftCal()
-    total = []
-    for d in os.listdir(file_path):
-        temp = file_path + d + "/"
-        img_path = temp + "img.png"
-        img = cv.imread(img_path)
-        data1 = liquid.level_predict(img)
-
-        img_path = temp + "label.png"
-        i = Image.open(img_path)
-        i = np.array(i)
-        data2 = liquid_cal.get_cur_liquid(i)
-        print("*" * 20)
-        print("data1", data1, "data2", data2)
-        differ = abs(data1 - data2) / data2 * 100
-        print("differ rate is:", differ)
-        if differ != np.inf:
-            total.append(differ)
-        print("*" * 20)
-    print(sum(total) / len(total))
+    ### for LiquidLevelDetect test
+    # file_path = "F:/DataSet/bottle/segmentation/dir_json/train/"
+    # liquid = LiquidLevelDetect()
+    # liquid_cal = LiquidLeftCal()
+    # total = []
+    # for d in os.listdir(file_path):
+    #     temp = file_path + d + "/"
+    #     img_path = temp + "img.png"
+    #     img = cv.imread(img_path)
+    #     data1 = liquid.level_predict(img)
+    #
+    #     img_path = temp + "label.png"
+    #     i = Image.open(img_path)
+    #     i = np.array(i)
+    #     data2 = liquid_cal.get_cur_liquid(i)
+    #     print("*" * 20)
+    #     print("data1", data1, "data2", data2)
+    #     differ = abs(data1 - data2) / data2 * 100
+    #     print("differ rate is:", differ)
+    #     if differ != np.inf:
+    #         total.append(differ)
+    #     print("*" * 20)
+    # print(sum(total) / len(total))

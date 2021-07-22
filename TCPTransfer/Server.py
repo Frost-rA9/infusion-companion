@@ -24,7 +24,7 @@ class Server:
         # 静态socket，用于监听后续发送视频数据的端口
         self.static_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         # 0.0.0.0代表监听局域网下所有IPV4地址的连接
-        self.host = '0.0.0.0'
+        self.host = '0.0.0.0'  # '192.168.43.93'
         # 静态端口，用于接收后续端口
         self.static_port = 6400
         # 绑定静态socket

@@ -9,22 +9,36 @@ from GUI.ui_logical.body_video import body_vedio
 import cv2 as cv
 from GUI.GUIHelper.QtImgConvert import QtImgConvert
 
-
-# from DataProcess.Process import DataProcess
+from DataProcess.Process import DataProcess
+from threading import Thread
+import numpy as np
 
 
 class BodySignal(QObject):
     sum_update = Signal(str)
+    data_process_finish = Signal()
 
 
 class body:
+    """建立数据处理对象
+                - 首先赋予img, level, expression初值，防止报错
+                - 数据处理进程会优先给temp_data传值
+                - 然后主进程先判断temp_data有没有数据
+                    - 如果有数据就拿出来更新页面，并赋予给update_tuple, 并重置temp_data = None
+                    - 没有数据就直接拿update_tuple的数据来更新，这样子起码不会报错
+                    - 这个通过一个通知信号实现，防止同时读取变量导致的线程锁死
+                - 生命成全局变量是方便修改
+            """
+    update_tuple = np.zeros((640, 480, 3), np.uint8), "un_detect", "un_detect"
+    temp_data = None
+
     def __init__(self, ui_path, info):
         if ui_path:
             self.ui_body = QtHelper.read_ui(ui_path)
         else:
             # self.ui_body = QtHelper.read_ui("../ui/body.ui")
             self.ui_body = QtHelper.read_ui("../GUI/ui/body.ui")
-        # self.data_process = DataProcess()
+        self.data_process = DataProcess()  # 数据处理过程
         self.info = info
         # 大视频的显示下标
         self.index = -1
@@ -43,6 +57,7 @@ class body:
         # 摄像总数的事件实时监听
         self.body_signal = BodySignal()  # 实例化后才能用connect
         self.body_signal.sum_update.connect(self.ui_body.sum_line_edit.setText)
+        self.body_signal.data_process_finish.connect(self.update_video_Image)
         self.ui_body.address_button.activated.connect(self.address_change)
 
     # 日志更新
@@ -97,21 +112,43 @@ class body:
         convert_frame = QtImgConvert.CvImage_to_QImage(frame)
         self.g_layout.itemAt(i).widget().video.setPixmap(QPixmap.fromImage(convert_frame))
         now_time = datetime.datetime.today().second  # 获得当前时间
-        if self.index == i + 1 and (now_time-self.last_time) >= 1:
+
+        self.body_signal.data_process_finish.emit()
+
+        if (now_time - self.last_time) >= 1:
             self.last_time = now_time
-            # if self.index == i + 1:
-            #     img, level, expression = self.data_process.process_seq(img)
-            #     level, expression = str(level), str(expression)
-            #     self.ui_body.liquid_level_line_edit.setText(level)
-            #     self.ui_body.emotion_line_edit.setText(level)
-            #     self.info_update("liquid level："+level)  # string
-            #     self.info_update("expression："+expression)  # sring
-            #     cv.imshow("loc img：", img)  # np.ndarray
-            size = (640, 480)
-            frame = cv.resize(img, size)
-            convert_frame = QtImgConvert.CvImage_to_QImage(frame)
-            self.ui_body.video.setPixmap(QPixmap.fromImage(convert_frame))
-            # self.ui_body.video.clear()
+            temp = Thread(target=self.img_predict, kwargs={'img': img})
+            temp.start()
+
+    """图像数据预测"""
+
+    def update_video_Image(self):
+        """按照前注释，没有就拿旧数据，好了拿新数据"""
+        size = (640, 480)
+        if not body.temp_data:  # 没数据
+            frame, level, expression = body.update_tuple
+        else:
+            frame, level, expression = body.temp_data
+            body.update_tuple = body.temp_data
+            body.temp_data = None
+        level, expression = str(level), str(expression)  # 防止以后传的是数据而不是str
+
+        # 1. 更新video
+        frame = cv.resize(frame, size)
+        convert_frame = QtImgConvert.CvImage_to_QImage(frame)
+        self.ui_body.video.setPixmap(QPixmap.fromImage(convert_frame))
+        # 2. 更新text栏
+        self.ui_body.liquid_level_line_edit.setText(level)
+        self.ui_body.emotion_line_edit.setText(level)
+        # 3. 更新info通知栏
+        self.info_update("liquid level：" + level)
+        self.info_update("expression：" + expression)
+
+    """预测进程"""
+    def img_predict(self, **kwargs):
+        img = kwargs['img']
+        img, level, expression = self.data_process.process_seq(img)
+        body.temp_data = (img, level, expression)
 
     # 视频大组件的图像显示
     def video_show_change(self, i):
@@ -119,7 +156,9 @@ class body:
 
 
 if __name__ == '__main__':
+    from GUI.ui_logical.info import info
+    i = info()
     app = QApplication()
-    b = body()
+    b = body(None, i)
     b.ui_body.show()
     app.exec_()

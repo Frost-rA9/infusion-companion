@@ -28,7 +28,7 @@ class ObjectLocate:
         # loc计算roi，且用于返回，应为瓶子大体是不移动的
         # count：每隔一定时间-1，变成0去除，如果一直大于3，那么说明这里确实是瓶子
         self.is_bottle = {}
-        self.frame_down = False
+        self.frame_down = False  # 刚好两种状态来判定什么时候减少一定的值
 
     """1种对外开放的主调用函数
         - 通过3种基本方法还有几种优化方案返回比较合理的定位

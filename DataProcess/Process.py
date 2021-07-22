@@ -36,7 +36,11 @@ class DataProcess:
         self.color_list = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]  # 测试用
         # 液位是一个变化很慢的东西，每次应该返回结果的平均值, 0是为了防止报错
         # 在开始检测几秒后，这个0的影响就可以忽略了
-        self.liquid_level = [0]
+        self.liquid_level = [0]  # 这个是纯语义分割用得，以后的方向
+        self.liquid_level_dict = {0: "un_detect"}  # 这是是用二分的方案做液位的，现在使用它
+        for mean in LoadSingleFile.google_expression_dict:
+            index = LoadSingleFile.google_expression_dict[mean]
+            self.liquid_level_dict[index + 1] = mean
         # 表情的字典
         self.expression_dict = {0: "un_detect"}
         for mean in LoadSingleFile.expression_dict:
@@ -48,6 +52,7 @@ class DataProcess:
     def process_seq(self, img: np.ndarray):
         # 0. 数据大小同步
         img = cv.resize(img, (800, 600))
+        print("process_seq img size", img.shape)
 
         # 1. 获取roi
         loc_list = self.object_locate.get_loc(img)
@@ -72,11 +77,15 @@ class DataProcess:
                 face_roi.append(img[left:right, top:bottom])
 
         # 2. 对于定位成功的数据进行处理
+        bottle_list = [0] * len(self.liquid_level_dict)
         if bottle_roi:
             for roi in bottle_roi:
                 if len(roi) != 0:  # 有些时候裁剪出空
                     level = self.liquid_level_detect.level_predict(roi)
-                    self.liquid_level.append(level)
+                    level = int(level)  # 防止忘记改网络的时候报错
+                    # self.liquid_level.append(level)
+                    bottle_list[level + 1] += 1
+        liquid_level = self.liquid_level_dict[bottle_list.index(max(bottle_list))]
 
         expression_list = [0] * len(self.expression_dict)
         if face_roi:
@@ -92,7 +101,8 @@ class DataProcess:
             print("expression list：", expression_list)  # 测试用
 
         # 3. 对结果进行返回
-        return img, sum(self.liquid_level) / len(self.liquid_level), expression  # 这是测试用的
+        return img, liquid_level, expression
+        # return img, sum(self.liquid_level) / len(self.liquid_level), expression  # 这是测试用的
         # return sum(self.liquid_level) / len(self.liquid_level), expression
 
 
@@ -111,12 +121,15 @@ def get_pic():
 
 if __name__ == '__main__':
     data_process = DataProcess()
-
+    import time
     for frame in get_pic():
+        start = time.time()
         img, level, expression = data_process.process_seq(frame)
         print("*" * 100)
         print("liquid level：", level)
         print("expression: ", expression)
+        end = time.time()
+        print("rate is:", 1 / (end - start))
         print("*" * 100)
         cv.imshow("loc img：", img)
         cv.waitKey(1)
