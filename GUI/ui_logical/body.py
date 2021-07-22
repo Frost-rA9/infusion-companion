@@ -97,7 +97,7 @@ class body:
         convert_frame = QtImgConvert.CvImage_to_QImage(frame)
         self.g_layout.itemAt(i).widget().video.setPixmap(QPixmap.fromImage(convert_frame))
         now_time = datetime.datetime.today().second  # 获得当前时间
-        if self.index == i + 1 and (self.last_time - now_time) >= 1:
+        if self.index == i + 1 and (now_time-self.last_time) >= 1:
             self.last_time = now_time
             # if self.index == i + 1:
             #     img, level, expression = self.data_process.process_seq(img)
