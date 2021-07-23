@@ -257,39 +257,137 @@ class DynamicThresholdDetection:
         return inpaint_img
 
 
+"""ThresholdDetect
+
+    - 是opencv检测液位的迭代版本
+    
+    - 流程更换如下：
+        1. 画面抖动判断：
+            - 由于添加了模糊数据集，所以有对模糊图像的定位能力
+            但是模糊图形对传统方案的干扰过大
+            因此在模糊数据的情况下直接交给模型计算
+            - 此项功能实现后可以作为静态函数供Process.py提高准确率
+            - 已实现简单的方案在JitterCal.py中
+                - 由于抖动需要前后两个图进行比较，所以需要有个外层循环辅助运算
+        2. 直方图均衡
+        3. 阈值分割
+        4. 边界检测
+"""
+from utils.Caculate.JitterCal import JitterCal
+
+
+class ThresholdDetect2:
+    # def __init__(self):
+    #     self.liquid_cal = LiquidLeftCal()  # 对于分割的结果做计算
+
+    def cal_seq(self, img: np.ndarray):
+        # 1. 计算灰度直方图
+        if len(img.shape) > 2:
+            img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)  # 到灰度图
+        gray_count = np.zeros((256), np.int)
+        flatten_img = img.flatten()
+        for i in range(len(flatten_img)):
+            gray_count[flatten_img[i]] += 1  # 统计了每个像素值点的个数
+
+        # 2. 直方图均衡化
+        height, width = img.shape
+        gray_count_per = gray_count / (width * height)  # 每个点求平均
+        for i in range(2, len(gray_count_per)):  # 不知道为什么从2开始
+            gray_count_per[i] = gray_count_per[i - 1] + gray_count_per[i]
+
+        # 3. 计算灰度概率
+        gray_count_per = gray_count_per * 255
+        buff = np.zeros((height * width), np.double)
+        for i in range(len(flatten_img)):  # 每个像素值用概率替换
+            buff[i] = gray_count_per[flatten_img[i]]
+        buff = np.reshape(buff, (height, width))  # 把长条拉伸回图像
+
+        # 4. 进行3x3的均值滤波
+        blur = cv.blur(buff, ksize=(3, 3))
+
+        # 5. 图形二值化
+        threshold = 25  # ***此阈值需要更具环境调整***
+        ret, threshold_img = cv.threshold(blur, threshold, 255, cv.THRESH_BINARY)
+
+        # 6. 计算每两行像素值相加的和
+        start_loc = 100  # 过滤掉输液瓶的头部
+        sum_list = []
+        for i in range(start_loc, height, 2):  # 计算偶行的和, 行数需要为偶数
+            try:
+                sum_list.append(sum(threshold_img[i]) + sum(threshold_img[i + 1]))
+            except:
+                pass  # 直接忽略一行
+        # 7. 计算sum_list的每两行的差
+        sub_list = []
+        for i in range(0, len(sum_list) - 1):
+            try:
+                sub_list.append(abs(sum_list[i + 1] - sum_list[i]))
+            except:
+                pass  # 同样防止行数的报错
+
+        # 8. 找出对比度最大的位置
+        max_index = sub_list.index(max(sub_list))
+        true_start_height = max_index * 2 + start_loc  # 这是步长为2逆推位置
+
+        # 9. 划线
+        # 大致就是画了一个从最大对比度开始的一个高20像素的框
+        start_pos = (0, true_start_height)
+        end_pos = (width, true_start_height + 20)
+        img = cv.rectangle(img, start_pos, end_pos, color=(0, 255, 0), thickness=2)
+
+        return img
+
+
 """这里是测试代码"""
 
 
-def show_img(img: np.ndarray):
-    cv.imshow("img", img)
-    cv.waitKey(0)
+def show_img(img: np.ndarray, win_name: str = "img"):
+    cv.imshow(win_name, img)
+    cv.waitKey(1)
 
 
 if __name__ == '__main__':
-    from PIL import Image
-    import os
-    file_path = "F:/DataSet/bottle/segmentation/dir_json/train/"
-    dynamic = DynamicThresholdDetection()
-    liquid = LiquidLeftCal()
-    np.set_printoptions(threshold=np.inf)
+    from utils.ImageLoaderHelper.VideoHelper import VideoHelper
 
-    total = []
-    for d in os.listdir(file_path):
-        temp = file_path + d + "/"
-        img_path = temp + "img.png"
-        img = cv.imread(img_path)
-        data1 = dynamic.cal_seq(img)  # 0.6164383561643836
+    ### ThresholdDetect2 test code
+    img = "F:/temp/Classifer/train/lower/211.png"
+    img = cv.imread(img)
+    threshold2 = ThresholdDetect2()
+    output = threshold2.cal_seq(img)
+    cv.imshow("img", img)
+    cv.imshow("output", output)
+    cv.waitKey(0)
+    # JitterCal.print_var = True
+    # last_frame = None
+    # for frame in VideoHelper.read_frame_from_cap(0):
+    #     if last_frame is not None:
+    #         data = JitterCal.jitter_detect(last_frame, frame)
+    #     last_frame = frame
+    #     show_img(frame)
 
-        img_path = temp + "label.png"
-        i = Image.open(img_path)
-        i = np.array(i)
-        data2 = liquid.get_cur_liquid(i)
-        print("*" * 20)
-        print("data1", data1, "data2", data2)
-        differ = abs(data1 - data2) / data2 * 100
-        if differ != np.inf:
-            total.append(differ)
-        print("differ rate is:", differ)
-        print("*" * 20)
-
-    print(sum(total) / len(total))
+    ### for DynamicThresholdDetection test code
+    # file_path = "F:/DataSet/bottle/segmentation/dir_json/train/"
+    # dynamic = DynamicThresholdDetection()
+    # liquid = LiquidLeftCal()
+    # np.set_printoptions(threshold=np.inf)
+    #
+    # total = []
+    # for d in os.listdir(file_path):
+    #     temp = file_path + d + "/"
+    #     img_path = temp + "img.png"
+    #     img = cv.imread(img_path)
+    #     data1 = dynamic.cal_seq(img)  # 0.6164383561643836
+    #
+    #     img_path = temp + "label.png"
+    #     i = Image.open(img_path)
+    #     i = np.array(i)
+    #     data2 = liquid.get_cur_liquid(i)
+    #     print("*" * 20)
+    #     print("data1", data1, "data2", data2)
+    #     differ = abs(data1 - data2) / data2 * 100
+    #     if differ != np.inf:
+    #         total.append(differ)
+    #     print("differ rate is:", differ)
+    #     print("*" * 20)
+    #
+    # print(sum(total) / len(total))

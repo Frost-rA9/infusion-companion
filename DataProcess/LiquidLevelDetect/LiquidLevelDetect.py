@@ -68,8 +68,10 @@ class LiquidLevelDetect:
 
 
 class LiquidDetectCombine:
+    print_var = False
+
     def __init__(self,
-                 classifier_model_path: str = "../../Resource/model_data/test_model/GoogLeNet/loss_263_acc_0.75_for_face.pth",
+                 classifier_model_path: str = "../../Resource/model_data/test_model/GoogLeNet/loss_63.55_acc_0.8928_liquid_binary.pth",
                  segmentation_model_path: str = None,
                  ):
         print("classifier model init ..")
@@ -108,10 +110,12 @@ class LiquidDetectCombine:
             predict_level = self.liquid_cal.get_cur_liquid(predict_data)  # 分割结果出来液位的状态
         else:
             predict_level = 0
-        print(class_result)
+
+        if LiquidDetectCombine.print_var:
+            print(class_result)
 
         # 3. weight cal
-        class_result = class_result.data.cpu().numpy()
+        class_result = class_result.data.cpu().numpy()[0]
         if predict_level == 0:
             predict_level = np.array([0, 0])  # 0: upper， 1：lower
         elif predict_level > 0.3:
@@ -121,17 +125,32 @@ class LiquidDetectCombine:
         result = 0.2 * predict_level + 0.8 * class_result
 
         # 4. draw conclusion
-        index = list(result).index(max(result))
+        result = list(result)
+        index = result.index(max(result))
+
+        if LiquidDetectCombine.print_var:
+            print("liquidDetectCombine predict index: ", index)
+
         return self.binary_dict[index]
 
 
 if __name__ == '__main__':
+    import os
     from PIL import Image
-    liquid_combine = LiquidDetectCombine()
     from utils.ImageLoaderHelper.VideoHelper import VideoHelper
-    for frame in VideoHelper.read_frame_from_cap(0):
-        data = liquid_combine.level_predict(frame)
-        print(data)
+    liquid_combine = LiquidDetectCombine()
+    LiquidDetectCombine.print_var = True
+    dir = "F:/temp/Classifer/train/upper"
+    all, lower = 0, 0
+    for file in os.listdir(dir):
+        file = dir + "/" + file
+        img = cv.imread(file)
+        result = liquid_combine.level_predict(img)
+        if result == 'lower':
+            lower += 1
+        all += 1
+    print(lower / all)
+
 
     ### for LiquidLevelDetect test
     # file_path = "F:/DataSet/bottle/segmentation/dir_json/train/"

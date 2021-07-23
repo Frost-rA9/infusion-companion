@@ -52,7 +52,7 @@ class DataProcess:
     def process_seq(self, img: np.ndarray):
         # 0. 数据大小同步
         img = cv.resize(img, (800, 600))
-        print("process_seq img size", img.shape)
+        # print("process_seq img size", img.shape)
 
         # 1. 获取roi
         loc_list = self.object_locate.get_loc(img)

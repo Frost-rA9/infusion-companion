@@ -11,6 +11,14 @@
 # print(not a)
 # a = not a
 # print(a)
-a = "hhh"
-b = str(a)
-print(b)
+# a = "hhh"
+# b = str(a)
+# print(b)
+
+import numpy as np
+a = np.zeros((10), np.int)
+a[0] = 1
+a[0] = sum(a == 0)
+a = a * 10
+print(a)
+print(sum(a == 0), type(sum(a == 0)))

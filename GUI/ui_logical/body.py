@@ -28,7 +28,7 @@ class body:
                     - 没有数据就直接拿update_tuple的数据来更新，这样子起码不会报错
                     - 这个通过一个通知信号实现，防止同时读取变量导致的线程锁死
                 - 生命成全局变量是方便修改
-            """
+    """
     update_tuple = np.zeros((640, 480, 3), np.uint8), "un_detect", "un_detect"
     temp_data = None
 
