@@ -4,7 +4,7 @@
     - 由于svm标记的数据和yolo的定位数据大致一致，所以可以转换
 """
 
-svm_path = "../../Resource/svm/label/bottle.xml"
+svm_path = "H:/bottle_black.xml"
 xml_file = open(svm_path, encoding="utf-8")
 yolo_train_txt = open("./YoLo_train.txt", mode="w")
 id = {

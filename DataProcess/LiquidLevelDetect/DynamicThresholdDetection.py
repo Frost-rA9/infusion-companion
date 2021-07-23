@@ -260,6 +260,7 @@ class DynamicThresholdDetection:
 """ThresholdDetect
 
     - 是opencv检测液位的迭代版本
+    - 需要动态的调整两种阈值，所以需要别的方案
     
     - 流程更换如下：
         1. 画面抖动判断：
@@ -269,18 +270,55 @@ class DynamicThresholdDetection:
             - 此项功能实现后可以作为静态函数供Process.py提高准确率
             - 已实现简单的方案在JitterCal.py中
                 - 由于抖动需要前后两个图进行比较，所以需要有个外层循环辅助运算
-        2. 直方图均衡
-        3. 阈值分割
-        4. 边界检测
+        2. 通过腐蚀膨胀操作去除文字与刻度
+            - 首先通过HSV的色相空间，定位出文字和瓶口
+            - 然后通达大卷积核的膨胀操作膨胀文字的区域
+            - 然后使用cv.inpaint用周围像素进行填充
+            - 这样子就能大范围的去除图像的干扰内容
+        3. 直方图均衡
+            - 首先统计灰度图中每种像素值的个数
+            - 然后对每一项/(width * height) 像素值全局平均化
+            - 然后把所有像素点的值用相应的概率进行替换
+        4. 阈值分割
+            - 直方图均衡后的结果对于边界的值相对较小
+            - 所以使用二值化后，通常会被二值化为0
+            - 这样子计算两行两行的计算和
+                - 然后计算每行的差值就能得到梯度
+        5. 边界检测
+            - 找到差值最大的地方，一般就是边界了
+            
+        
 """
 from utils.Caculate.JitterCal import JitterCal
 
 
 class ThresholdDetect2:
-    # def __init__(self):
-    #     self.liquid_cal = LiquidLeftCal()  # 对于分割的结果做计算
+    print_var = False
+
+    def __init__(self):
+        self.liquid_cal = LiquidLeftCal()  # 对于分割的结果做计算
 
     def cal_seq(self, img: np.ndarray):
+        if ThresholdDetect2.print_var:
+            show_img(img)
+
+        # 1. 对图像的文字进行模糊
+        img = self.drop_noise(img)
+
+        # 2. 对模糊图像进行预测
+        img, start_pos, end_pos = self.predict(img)
+
+        # 3. 直接通过上下高度比来得到液位值
+        img = cv.line(img, start_pos, end_pos, color=(0, 255, 0), thickness=2)
+
+        if ThresholdDetect2.print_var:
+            show_img(img)
+
+        left, top = start_pos
+        height, width = img.shape
+        return (height - top) / height
+
+    def predict(self, img: np.ndarray):
         # 1. 计算灰度直方图
         if len(img.shape) > 2:
             img = cv.cvtColor(img, cv.COLOR_BGR2GRAY)  # 到灰度图
@@ -306,11 +344,15 @@ class ThresholdDetect2:
         blur = cv.blur(buff, ksize=(3, 3))
 
         # 5. 图形二值化
-        threshold = 25  # ***此阈值需要更具环境调整***
+        """同样需要根据实际情况调整"""
+        threshold = 120
         ret, threshold_img = cv.threshold(blur, threshold, 255, cv.THRESH_BINARY)
 
+        if ThresholdDetect2.print_var:
+            show_img(threshold_img)
+
         # 6. 计算每两行像素值相加的和
-        start_loc = 100  # 过滤掉输液瓶的头部
+        start_loc = 10  # 过滤掉输液瓶的头部
         sum_list = []
         for i in range(start_loc, height, 2):  # 计算偶行的和, 行数需要为偶数
             try:
@@ -332,10 +374,50 @@ class ThresholdDetect2:
         # 9. 划线
         # 大致就是画了一个从最大对比度开始的一个高20像素的框
         start_pos = (0, true_start_height)
-        end_pos = (width, true_start_height + 20)
-        img = cv.rectangle(img, start_pos, end_pos, color=(0, 255, 0), thickness=2)
+        end_pos = (width, true_start_height)
+        # img = cv.rectangle(img, start_pos, end_pos, color=(0, 255, 0), thickness=2)
+        # img = cv.line(img, start_pos, end_pos, color=(0, 255, 0), thickness=2)
 
-        return img
+        if ThresholdDetect2.print_var:
+            show_img(img)
+
+        return img, start_pos, end_pos
+
+    def drop_noise(self, img: np.ndarray):
+        # 1. 到hsv空间
+        hsv = ConvertColorSpace.bgr_and_hsv(to_hsv=True, img=img)
+
+        # 2. 提取饱和度图层
+        # 色相/饱和度/明度
+        s = hsv[:, :, 0]
+
+        if ThresholdDetect2.print_var:
+            show_img(s)
+
+        # 3. 全局二值化
+        """这个100需要根据光照调整"""
+        th = 100
+        ret, threshold_img = cv.threshold(s, th, 255, cv.THRESH_BINARY)
+
+        if ThresholdDetect2.print_var:
+            show_img(threshold_img)
+
+        # 4. 形态学操作
+        # 膨胀把小框框膨胀成大框框
+        element = cv.getStructuringElement(cv.MORPH_RECT, (11, 11))
+        dilate = cv.morphologyEx(threshold_img, cv.MORPH_DILATE, element)  # 膨胀操作
+
+        if ThresholdDetect2.print_var:
+            show_img(dilate)
+
+        # 5. 把膨胀后的结果作为掩膜
+        # 掩膜会把文字部分替替换成周围的颜色，从而消除干扰项
+        inpaint_img = cv.inpaint(img, dilate, 3, cv.INPAINT_TELEA)
+
+        if ThresholdDetect2.print_var:
+            show_img(inpaint_img)
+
+        return inpaint_img
 
 
 """这里是测试代码"""
@@ -343,21 +425,28 @@ class ThresholdDetect2:
 
 def show_img(img: np.ndarray, win_name: str = "img"):
     cv.imshow(win_name, img)
-    cv.waitKey(1)
+    cv.waitKey(0)
 
 
 if __name__ == '__main__':
     from utils.ImageLoaderHelper.VideoHelper import VideoHelper
-
-    ### ThresholdDetect2 test code
-    img = "F:/temp/Classifer/train/lower/211.png"
-    img = cv.imread(img)
+    ThresholdDetect2.print_var = False
     threshold2 = ThresholdDetect2()
-    output = threshold2.cal_seq(img)
-    cv.imshow("img", img)
-    cv.imshow("output", output)
-    cv.waitKey(0)
-    # JitterCal.print_var = True
+    ### ThresholdDetect2 test code
+    l = []
+    less_than_30 = 0
+    import os
+    img_path = "F:/temp/Classifer/train/lower/"
+    for file in os.listdir(img_path):
+        img = img_path + file
+        img = cv.imread(img)
+        data = threshold2.cal_seq(img)
+        if data < 0.4:
+            less_than_30 += 1
+        print(data)
+        l.append(data)
+    print("less than 40", less_than_30)
+    print("ave data:", sum(l) / len(l))
     # last_frame = None
     # for frame in VideoHelper.read_frame_from_cap(0):
     #     if last_frame is not None:
