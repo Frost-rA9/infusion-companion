@@ -430,7 +430,7 @@ def show_img(img: np.ndarray, win_name: str = "img"):
 
 if __name__ == '__main__':
     from utils.ImageLoaderHelper.VideoHelper import VideoHelper
-    ThresholdDetect2.print_var = False
+    ThresholdDetect2.print_var = True
     threshold2 = ThresholdDetect2()
     ### ThresholdDetect2 test code
     l = []
