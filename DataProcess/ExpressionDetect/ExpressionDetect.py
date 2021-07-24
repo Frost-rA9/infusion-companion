@@ -70,10 +70,10 @@ class ExpressionDetect:
 
 class ExpressionDetectWithFaceCnn:
     def __init__(self,
-                 model_path: str = "../../Resource/model_data/1.7163960743040647_0.9864binary_model.pth"):
-        print("Loading face cnn")
+                 model_path: str = "../../Resource/model_data/test_model/FaceCnn/loss_1.43_acc_0.9817binary_model.pth"):
+        print("Loading face cnn...")
         self.model = torch.load(model_path, map_location=device)
-        print("Face Cnn Load finish")
+        print("Face Cnn Load finish...")
 
     def predict(self, img: np.ndarray):
         # 1. 通道数变换

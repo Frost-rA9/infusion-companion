@@ -12,7 +12,8 @@ import numpy as np
 from utils.DataLoader.LoadSingleFile import LoadSingleFile
 # from DataProcess.ExpressionDetect.ExpressionDetect import ExpressionDetect
 from DataProcess.ExpressionDetect.ExpressionDetect import ExpressionDetectWithFaceCnn
-from DataProcess.LiquidLevelDetect.LiquidLevelDetect import LiquidLevelDetect
+# from DataProcess.LiquidLevelDetect.LiquidLevelDetect import LiquidLevelDetect
+from DataProcess.LiquidLevelDetect.LiquidLevelDetect import LiquidDetectCombine
 from DataProcess.ObjectLoacte.ObjectLocate import ObjectLocate
 
 
@@ -24,13 +25,13 @@ class DataProcess:
                  yolo_wight="../Resource/model_data/test_model/yolo/Epoch100-Total_Loss7.1096-Val_Loss12.4228.pth",
                  yolo_anchors="../Resource/model_data/yolo_anchors.txt",
                  yolo_predict_class="../Resource/model_data/infusion_classes.txt",
-                 liquid_model_path="../Resource/model_data/test_model/DeepLabV3Plus/loss_81.27131041884422_0.8332_.pth",
-                 expression_model_path="../Resource/model_data/test_model/FaceCnn/new_face_cnn.pth"
+                 liquid_model_path="../Resource/model_data/test_model/GoogLeNet/loss_29.43_acc_0.8125_model.pth",
+                 expression_model_path="../Resource/model_data/test_model/FaceCnn/loss_1.43_acc_0.9817binary_model.pth"
                  ):
 
         print('{:*^80}'.format("start init all weight...."))
         self.object_locate = ObjectLocate(svm_path, yolo_wight, yolo_anchors, yolo_predict_class)
-        self.liquid_level_detect = LiquidLevelDetect(liquid_model_path)
+        self.liquid_level_detect = LiquidDetectCombine(classifier_model_path=liquid_model_path)
         self.expression_detect = ExpressionDetectWithFaceCnn(expression_model_path)
 
         self.color_list = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]  # ≤‚ ‘”√

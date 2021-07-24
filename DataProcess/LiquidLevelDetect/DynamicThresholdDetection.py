@@ -295,8 +295,8 @@ from utils.Caculate.JitterCal import JitterCal
 class ThresholdDetect2:
     print_var = False
 
-    def __init__(self):
-        self.liquid_cal = LiquidLeftCal()  # 对于分割的结果做计算
+    # def __init__(self):
+    #     self.liquid_cal = LiquidLeftCal()  # 对于分割的结果做计算
 
     def cal_seq(self, img: np.ndarray):
         if ThresholdDetect2.print_var:
@@ -430,22 +430,23 @@ def show_img(img: np.ndarray, win_name: str = "img"):
 
 if __name__ == '__main__':
     from utils.ImageLoaderHelper.VideoHelper import VideoHelper
-    ThresholdDetect2.print_var = True
+    ThresholdDetect2.print_var = False
     threshold2 = ThresholdDetect2()
     ### ThresholdDetect2 test code
-    l = []
-    less_than_30 = 0
+    l, all = [], 0
+    less_than_ = 0
     import os
-    img_path = "F:/temp/Classifer/train/lower/"
+    img_path = "F:/temp/Classifer/train/upper/"
     for file in os.listdir(img_path):
         img = img_path + file
         img = cv.imread(img)
         data = threshold2.cal_seq(img)
         if data < 0.4:
-            less_than_30 += 1
+            less_than_ += 1
         print(data)
         l.append(data)
-    print("less than 40", less_than_30)
+        all += 1
+    print("less than 40", less_than_, "rate: ", less_than_ / all)
     print("ave data:", sum(l) / len(l))
     # last_frame = None
     # for frame in VideoHelper.read_frame_from_cap(0):

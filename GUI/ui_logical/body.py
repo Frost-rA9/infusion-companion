@@ -34,7 +34,7 @@ class body:
     lock = threading.Lock()
     temp_threading = None
 
-    debugger = True  # 用来开启调试信息
+    debugger = False  # 用来开启调试信息
 
     def __init__(self, ui_path, info):
         if ui_path:
@@ -57,6 +57,7 @@ class body:
 
         # 时间差
         self.last_time = datetime.datetime.today().second
+
         # 摄像总数的事件实时监听
         self.body_signal = BodySignal()  # 实例化后才能用connect
         self.body_signal.sum_update.connect(self.ui_body.sum_line_edit.setText)
