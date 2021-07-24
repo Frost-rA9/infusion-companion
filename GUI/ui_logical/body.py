@@ -54,7 +54,7 @@ class body:
         # 视频小组件的初始化
         self.g_layout = QGridLayout()
         self.control_init()
-
+        self.index = -1
         # 时间差
         self.last_time = datetime.datetime.today().second
 
@@ -93,8 +93,9 @@ class body:
             b_v = body_vedio(None, str(i + 1))
             self.control_list.append(b_v)
             b_v.ui_body_video.number_button.clicked.connect(partial(self.number_update, i + 1))
-            # b_v.ui_body_video.number_button.clicked.connect(partial(self.video_show_change, i + 1))
-            b_v.ui_body_video.number_button.clicked.connect(partial(self.little_video_show, np.zeros((640, 480, 3), np.uint8)))
+            b_v.ui_body_video.number_button.clicked.connect(partial(self.video_show_change, i))
+            b_v.ui_body_video.number_button.clicked.connect(
+                partial(self.little_video_show, np.zeros((640, 480, 3), np.uint8)))
             self.g_layout.addWidget(b_v.ui_body_video, i // 4, i % 4)
             self.g_layout.itemAt(i).widget().setHidden(True)
         self.ui_body.scrollAreaWidgetContents.setLayout(self.g_layout)
@@ -111,30 +112,31 @@ class body:
         self.info_update(f'完成摄像头{i + 1}的显示')
 
     # 所有视频控件的图像显示及后端的启动
-    def little_video_show(self, img, i: int = 1):
+    def little_video_show(self, img, i: int):
         size = (50, 50)
         frame = cv.resize(img, size)
         convert_frame = QtImgConvert.CvImage_to_QImage(frame)
         self.g_layout.itemAt(i).widget().video.setPixmap(QPixmap.fromImage(convert_frame))
         now_time = datetime.datetime.today().second  # 获得当前时间
-
         # self.body_signal.data_process_finish.emit()
-        if body.debugger:
-            print("body.thread_over", body.thread_over)
-        if body.thread_over:
-            body.thread_over = False
-            body.temp_threading = Thread(target=self.img_predict, kwargs={'img': img})
-            body.temp_threading.start()
+        if self.index == i:
             if body.debugger:
-                print("threading has start!!!!!!!!")
-        if body.debugger:
-            print("time differ", abs(now_time - self.last_time))
-        if abs(now_time - self.last_time) >= 1:  # 大约就是1s的执行时间,还没结束的话
-            if not body.thread_over:
-                if body.temp_threading.is_alive():
-                    body.temp_threading.join()  # 或者就让他执行完
-                self.last_time = now_time
-                body.thread_over = True
+                print("body.thread_over", body.thread_over)
+            if body.thread_over:
+                body.thread_over = False
+                body.temp_threading = Thread(target=self.img_predict, kwargs={'img': img})
+                body.temp_threading.start()
+                if body.debugger:
+                    print("threading has start!!!!!!!!")
+            if body.debugger:
+                print("time differ", abs(now_time - self.last_time))
+            if abs(now_time - self.last_time) >= 1:  # 大约就是1s的执行时间,还没结束的话
+                if not body.thread_over:
+                    if body.temp_threading.is_alive():
+                        print('is_alive')
+                        body.temp_threading.join()  # 或者就让他执行完
+                    self.last_time = now_time
+                    body.thread_over = True
 
     """预测进程"""
 
@@ -148,6 +150,7 @@ class body:
         body.thread_over = True
 
     """交给主循环去更新图像"""
+
     def update_video_Image(self, img: np.ndarray, level: str, expression: str):
         # 1. 更新text
         self.ui_body.liquid_level_line_edit.setText(level)
@@ -160,6 +163,10 @@ class body:
         frame = cv.resize(img, size)
         convert_frame = QtImgConvert.CvImage_to_QImage(frame)
         self.ui_body.video.setPixmap(QPixmap.fromImage(convert_frame))
+
+    # 视频大组件的图像显示
+    def video_show_change(self, i):
+        self.index = i
 
 
 if __name__ == '__main__':
