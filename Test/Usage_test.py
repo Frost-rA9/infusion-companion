@@ -15,10 +15,14 @@
 # b = str(a)
 # print(b)
 
+# import numpy as np
+# a = np.zeros((10), np.int)
+# a[0] = 1
+# a[0] = sum(a == 0)
+# a = a * 10
+# print(a)
+# print(sum(a == 0), type(sum(a == 0)))
 import numpy as np
-a = np.zeros((10), np.int)
-a[0] = 1
-a[0] = sum(a == 0)
-a = a * 10
-print(a)
-print(sum(a == 0), type(sum(a == 0)))
+print(np.inf * 3)
+a = np.inf
+print(a == np.inf * 3)

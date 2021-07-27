@@ -34,10 +34,16 @@ class LoadSingleFile(Dataset):
         "painful": 0,  # 痛苦
         "unpainful": 1,  # 不痛苦
     }
+    # 训练时候用
     google_expression_dict = {
-        "upper": 0,  # 痛苦
-        "lower": 1,  # 不痛苦
+        "upper": 0,
+        "lower": 1,
     }
+    # 实际值不知道为什么是反的
+    # google_expression_dict = {
+    #     "lower": 0,
+    #     "upper": 1,
+    # }
 
     def __init__(self,
                  train_path: str,

@@ -387,7 +387,7 @@ class YoLoLocate:
 
 
 def get_pic():
-    video = cv.VideoCapture(1)
+    video = cv.VideoCapture(0)
 
     while True:
         ret, frame = video.read()
@@ -399,7 +399,7 @@ def get_pic():
 if __name__ == '__main__':
     from PIL import Image
     import cv2 as cv
-    locate = YoLoLocate("../../Resource/model_data/test_model/yolo/Epoch100-Total_Loss7.1096-Val_Loss12.4228.pth",
+    locate = YoLoLocate("../../Resource/model_data/test_model/yolo/Epoch100-Total_Loss6.6752-Val_Loss11.2832.pth",
                         "../../Resource/model_data/yolo_anchors.txt",
                         "../../Resource/model_data/infusion_classes.txt")
 

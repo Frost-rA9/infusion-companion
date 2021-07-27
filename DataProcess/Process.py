@@ -22,16 +22,16 @@ class DataProcess:
 
     def __init__(self,
                  svm_path="../Resource/svm/trained/new_bottle_svm.svm",
-                 yolo_wight="../Resource/model_data/test_model/yolo/Epoch100-Total_Loss7.1096-Val_Loss12.4228.pth",
+                 yolo_wight="../Resource/model_data/test_model/yolo/Epoch100-Total_Loss6.6752-Val_Loss11.2832.pth",
                  yolo_anchors="../Resource/model_data/yolo_anchors.txt",
                  yolo_predict_class="../Resource/model_data/infusion_classes.txt",
-                 liquid_model_path="../Resource/model_data/test_model/GoogLeNet/loss_29.43_acc_0.8125_model.pth",
-                 expression_model_path="../Resource/model_data/test_model/FaceCnn/loss_1.43_acc_0.9817binary_model.pth"
+                 liquid_model_path="../Resource/model_data/test_model/GoogLeNet/loss_7.37_acc_0.875_model.pth",
+                 expression_model_path="../Resource/model_data/test_model/FaceCnn/new_face_cnn.pth"
                  ):
 
         print('{:*^80}'.format("start init all weight...."))
         self.object_locate = ObjectLocate(svm_path, yolo_wight, yolo_anchors, yolo_predict_class)
-        self.liquid_level_detect = LiquidDetectCombine(classifier_model_path=liquid_model_path)
+        self.liquid_level_detect = LiquidDetectCombine(classifier_model_path=liquid_model_path, use_multi_threshold=True)
         self.expression_detect = ExpressionDetectWithFaceCnn(expression_model_path)
 
         self.color_list = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]  # 测试用
@@ -78,6 +78,7 @@ class DataProcess:
                 face_roi.append(img[left:right, top:bottom])
 
         # 2. 对于定位成功的数据进行处理
+        # 这个list本来是用来
         bottle_list = [0] * len(self.liquid_level_dict)
         if bottle_roi:
             for roi in bottle_roi:
@@ -85,6 +86,7 @@ class DataProcess:
                     level = self.liquid_level_detect.level_predict(roi)
                     level = int(level)  # 防止忘记改网络的时候报错
                     # self.liquid_level.append(level)
+                    print("level:", level)
                     bottle_list[level + 1] += 1
         liquid_level = self.liquid_level_dict[bottle_list.index(max(bottle_list))]
 
@@ -110,20 +112,22 @@ class DataProcess:
 """-------------以下为测试代码----------"""
 
 
-def get_pic():
-    video = cv.VideoCapture(0)
+def get_pic(step: int = 1):
+    video = cv.VideoCapture("../Report/lower_and_face.avi")
 
+    ret, frame = video.read()
     while True:
-        ret, frame = video.read()
-        if not ret:
-            break
+        for i in range(step):  # 单纯为了少几帧
+            ret, frame = video.read()
+            if not ret:
+                break
         yield frame
 
 
 if __name__ == '__main__':
     data_process = DataProcess()
     import time
-    for frame in get_pic():
+    for frame in get_pic(step=16):
         start = time.time()
         img, level, expression = data_process.process_seq(frame)
         print("*" * 100)

@@ -82,15 +82,23 @@ class LiquidLevelDetect:
         - 测试下来应该提高语义分割模型的精确度，辅助GoogLeNet进行分类
         - 或者使用纯GoogLeNet进行分类
         
+        - 另外准确率仅供参考，实际使用应该打八折
+        
         - 准确率：预测为这种类型的图像占这种类型数据集的比例
         - upper: 354张 lower: 512张
     
         - 测量数据如下：
             
         . 分类器(GoogLeNetV4):
-            - 显存占用1.1G
-            - upper数据准确率：0.9180790960451978
-            - lower数据准确率：0.984375
+            - loss_29.43_acc_0.8125_model.pth:
+                - 显存占用1.1G
+                - upper数据准确率：0.9180790960451978
+                - lower数据准确率：0.984375
+            - loss_7.37_acc_0.875_model.pth:
+                - 显存占用1.1G
+                - upper数据准确率：1.0
+                - lower数据准确率：0.99609375
+                - 实际使用的使用预测值相反
         . opencv:
             - 显存占用0
             - upper数据准确率：0.576271186440678
@@ -137,10 +145,11 @@ class LiquidDetectCombine:
     print_var = False
 
     def __init__(self,
-                 classifier_model_path: str = "../../Resource/model_data/test_model/GoogLeNet/loss_29.43_acc_0.8125_model.pth",
+                 classifier_model_path: str = "../../Resource/model_data/test_model/GoogLeNet/loss_7.37_acc_0.875_model.pth",
                  segmentation_model_path: str = None,
                  use_multi_threshold: bool = False,
-                 use_classifier: bool = True
+                 use_classifier: bool = True,
+                 weight_list: list = [1, 1, 1],
                  ):
         # 1. 初始化谷歌分类器
         if use_classifier:
@@ -170,9 +179,10 @@ class LiquidDetectCombine:
             0: "upper",
             1: "lower"
         }
+        self.weight_list = weight_list
 
-    def level_predict(self, img: np.ndarray, weight: list = [1, 1, 0.5]):
-        classifier_weight, segmentation_weight, opencv_weight = weight
+    def level_predict(self, img: np.ndarray):
+        classifier_weight, segmentation_weight, opencv_weight = self.weight_list
         vote_list = [0, 0]  # 0: upper, 1: lower
 
         # 0. use_multi_threshold
@@ -233,7 +243,8 @@ class LiquidDetectCombine:
         if LiquidDetectCombine.print_var:
             print("liquidDetectCombine predict index: ", index)
 
-        return self.binary_dict[index]
+        return index
+        # return self.binary_dict[index]
 
 
 if __name__ == '__main__':
@@ -243,10 +254,14 @@ if __name__ == '__main__':
 
     segmentation_path = "../../Resource/model_data/test_model/DeepLabV3plus/loss_81.27131041884422_0.8332_.pth"
     liquid_combine = LiquidDetectCombine(
-        use_multi_threshold=True,
+        # use_multi_threshold=True,
         # segmentation_model_path=segmentation_path,
         use_classifier=True,
     )
+    binary_dict = {
+        0: "upper",
+        1: "lower"
+    }
     LiquidDetectCombine.print_var = True
     dir = "F:/temp/Classifer/train/upper"
     all, lower = 0, 0
@@ -254,7 +269,8 @@ if __name__ == '__main__':
         file = dir + "/" + file
         img = cv.imread(file)
         result = liquid_combine.level_predict(img)
-        if result == 'lower':
+        print(result)
+        if binary_dict[result] == 'lower':
             lower += 1
         all += 1
     print(lower / all)
