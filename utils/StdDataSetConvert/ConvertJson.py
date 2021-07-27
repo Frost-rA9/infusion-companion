@@ -8,11 +8,13 @@
 import os
 import subprocess
 
-d = os.listdir("F:/DataSet/Infusion/Annotations")
+data_dir = "H:/boo_des"
+
+d = os.listdir(data_dir)
 main_exe = "D:/Anaconda3/envs/infusion-companion/Scripts/labelme_json_to_dataset.exe"
 
 for address in d:
-    address = "F:/DataSet/Infusion/Annotations/" + address
+    address = data_dir + "/" + address
     test = subprocess.Popen(main_exe + " " + address)
     print(test.communicate())
 

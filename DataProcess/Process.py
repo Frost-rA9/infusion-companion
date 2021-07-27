@@ -136,7 +136,7 @@ def get_pic(step: int = 1):
 if __name__ == '__main__':
     data_process = DataProcess()
     import time
-    for frame in get_pic(step=8):
+    for frame in get_pic(step=16):
         if frame is None:
             break
         start = time.time()
