@@ -20,10 +20,22 @@ class ObjectLocate:
                  yolo_wight="../../Resource/model_data/test_model/yolo/Epoch100-Total_Loss7.1096-Val_Loss12.4228.pth",
                  yolo_anchors="../../Resource/model_data/yolo_anchors.txt",
                  yolo_predict_class="../../Resource/model_data/infusion_classes.txt",
+                 rectangle_area: float = None,
+                 use_cascade: bool = True,
                  ):
-        self.bottle_locate_svm = LocateRoI(svm_path)
-        self.yolo_locate = YoLoLocate(yolo_wight, yolo_anchors, yolo_predict_class)
-        self.cascade = Cascade()
+        # 1. 初始化定位代码
+        if svm_path:
+            self.bottle_locate_svm = LocateRoI(svm_path, rectangle_area=rectangle_area)
+        else:
+            self.bottle_locate_svm = None
+        if yolo_wight:
+            self.yolo_locate = YoLoLocate(yolo_wight, yolo_anchors, yolo_predict_class)
+        else:
+            self.yolo_locate = None
+        if use_cascade:
+            self.cascade = Cascade()
+        else:
+            self.cascade = None
         # 格式( loc: (left, top, right, bottom), count: )
         # loc计算roi，且用于返回，应为瓶子大体是不移动的
         # count：每隔一定时间-1，变成0去除，如果一直大于3，那么说明这里确实是瓶子
@@ -54,6 +66,7 @@ class ObjectLocate:
         """
         loc_list = [True, True]  # 表示找没找到
 
+        # 1. 拿到瓶子的位置
         bottle_loc = self.get_bottle_loc(img)
         # bottle_loc = None
         if not bottle_loc:
@@ -61,6 +74,7 @@ class ObjectLocate:
         else:
             loc_list[0] = bottle_loc  # 找到创建一个列表
 
+        # 2. 拿到脸的位置
         face_loc = self.get_face_loc(img)
         # face_loc = None
         if not face_loc:
@@ -68,24 +82,26 @@ class ObjectLocate:
         else:
             loc_list[1] = face_loc
 
-        # print(False in loc_list)
-
+        # 3. 没有就调用Yolo
         if False in loc_list:  # 实际上就是减少后台数据处理的消耗时间
             loc_data = self.get_all_loc(img)
             if not loc_data:
-                return self.reliable_detect(loc_list)  # yolo都检测不到直接返回
+                return [False, False]  # yolo都检测不到直接返回
+                # return self.reliable_detect(loc_list)
             else:
                 classes_list = ['bottle', 'face']
                 for i in range(len(loc_list)):
                     if not loc_list[i]:
                         loc_list[i] = []
 
-                has_bottle = False  # yolo的一票否决权
+                has_bottle, has_face = False, False  # yolo的一票否决权
 
                 for data_list in loc_data:
                     index = classes_list.index(data_list[0])
                     if index == 0:
                         has_bottle = True
+                    if index == 1:
+                        has_face = True
                     # ( (left, top), (right, end) )
                     loc_list[index].append(((data_list[2], data_list[3]), (data_list[4], data_list[5])))
 
@@ -93,6 +109,10 @@ class ObjectLocate:
                     loc_list[0] = False  # 否定dlib的定位结果
                     if ObjectLocate.print_var:
                         print("dlib was rejected by yolov3")
+                if focus_on_model and not has_face:
+                    loc_list[1] = False  # opencv有些时候定位挺乱的
+                    if ObjectLocate.print_var:
+                        print("cascade was reject by yolov3")
 
         # 做多个结果的合并
         loc_list = self.roi_filter(loc_list)
@@ -117,13 +137,13 @@ class ObjectLocate:
             1. 计算roi，如果超过20, 直接舍弃瓶子的框
     """
 
-    def roi_filter(self, loc_list: list):
+    def roi_filter(self, loc_list: list, use_bigger_area: bool = False):
         bottle_list, face_list = loc_list
 
-        bottle_list = self.get_possible_bottle_roi(bottle_list)
-        face_list = self.get_max_face_roi(face_list)
-        bottle_list = self.filter_bottle_to_face(bottle_list, face_list)
-        bottle_list = self.get_max_face_roi(bottle_list, get_bigger=False, face_roi=0.3)
+        bottle_list = self.get_possible_bottle_roi(bottle_list)  # 投票选出可能的瓶子位置
+        face_list = self.get_max_face_roi(face_list)  # 合并roi成最大的脸
+        bottle_list = self.filter_bottle_to_face(bottle_list, face_list)  # 过滤脸被识别为瓶子的区域
+        bottle_list = self.get_max_face_roi(bottle_list, get_bigger=use_bigger_area, face_roi=0.3)  # 过滤重复的瓶子roi到同一个
         loc_list[0] = bottle_list
         loc_list[1] = face_list
         return loc_list
@@ -372,21 +392,24 @@ class ObjectLocate:
         :param img:
         :return:
         """
-        bottle_loc = self.bottle_locate_svm.predict(img)  # 返回定位数据
-        # bottle_loc = self.bottle_locate_svm.predict_show(img)  # 用来测试直接返回图像
+        bottle_loc = []
+        if self.bottle_locate_svm:
+            bottle_loc = self.bottle_locate_svm.predict(img)  # 返回定位数据
         return bottle_loc
 
     def get_face_loc(self, img: np.ndarray):
-        face_loc = self.cascade.detect_face(img)
-        # img = self.cascade.plot_rect(img)
+        face_loc = []
+        if self.cascade:
+            face_loc = self.cascade.detect_face(img)
         return face_loc
 
     def get_all_loc(self,
                     img: np.ndarray):
-        predict_list = self.yolo_locate.predict(img)
-        if ObjectLocate.print_var:
-            print("YoLo predict", predict_list)
-        # predict_list = np.array(self.yolo_locate.draw(img, filter=None, font_path="../../Resource/model_data/simhei.ttf"))
+        predict_list = []
+        if self.yolo_locate:
+            predict_list = self.yolo_locate.predict(img)
+            if ObjectLocate.print_var:
+                print("YoLo predict", predict_list)
         if predict_list:
             return predict_list[4]  # predicted_class, label, top, left, bottom, right
         else:

@@ -21,8 +21,9 @@ import cv2 as cv
 class LocateRoI:
     print_var = False  # 用来控制是否打印中间信息
 
-    def __init__(self, svm_path: str):
+    def __init__(self, svm_path: str, rectangle_area: float = None):
         self.detector = dlib.simple_object_detector(svm_path)
+        self.rectangle_area = rectangle_area  # 用来过滤面积过小的区域
 
     def reload_detector(self, svm_path: str):
         self.detector = dlib.simple_object_detector(svm_path)
@@ -32,7 +33,14 @@ class LocateRoI:
         gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
         dist = self.detector(gray)
         for (k, d) in enumerate(dist):
-            predict_list.append(((d.left(), d.top()), (d.left() + d.width(), d.top() + d.height())))
+            left, top, right, bottom = d.left(), d.top(), d.left() + d.width(), d.top() + d.height()
+
+            # 过滤面积太小的区域
+            if self.rectangle_area:
+                if abs(right - left) * abs(bottom - right) < self.rectangle_area:
+                    pass
+
+            predict_list.append(((left, top), (right, bottom)))
         return predict_list
 
     def predict_show(self,
